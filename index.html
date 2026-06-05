@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Onboarding — Laba / Skvot / Robot Dreams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bricolage+Grotesque:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F3EE;
+  --bg-card: #FDFCFA;
+  --bg-dark: #1A1814;
+  --accent: #E85D26;
+  --accent2: #2E5BFF;
+  --accent3: #0F9E75;
+  --text: #1A1814;
+  --text-muted: #7A776E;
+  --text-faint: #B0ADA6;
+  --border: rgba(26,24,20,0.12);
+  --border-strong: rgba(26,24,20,0.25);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 2px 12px rgba(26,24,20,0.08);
+  --day1: #E85D26;
+  --day2: #2E5BFF;
+  --day3: #0F9E75;
+  --day4: #8B3FC8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 240px;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  padding: 28px 24px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-logo .wordmark {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: -0.5px;
+  display: block;
+}
+.sidebar-logo .sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+  display: block;
+}
+
+.nav-section {
+  padding: 20px 16px 8px;
+}
+.nav-label {
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  padding: 0 8px;
+  margin-bottom: 6px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.55);
+  font-size: 13.5px;
+  font-weight: 400;
+  transition: all 0.15s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.nav-item:hover {
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.85);
+}
+.nav-item.active {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-weight: 500;
+}
+.nav-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.nav-badge {
+  margin-left: auto;
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+.nav-item.active .nav-badge {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.bot-btn {
+  margin: auto 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #E85D26, #FF8040);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  border: none;
+}
+.bot-btn:hover { opacity: 0.88; }
+.bot-btn svg { flex-shrink: 0; }
+
+.progress-sidebar {
+  padding: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.progress-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+.progress-bar-bg {
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+.progress-pct {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 4px;
+  font-family: 'DM Mono', monospace;
+}
+
+/* MAIN */
+.main {
+  margin-left: 240px;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.page-header {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 50;
+}
+
+.search-box {
+  flex: 1;
+  max-width: 380px;
+  position: relative;
+}
+.search-box input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px 8px 36px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  color: var(--text);
+  outline: none;
+  transition: border 0.15s;
+}
+.search-box input:focus {
+  border-color: var(--accent);
+}
+.search-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-faint);
+  font-size: 14px;
+}
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-top: 4px;
+  max-height: 320px;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  z-index: 200;
+  display: none;
+}
+.search-result-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background: var(--bg); }
+.search-result-day {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.search-highlight { background: rgba(232,93,38,0.18); border-radius: 2px; }
+
+.header-stats {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+}
+.hstat {
+  text-align: center;
+}
+.hstat-val {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text);
+}
+.hstat-label {
+  font-size: 10px;
+  color: var(--text-faint);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* CONTENT */
+.content {
+  padding: 40px;
+}
+
+.page-section { display: none; }
+.page-section.visible { display: block; }
+
+/* HERO DAY HEADER */
+.day-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.day-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+}
+.day-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 38px;
+  letter-spacing: -1px;
+  line-height: 1;
+  color: var(--text);
+}
+.day-title .day-accent {
+  display: inline-block;
+  padding: 2px 14px;
+  border-radius: 8px;
+  margin-right: 6px;
+  font-size: 36px;
+}
+.day-desc {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-top: 10px;
+  max-width: 500px;
+}
+.day-progress-ring {
+  text-align: center;
+  flex-shrink: 0;
+}
+.ring-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* CARDS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.task-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  transition: all 0.2s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.task-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+  background: var(--card-accent, #ccc);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.task-card:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+.task-card:hover::before { opacity: 1; }
+.task-card.done {
+  opacity: 0.6;
+}
+.task-card.done::before { opacity: 1; }
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.card-check {
+  width: 20px; height: 20px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.15s;
+  background: transparent;
+}
+.task-card.done .card-check {
+  background: var(--card-accent, #ccc);
+  border-color: var(--card-accent, #ccc);
+}
+.card-check-icon {
+  font-size: 11px;
+  color: #fff;
+  display: none;
+}
+.task-card.done .card-check-icon { display: block; }
+
+.card-title {
+  font-weight: 500;
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.4;
+}
+.task-card.done .card-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+.card-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  margin-left: 32px;
+}
+.badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: var(--bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.badge.quiz { background: rgba(46,91,255,0.08); color: #2E5BFF; border-color: rgba(46,91,255,0.2); }
+.badge.video { background: rgba(232,93,38,0.08); color: #E85D26; border-color: rgba(232,93,38,0.2); }
+.badge.workshop { background: rgba(15,158,117,0.08); color: #0F9E75; border-color: rgba(15,158,117,0.2); }
+.badge.tool { background: rgba(139,63,200,0.08); color: #8B3FC8; border-color: rgba(139,63,200,0.2); }
+.badge.time { background: var(--bg); }
+.badge.hw { background: rgba(26,24,20,0.06); color: var(--text-muted); }
+
+.card-detail {
+  margin-top: 10px;
+  margin-left: 32px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: none;
+}
+.task-card.expanded .card-detail { display: block; }
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 5px 10px;
+  background: rgba(232,93,38,0.08);
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.card-link:hover { background: rgba(232,93,38,0.16); }
+
+/* SECTION HEADERS */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 14px;
+}
+.section-head-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.section-head-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* TIPS BOX */
+.tips-box {
+  background: var(--bg-dark);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin: 24px 0;
+  color: #fff;
+}
+.tips-box h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+.tip-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+/* WORKFLOW PAGE */
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+.flow-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.flow-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+.flow-icon {
+  font-size: 22px;
+  margin-bottom: 10px;
+  display: block;
+}
+.flow-stage {
+  font-weight: 600;
+  font-size: 13.5px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.flow-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.flow-detail {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.flow-card.open .flow-detail { display: block; }
+
+/* NAMITKOVNIK */
+.namitka-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.namitka-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.namitka-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+.namitka-header:hover { background: var(--bg); }
+.namitka-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+  width: 22px;
+}
+.namitka-q {
+  font-weight: 500;
+  font-size: 14.5px;
+  flex: 1;
+}
+.namitka-chevron {
+  color: var(--text-faint);
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+.namitka-card.open .namitka-chevron { transform: rotate(180deg); }
+.namitka-body {
+  display: none;
+  padding: 0 20px 20px;
+  border-top: 1px solid var(--border);
+}
+.namitka-card.open .namitka-body { display: block; }
+.strategy-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin: 14px 0 12px;
+  background: rgba(232,93,38,0.08);
+  color: var(--accent);
+  border: 1px solid rgba(232,93,38,0.2);
+}
+.namitka-response {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.namitka-response strong { color: var(--text); font-weight: 500; }
+.namitka-variants { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+.variant-box {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+}
+.variant-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+}
+.variant-text {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* TABLE DEAL STAGES */
+.stages-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+}
+.stages-table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.stages-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.stages-table tr:last-child td { border-bottom: none; }
+.stages-table tr:hover td { background: var(--bg); }
+.stage-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* BOT CTA */
+.bot-cta {
+  background: linear-gradient(135deg, #1A1814 60%, #2E1A12);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin: 32px 0;
+  position: relative;
+  overflow: hidden;
+}
+.bot-cta::after {
+  content: '';
+  position: absolute;
+  right: -20px; top: -20px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(232,93,38,0.25), transparent 70%);
+  pointer-events: none;
+}
+.bot-cta-text h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.bot-cta-text p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  max-width: 360px;
+  line-height: 1.5;
+}
+.bot-cta-btn {
+  flex-shrink: 0;
+  padding: 13px 24px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.bot-cta-btn:hover { opacity: 0.88; }
+.bot-icon-big {
+  font-size: 48px;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* OVERVIEW */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.ov-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.ov-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ov-accent);
+}
+.ov-day-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--ov-accent);
+  margin-bottom: 6px;
+}
+.ov-day-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.ov-day-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+.ov-progress {
+  height: 3px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.ov-progress-fill {
+  height: 100%;
+  background: var(--ov-accent);
+  border-radius: 3px;
+  transition: width 0.4s;
+}
+.ov-pct {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 6px;
+  text-align: right;
+}
+
+/* CHECKLIST SUMMARY */
+.summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+}
+.summary-row:last-child { border-bottom: none; }
+.sr-label { color: var(--text-muted); }
+.sr-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* CONFETTI CELEBRATION */
+.complete-banner {
+  display: none;
+  background: linear-gradient(135deg, var(--accent3), #0F9E75cc);
+  border-radius: var(--radius);
+  padding: 20px 26px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  align-items: center;
+  gap: 14px;
+}
+.complete-banner.show { display: flex; }
+
+/* TAG FILTER */
+.tag-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.tag-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.tag-btn:hover { border-color: var(--border-strong); color: var(--text); }
+.tag-btn.active {
+  background: var(--text);
+  color: var(--bg-card);
+  border-color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .sidebar { width: 200px; }
+  .main { margin-left: 200px; }
+  .overview-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <span class="wordmark">Sales Onboarding</span>
+    <span class="sub">Laba · Skvot · Robot Dreams</span>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Start</div>
+    <button class="nav-item active" onclick="showPage('overview')">
+      <span class="nav-dot" style="background:#888"></span>
+      Přehled
+    </button>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Dny onboardingu</div>
+    <button class="nav-item" onclick="showPage('day1')">
+      <span class="nav-dot" style="background:var(--day1)"></span>
+      Den 1 — Prodej & SPIN
+      <span class="nav-badge" id="b1">0%</span>
+    </button>
+    <button class="nav-item" onclick="showPage('day2')">
+      <span class="nav-dot" style="background:var(--day2)"></span>
+      Den 2 — Nástroje
+      <span class="nav-badge" id="b2">0%</span>
+    </button>
+    <button class="nav-item" onclick="showPage('day3')">
+      <span class="nav-dot" style="background:var(--day3)"></span>
+      Den 3 — PitchMonster
+      <span class="nav-badge" id="b3">0%</span>
+    </button>
+    <button class="nav-item" onclick="showPage('day4')">
+      <span class="nav-dot" style="background:var(--day4)"></span>
+      Den 4 — HubSpot Pro
+      <span class="nav-badge" id="b4">0%</span>
+    </button>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Reference</div>
+    <button class="nav-item" onclick="showPage('workflow')">
+      <span class="nav-dot" style="background:#888"></span>
+      Deal Stages & Workflow
+    </button>
+    <button class="nav-item" onclick="showPage('namitky')">
+      <span class="nav-dot" style="background:#888"></span>
+      Námitkovník
+    </button>
+  </div>
+
+  <div style="flex:1"></div>
+
+  <div class="progress-sidebar">
+    <div class="progress-label">celkový postup</div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="global-bar" style="width:0%"></div>
+    </div>
+    <div class="progress-pct" id="global-pct">0 / 0 splněno</div>
+  </div>
+
+  <a href="https://laba-finance-bot.vercel.app/" target="_blank" class="bot-btn">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10h8M8 14h5"/></svg>
+    Laba Finance Bot
+  </a>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <header class="page-header">
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input type="text" placeholder="Hledat v onboardingu…" id="search-input" oninput="doSearch(this.value)" onfocus="showSearchDropdown()" onblur="setTimeout(hideSearchDropdown,200)">
+      <div class="search-results" id="search-dropdown"></div>
+    </div>
+    <div class="header-stats">
+      <div class="hstat">
+        <div class="hstat-val" id="hs-done">0</div>
+        <div class="hstat-label">splněno</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val" id="hs-total">0</div>
+        <div class="hstat-label">celkem</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val" id="hs-pct">0%</div>
+        <div class="hstat-label">hotovo</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- OVERVIEW -->
+    <section class="page-section visible" id="page-overview">
+      <div class="day-hero">
+        <div>
+          <div class="day-eyebrow">Sales Onboarding Program</div>
+          <div class="day-title">Vítej v týmu! 👋</div>
+          <div class="day-desc">4 dny intenzivního tréninku. Projdeš prodejní techniky, nástroje, PitchMonster a HubSpot. Každý den odklikni splněné úkoly.</div>
+        </div>
+      </div>
+
+      <div class="overview-grid">
+        <div class="ov-card" style="--ov-accent:var(--day1)" onclick="showPage('day1')">
+          <div class="ov-day-num">1</div>
+          <div class="ov-day-title">Prodej & SPIN</div>
+          <div class="ov-day-sub">Prodejní techniky, struktura hovoru, námitky, poslech hovorů</div>
+          <div class="ov-progress"><div class="ov-progress-fill" id="ov1" style="width:0%"></div></div>
+          <div class="ov-pct" id="ovp1">0%</div>
+        </div>
+        <div class="ov-card" style="--ov-accent:var(--day2)" onclick="showPage('day2')">
+          <div class="ov-day-num">2</div>
+          <div class="ov-day-title">Technický den</div>
+          <div class="ov-day-sub">Profity, Stripe, Telegram, HubSpot, UniTalk, Chrome Extension</div>
+          <div class="ov-progress"><div class="ov-progress-fill" id="ov2" style="width:0%"></div></div>
+          <div class="ov-pct" id="ovp2">0%</div>
+        </div>
+        <div class="ov-card" style="--ov-accent:var(--day3)" onclick="showPage('day3')">
+          <div class="ov-day-num">3</div>
+          <div class="ov-day-title">PitchMonster Den</div>
+          <div class="ov-day-sub">Sales 21. stol., role play SPIN, prezentace ceny, plný hovor</div>
+          <div class="ov-progress"><div class="ov-progress-fill" id="ov3" style="width:0%"></div></div>
+          <div class="ov-pct" id="ovp3">0%</div>
+        </div>
+        <div class="ov-card" style="--ov-accent:var(--day4)" onclick="showPage('day4')">
+          <div class="ov-day-num">4</div>
+          <div class="ov-day-title">HubSpot Pro</div>
+          <div class="ov-day-sub">Fakturace, Stripe, WhatsApp, Deal Stages, volání do databáze</div>
+          <div class="ov-progress"><div class="ov-progress-fill" id="ov4" style="width:0%"></div></div>
+          <div class="ov-pct" id="ovp4">0%</div>
+        </div>
+      </div>
+
+      <div class="bot-cta">
+        <div class="bot-icon-big">🤖</div>
+        <div class="bot-cta-text">
+          <h2>Máš otázku k provizi nebo bonusům?</h2>
+          <p>Laba Finance Bot ti okamžitě odpoví na otázky o výplatách, komisích a struktuře odměn. Dostupný 24/7.</p>
+        </div>
+        <a href="https://laba-finance-bot.vercel.app/" target="_blank" class="bot-cta-btn">
+          Otevřít Finance Bot →
+        </a>
+      </div>
+
+      <div class="section-head">
+        <div class="section-head-line"></div>
+        <div class="section-head-label">Klíčová pravidla prodejce</div>
+        <div class="section-head-line"></div>
+      </div>
+
+      <div class="tips-box">
+        <h3>⚡ Nikdy nezapomeň</h3>
+        <div class="tip-item"><span class="tip-num">01</span> Neomluvuj se za cenu — prezentuj ji jako investici do vysněného já klienta.</div>
+        <div class="tip-item"><span class="tip-num">02</span> Nepoužívej „voucher" ani „kupón" — říkej „zvýhodněná cena" nebo „sleva za předregistraci".</div>
+        <div class="tip-item"><span class="tip-num">03</span> Neprodávej seznam lekcí — prodávej úsporu času a řešení konkrétní bolesti klienta.</div>
+        <div class="tip-item"><span class="tip-num">04</span> In a call zadávej vždy jen u New Leadu, se kterým právě pracuješ. Nikdy ho nenechávej déle než 20–30 minut.</div>
+        <div class="tip-item"><span class="tip-num">05</span> Každý den si ověř, že máš zapnuté notifikace v Telegramu — žádný lead nesmí utéct.</div>
+      </div>
+    </section>
+
+    <!-- DAY 1 -->
+    <section class="page-section" id="page-day1">
+      <div class="complete-banner" id="cb1">🎉 Skvělá práce! Den 1 máš splněný. Pokračuj na Den 2.</div>
+      <div class="day-hero">
+        <div>
+          <div class="day-eyebrow">Den 1 · Prodej & SPIN</div>
+          <div class="day-title"><span class="day-accent" style="background:rgba(232,93,38,0.12);color:var(--day1)">01</span>Prodej & Techniky</div>
+          <div class="day-desc">Naučíš se strukturu prodejního hovoru, SPIN techniku, sendvič prezentaci ceny a práci s námitkami.</div>
+        </div>
+        <svg width="80" height="80" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="35" fill="none" stroke="#eee" stroke-width="6"/>
+          <circle cx="40" cy="40" r="35" fill="none" stroke="var(--day1)" stroke-width="6" stroke-dasharray="220" id="ring1" style="stroke-dashoffset:220;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset 0.5s"/>
+        </svg>
+      </div>
+
+      <div class="tag-filter">
+        <button class="tag-btn active" onclick="filterTags('all','d1')">Vše</button>
+        <button class="tag-btn" onclick="filterTags('video','d1')">📹 Videa</button>
+        <button class="tag-btn" onclick="filterTags('quiz','d1')">🧠 Kvízy</button>
+        <button class="tag-btn" onclick="filterTags('workshop','d1')">👥 Workshop</button>
+        <button class="tag-btn" onclick="filterTags('tool','d1')">🔧 Nástroje</button>
+      </div>
+
+      <div class="cards-grid" id="cards-d1">
+        <!-- Setup -->
+        <div class="task-card" data-id="d1-1" data-tags="tool" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Nastavení Gmailu</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Přístupy dostaneš od HR. Ověř si pracovní e-mailovou adresu a nastav si ji v prohlížeči.</div>
+        </div>
+        <div class="task-card" data-id="d1-2" data-tags="tool" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Slack CZ/Global — registrace a skupiny</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Registruj se dle návodu od HR. Přidat jako první do channelu #first-weeks–[name] s HoS, Deputy & TL. Stáhni aplikaci i do notebooku. Notifikace vypínat až po 17:30. Přidej se do skupin: product-sellers, courses-changes, cs-sales, tech_support_cz, general, feedback, dovolenkování.</div>
+        </div>
+        <div class="task-card" data-id="d1-3" data-tags="tool" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">ZOHO — zaměstnanecký portál</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Přístup obdržíš e-mailem od HR. Přes ZOHO zadáváš dovolenou, sick leave nebo se hlásíš do kurzů. Stačí webové rozhraní, aplikace není nutná.</div>
+        </div>
+
+        <!-- Videos -->
+        <div class="task-card" data-id="d1-4" data-tags="video" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Video 0 — Vítejte v naší společnosti</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span><span class="badge time">⏱ 6 min</span></div>
+          <div class="card-detail">Zapiš si postřehy, pojmy a dotazy.</div>
+        </div>
+        <div class="task-card" data-id="d1-5" data-tags="video" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Video 1 — Úvod do hovoru</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span><span class="badge time">⏱ 8 min</span></div>
+          <div class="card-detail">Jak začít úspěšný prodejní hovor.</div>
+        </div>
+        <div class="task-card" data-id="d1-6" data-tags="video" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Video 2 — Struktura prodejního hovoru</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span><span class="badge time">⏱ 14 min</span></div>
+          <div class="card-detail">Základní struktura prodejního hovoru — od otevření po uzavření.</div>
+        </div>
+        <div class="task-card" data-id="d1-7" data-tags="video" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Video 3 — Jak identifikovat bolest/potřebu</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span><span class="badge time">⏱ 17 min</span></div>
+          <div class="card-detail">Identifikace potřeby zákazníka s cílem vytvořit obchodní příležitost.</div>
+        </div>
+        <div class="task-card" data-id="d1-8" data-tags="video" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Video 4–8 — Sumarizace, prezentace, sendvič, typologie, námitky</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span><span class="badge time">⏱ ~55 min</span></div>
+          <div class="card-detail">Videa 4–8 pokrývají: sumarizaci (2 min), vedení rozhovoru (14 min), sendvič ceny (6 min), typologii klientů (7 min), řešení námitek (24 min). Zapiš si postřehy a dotazy.</div>
+        </div>
+
+        <!-- Workshops -->
+        <div class="task-card" data-id="d1-9" data-tags="workshop" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Workshop: Práce s námitkami (4 námitky)</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 workshop</span><span class="badge time">⏱ 15+ min</span></div>
+          <div class="card-detail">Projdi workshopy ke 4 klíčovým námitkám: Jaká je cena? / O vaší společnosti jsem neslyšel / Je to moc drahé / Musím si to promyslet. Každý workshop má poslechový hovor nebo cvičení.</div>
+        </div>
+        <div class="task-card" data-id="d1-10" data-tags="workshop" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Workshop: Poslech hovorů 1–6</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 workshop</span></div>
+          <div class="card-detail">Hovory 1–4 mají vzorové analýzy (SPIN otázky, pains klientů). Pro hovory 5 a 6 napiš sám/sama, co prodejce udělal špatně podle struktury hovoru.</div>
+        </div>
+        <div class="task-card" data-id="d1-11" data-tags="quiz" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">KVÍZ — ověření znalostí Dne 1</div></div>
+          <div class="card-badges"><span class="badge quiz">🧠 kvíz</span></div>
+          <div class="card-detail">Vyplň kvíz a ověř si, zda rozumíš probranému obsahu.</div>
+        </div>
+        <div class="task-card" data-id="d1-12" data-tags="workshop" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">PitchMonster — zkouška na znalost kurzu</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span><span class="badge workshop">👥 workshop</span></div>
+          <div class="card-detail">Login: gabriela.herczogova@l-a-b-a.cz / heslo: LabaAIsimulace. Předveď znalost svého vybraného kurzu — cílové skupiny, pains, lektor, benefity. Po úspěšné zkoušce zapiš kurz do karty „kurzy" se datem a projektem.</div>
+        </div>
+        <div class="task-card" data-id="d1-13" data-tags="hw" style="--card-accent:var(--day1)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">🏠 Domácí úkol — naučit se 1. kurz</div></div>
+          <div class="card-badges"><span class="badge hw">📚 DÚ</span></div>
+          <div class="card-detail">Projdi všechny dostupné podklady ke svému vybranému kurzu. Na zítřejší zkoušce: představíš nejběžnější cílové skupiny a jejich pains, představíš lektora a benefity kurzu. Nauč se také námitky!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAY 2 -->
+    <section class="page-section" id="page-day2">
+      <div class="complete-banner" id="cb2">🎉 Den 2 hotov! Skvělé zvládnutí nástrojů. Pokračuj na Den 3.</div>
+      <div class="day-hero">
+        <div>
+          <div class="day-eyebrow">Den 2 · Technický den</div>
+          <div class="day-title"><span class="day-accent" style="background:rgba(46,91,255,0.1);color:var(--day2)">02</span>Nástroje & CRM</div>
+          <div class="day-desc">Nastavíš si všechny pracovní nástroje: Profity, Stripe, Telegram, HubSpot, UniTalk a Chrome Extension. Naučíš se základy práce v CRM.</div>
+        </div>
+      </div>
+
+      <div class="tag-filter">
+        <button class="tag-btn active" onclick="filterTags('all','d2')">Vše</button>
+        <button class="tag-btn" onclick="filterTags('video','d2')">📹 Videa</button>
+        <button class="tag-btn" onclick="filterTags('quiz','d2')">🧠 Kvízy</button>
+        <button class="tag-btn" onclick="filterTags('workshop','d2')">👥 Workshop</button>
+        <button class="tag-btn" onclick="filterTags('tool','d2')">🔧 Nástroje</button>
+      </div>
+
+      <div class="cards-grid" id="cards-d2">
+        <div class="task-card" data-id="d2-1" data-tags="quiz" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">KVÍZ — opakování Dne 1</div></div>
+          <div class="card-badges"><span class="badge quiz">🧠 kvíz</span></div>
+          <div class="card-detail">Úvodní kvíz Dne 2 — ověř si, co sis zapamatoval/a z prvního dne.</div>
+        </div>
+        <div class="task-card" data-id="d2-2" data-tags="quiz" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Zkouška na znalost kurzu (PitchMonster)</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span><span class="badge quiz">🧠 zkouška</span></div>
+          <div class="card-detail">Každý prodejce předvede znalost svého kurzu: cílové skupiny, pains, lektor, benefity. Zápis do karty „kurzy" po úspěchu.</div>
+        </div>
+        <div class="task-card" data-id="d2-3" data-tags="tool" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Profity — registrace</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Přístup obdržíš e-mailem. Profity ti umožní sledovat výkon v reálném čase: počet hovorů, minuty na sluchátku, faktury, platby, plnění plánu v %. Pomůže ti lépe plánovat a soustředit se na cíle.</div>
+        </div>
+        <div class="task-card" data-id="d2-4" data-tags="tool" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Stripe — registrace přes Google</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Registruj se přes pracovní Google účet. Při prvním přihlášení může být potřeba ověření identity — stáhni autorizační aplikaci. Stripe je platební brána pro vystavování faktur (platební karta, Apple Pay, Google Pay).</div>
+        </div>
+        <div class="task-card" data-id="d2-5" data-tags="tool" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Telegram — stažení a propojení</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Stáhni Telegram do počítače i telefonu. Registrace přes osobní číslo (nepoužívá se pro komunikaci s klienty). Telegram slouží k notifikacím na nové leady — každý lead dorazí jako upozornění. Každý den ověř, že máš notifikace zapnuté.</div>
+        </div>
+        <div class="task-card" data-id="d2-6" data-tags="tool" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">HubSpot — registrace + záložky</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Hlavní CRM systém. Přístup e-mailem. Zaregistruj se a nastav si hlavní záložky pro každodenní práci (dle video návodu). Záložky ti dají rychlý přístup k nejpoužívanějším sekcím.</div>
+        </div>
+        <div class="task-card" data-id="d2-7" data-tags="tool" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Chrome Extension + E-mailový podpis</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Rozšíření pro Chrome umožní posílat firemní e-maily ze šablon přímo z prohlížeče. Kliknutím na jméno klienta v e-mailu se automaticky otevře jeho CRM karta. Po nastavení podpisu pošli testovací e-mail na barbora.kaasova@skvt.cz.</div>
+        </div>
+        <div class="task-card" data-id="d2-8" data-tags="tool" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">UniTalk — nastavení a test hovoru</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span></div>
+          <div class="card-detail">Dialer pro volání klientům. Zřiď přístup dle návodu. Podívej se na video ukázku použití. Pak vyhledej mě v HS a zavolej mi na mobil přes UniTalk — test zda vše funguje. Problémy hlás do #tech_support_global (anglicky) a #tech_support_cz.</div>
+        </div>
+        <div class="task-card" data-id="d2-9" data-tags="video" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">HubSpot videa — Klient, Deals, Tasks, Dashboards</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span></div>
+          <div class="card-detail">Projdi video návody: jak najít klienta, co je Deal, Tasks pro plánování, Dashboards pro přehled tržeb, Notifikace (e-mail, hovor, WhatsApp). Každé video obsahuje workshop — splň ho!</div>
+        </div>
+        <div class="task-card" data-id="d2-10" data-tags="workshop" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Workshop: Najít klienta, vytvořit Deal a kontakt</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 workshop</span></div>
+          <div class="card-detail">1. Najdi klienta „Sylvester Holovský" a zapiš kolik kurzů absolvoval. 2. Nastav parametry dealu dle videa (Deal owner, Line item, Stream, Target Audience atd.). 3. Vytvoř testovací kontakt na své jméno se slovem „test". 4. Vytvoř deal na kurz „Projektový management ve farmacii" pro tvůj kontakt.</div>
+        </div>
+        <div class="task-card" data-id="d2-11" data-tags="workshop" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Workshop: Filtry v HubSpotu (5 cvičení)</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 workshop</span></div>
+          <div class="card-detail">Vytvoř filtry: New Deals (Laba/Skvot/RD), kurz Datová analýza stream 5 + Finish Calling, Fashion stylist stream 2 Closed Lost Potential, Produkce hudby FL studio stream 3, Intensive Advanced AI stream 2 Expensive. Vždy nastav viditelnost „My Team".</div>
+        </div>
+        <div class="task-card" data-id="d2-12" data-tags="quiz" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">KVÍZY — 4 kvízy Dne 2</div></div>
+          <div class="card-badges"><span class="badge quiz">🧠 kvíz</span></div>
+          <div class="card-detail">Splň kvízy: SPIN a Sendvič / Krotitelé výmluv (Námitkovník) / Deal Stage a Rejection Reason / Velká rekapitulace 2. dne.</div>
+        </div>
+        <div class="task-card" data-id="d2-13" data-tags="hw" style="--card-accent:var(--day2)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">🏠 Domácí úkol — naučit se další kurz</div></div>
+          <div class="card-badges"><span class="badge hw">📚 DÚ</span></div>
+          <div class="card-detail">Projdi dostupné podklady ke svému dalšímu vybranému kurzu. Připrav se na zítřejší zkoušku.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAY 3 -->
+    <section class="page-section" id="page-day3">
+      <div class="complete-banner" id="cb3">🎉 Den 3 splněn! Teď jsi připraven/a volat jako profík. Poslední sprint — Den 4!</div>
+      <div class="day-hero">
+        <div>
+          <div class="day-eyebrow">Den 3 · PitchMonster Den</div>
+          <div class="day-title"><span class="day-accent" style="background:rgba(15,158,117,0.1);color:var(--day3)">03</span>Role Play & Simulace</div>
+          <div class="day-desc">Trénink v PitchMonsteru, role play SPIN, prezentace ceny sendvičem a simulace plnohodnotného hovoru.</div>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="cards-d3">
+        <div class="task-card" data-id="d3-1" data-tags="quiz" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">KVÍZ — Psychologie hovoru a první krůčky</div></div>
+          <div class="card-badges"><span class="badge quiz">🧠 kvíz</span></div>
+          <div class="card-detail">Kratší kvíz prověří, zda chápeš začátek rozhovoru a základy prodejního procesu.</div>
+        </div>
+        <div class="task-card" data-id="d3-2" data-tags="workshop" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Workshop: Sales 21. století</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 workshop</span></div>
+          <div class="card-detail">Skupinový workshop o moderním prodeji — principy, mindset a přístupy, které fungují dnes.</div>
+        </div>
+        <div class="task-card" data-id="d3-3" data-tags="quiz" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Zkouška na znalost kurzu (PitchMonster)</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span><span class="badge quiz">🧠 zkouška</span></div>
+          <div class="card-detail">Předveď znalost svého dalšího kurzu. Zápis výsledku do karty „kurzy".</div>
+        </div>
+        <div class="task-card" data-id="d3-4" data-tags="workshop" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Workshop: Zpětná vazba na první hovory v PitchMonsteru</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 workshop</span></div>
+          <div class="card-detail">Kolektivní poslech prvních hovorů — hodnocení otevření, práce s námitkou a prezentace ceny. Pojmenujeme opakující se chyby.</div>
+        </div>
+        <div class="task-card" data-id="d3-5" data-tags="workshop" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Role Play: SPIN</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 role play</span></div>
+          <div class="card-detail">Simuluj část prodejního skriptu — SPIN. Cíl: odhalit situaci zákazníka, porozumět jeho motivacím, identifikovat problémy a potřeby. Po simulaci odprezentuj, jaký problém měl modelový zákazník.</div>
+        </div>
+        <div class="task-card" data-id="d3-6" data-tags="quiz" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">KVÍZ — Benefity a cenový sendvič</div></div>
+          <div class="card-badges"><span class="badge quiz">🧠 kvíz</span></div>
+          <div class="card-detail">Prověří, jak umíš propojit problémy klienta s výhodami kurzu a jak správně odprezentovat cenu.</div>
+        </div>
+        <div class="task-card" data-id="d3-7" data-tags="workshop" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Role Play: Prezentace ceny sendvičem</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 role play</span></div>
+          <div class="card-detail">Každý prodejce simuluje prezentaci ceny svého kurzu formou sendviče. Struktura: benefit → cena → benefit.</div>
+        </div>
+        <div class="task-card" data-id="d3-8" data-tags="workshop" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Role Play: Simulace plnohodnotného hovoru</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 role play</span></div>
+          <div class="card-detail">Kompletní simulace hovoru: úvod → SPIN → prezentace benefitů a lektora → cena → zakončení. Po hovoru: sebereflexe — co šlo dobře a co příště zlepšit.</div>
+        </div>
+        <div class="task-card" data-id="d3-9" data-tags="workshop" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Role Play: Opakovaná prezentace ceny + námitka</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 role play</span></div>
+          <div class="card-detail">Vrátíš se k profilovému zákazníkovi z minulé simulace. Znovu prezentuj cenu a zpracuj námitku: vysoká cena / nevyhovující termín / nejistota / musím si to promyslet.</div>
+        </div>
+        <div class="task-card" data-id="d3-10" data-tags="quiz" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">KVÍZ — Velké finále 3. dne</div></div>
+          <div class="card-badges"><span class="badge quiz">🧠 kvíz</span></div>
+          <div class="card-detail">Závěrečný kvíz 3. dne: technika hovoru, zvládání námitek, práce s CRM.</div>
+        </div>
+        <div class="task-card" data-id="d3-11" data-tags="hw" style="--card-accent:var(--day3)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">🏠 Domácí úkol — naučit se další kurz/y</div></div>
+          <div class="card-badges"><span class="badge hw">📚 DÚ</span></div>
+          <div class="card-detail">Projdi podklady ke svému dalšímu kurzu. Připrav se na zítřejší zkoušku.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAY 4 -->
+    <section class="page-section" id="page-day4">
+      <div class="complete-banner" id="cb4">🏆 Gratulace! Dokončil/a jsi celý onboarding program. Nyní jsi připraven/a volat a prodávat!</div>
+      <div class="day-hero">
+        <div>
+          <div class="day-eyebrow">Den 4 · HubSpot Pro & Fakturace</div>
+          <div class="day-title"><span class="day-accent" style="background:rgba(139,63,200,0.1);color:var(--day4)">04</span>HubSpot & Fakturace</div>
+          <div class="day-desc">Pokročilé filtry, e-mailové šablony, Deal Stages, fakturace (Stripe + bankovní převod), WhatsApp templaty a volání do databáze.</div>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="cards-d4">
+        <div class="task-card" data-id="d4-1" data-tags="quiz" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Zkouška na znalost kurzu (více kurzů)</div></div>
+          <div class="card-badges"><span class="badge tool">🔧 nástroj</span><span class="badge quiz">🧠 zkouška</span></div>
+          <div class="card-detail">Předveď znalost svých kurzů — seznam dostaneš v chatu. Zápis do Exam Hell tabulky.</div>
+        </div>
+        <div class="task-card" data-id="d4-2" data-tags="workshop" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Workshop: Orientace v ACC a HubSpotu</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 workshop</span></div>
+          <div class="card-detail">Odpověz: Které kurzy startují do konce aktuálního týdne dle ACC? Kolik je dnes NL na Labě, Skvotu a Robot Dreams? Kolik NL má prodejce Tereza Krejzová?</div>
+        </div>
+        <div class="task-card" data-id="d4-3" data-tags="workshop" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Pokročilé filtry — NQ, Q, MD, WP, Paid Online</div></div>
+          <div class="card-badges"><span class="badge workshop">👥 workshop</span></div>
+          <div class="card-detail">Vytvoř filtry: NQ (všechny projekty, owner me), Q (všechny projekty, owner me), MD (všechny projekty, owner me), WP (všechny projekty, owner me). Zkopíruj filtr Paid Online a nastav sebe jako ownera. Vytvoř souhrnný filtr se stages NL, NQ, Q, MD, WP, Surcharge pro všechny 3 projekty.</div>
+        </div>
+        <div class="task-card" data-id="d4-4" data-tags="quiz" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">KVÍZ — HubSpot: Pokročilé filtry a přehledy</div></div>
+          <div class="card-badges"><span class="badge quiz">🧠 kvíz</span></div>
+        </div>
+        <div class="task-card" data-id="d4-5" data-tags="video" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Videa: Poznámky, Tasky, E-mailové šablony</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span></div>
+          <div class="card-detail">Projdi video návody: Poznámky a Tasky (jak pracovat), E-mailové šablony (kde najít a jak používat). Prohlédni si šablony: no answer, emailová komunikace, info o kurzu, making decision, zálohová faktura, STRIPE limit, after payment, faktura po splatnosti, zrušení, rozdělení plateb.</div>
+        </div>
+        <div class="task-card" data-id="d4-6" data-tags="video" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Deal Stages — In a Call a ostatní</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span></div>
+          <div class="card-detail">In a call zadávej vždy jen u New Leadu, se kterým pracuješ. Nesmí zůstat déle než 20–30 minut. Projdi videa o všech Deal Stages v kontextu HubSpotu.</div>
+        </div>
+        <div class="task-card" data-id="d4-7" data-tags="video" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Fakturace — Stripe a bankovní převod</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span></div>
+          <div class="card-detail">Projdi videa: CZ fakturace bankovním převodem (FO + firma) a Stripe (FO + firma). SK fakturace přes invoice sheet a Stripe (včetně Tax status taxable vs. reverse charge). Jak zjistit, že klient zaplatil přes Stripe (Stripe → Slack → HS).</div>
+        </div>
+        <div class="task-card" data-id="d4-8" data-tags="video" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Rozdělené platby a Closed Won</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span></div>
+          <div class="card-detail">Prepayment a Surcharge — jak zadat rozdělené platby v HS. Closed Won — Payment type, Payment ID, amount, payment date, installment, close date, stream, country, discount, job area, job position. E-mail After Payment se odešle automaticky.</div>
+        </div>
+        <div class="task-card" data-id="d4-9" data-tags="video" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">WhatsApp — šablony a zásady komunikace</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span></div>
+          <div class="card-detail">Zásady komunikace s klienty přes WhatsApp. Základní šablony (automatické: Making Decision, manuální: database, waiting for payment). Nastavení parametru WhatsApp templates v HubSpotu.</div>
+        </div>
+        <div class="task-card" data-id="d4-10" data-tags="video" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">Autodialer + Volání do databáze</div></div>
+          <div class="card-badges"><span class="badge video">📹 video</span></div>
+          <div class="card-detail">Projdi video o Autodialeru. Volání do databáze: seřaď podle next activity date, zkontroluj zda nemá kolega task, vyber 50 kontaktů, přidej sebe jako ownera, nastav date of call + reason for calling, vytvoř tasks. POZOR: nikdy nedělat stejný list ve stejnou chvíli!</div>
+        </div>
+        <div class="task-card" data-id="d4-11" data-tags="quiz" style="--card-accent:var(--day4)" onclick="toggleCard(this)">
+          <div class="card-top"><div class="card-check"><span class="card-check-icon">✓</span></div><div class="card-title">KVÍZY — Deal Stages, Fakturace, Závěrečné finále</div></div>
+          <div class="card-badges"><span class="badge quiz">🧠 kvíz</span></div>
+          <div class="card-detail">Kvíz Deal Stages a šablony + Kvíz Fakturace a Stripe + Závěrečné velké finále 4. dne.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="page-section" id="page-workflow">
+      <div class="day-hero">
+        <div>
+          <div class="day-eyebrow">Referenční průvodce</div>
+          <div class="day-title">Deal Stages & Workflow</div>
+          <div class="day-desc">Přehled všech stavů dealu a pravidla pro práci s nimi. Klikni na kartu pro zobrazení detailu.</div>
+        </div>
+      </div>
+
+      <div class="flow-grid">
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">🆕</span>
+          <div class="flow-stage">New Deal</div>
+          <div class="flow-desc">Klientovi ještě nikdo nevolal. Pracuj do 4 minut.</div>
+          <div class="flow-detail">S new dealem v čase 9–17 pracuj vždy do 4 minut. Ihned změň Deal Stage na „In a call", zkontroluj kartu klienta a vytvoř si task. Následně okamžitě vytáčej.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">📞</span>
+          <div class="flow-stage">In a Call</div>
+          <div class="flow-desc">Právě vytáčím klienta. Max 20–30 min!</div>
+          <div class="flow-detail">Dávej hned do této stage klienta, kterého začínáš vytáčet. Zastavíš tím LPT (lead processing time). Po hovoru přidej příslušnou stage. POZOR: In a call zadávej vždy pouze a jedině u New Leadu, se kterým právě pracuješ.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">🔕</span>
+          <div class="flow-stage">Not Qualified</div>
+          <div class="flow-desc">Klient hovor nepřijal.</div>
+          <div class="flow-detail">Den 1: 2 hovory v různé časy. Po 1. nezvednutém callu: e-mail No Answer. Den 2: 2 hovory. Den 3: 1 hovor + Emailová komunikace. Den 5: 1 hovor. Den 6: 1 hovor → Emailová komunikace → CL avoids communication. Den 7: pokud stále nic → Finished Calling + e-mail s obsahem kurzu. Po změně na NQ odejde automaticky WhatsApp zpráva.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">✅</span>
+          <div class="flow-stage">Qualified</div>
+          <div class="flow-desc">Klient zvedl, ale nestihla se prezentace.</div>
+          <div class="flow-detail">Klient hovor přijal, ale neproběhla prezentace — neměl čas, neslyšeli jsme se nebo jsme museli hovor ukončit. Den 2: žádné akce. Den 3–6: ob 1 den. Pokud nezvedne a na email nereaguje → nastav task ob 1 den.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">🤔</span>
+          <div class="flow-stage">Making Decision</div>
+          <div class="flow-desc">Prezentace proběhla, čekám na potvrzení.</div>
+          <div class="flow-detail">Klient hovor přijal, proběhla kompletní prezentace, dostal e-mailem podklady. Je v rozhodovací fázi. Vždy se domluvte na konkrétní den a čas. Pokud v domluvený den nepřijme hovor → e-mail Making Decision + task na další den. Po změně na MD odejde automaticky WhatsApp zpráva.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">💳</span>
+          <div class="flow-stage">Waiting for Payment</div>
+          <div class="flow-desc">Klient obdržel fakturu.</div>
+          <div class="flow-detail">Klient obdržel fakturu a čekám na uhrazení. Task nastavuj vždy s předstihem — nikdy ne na poslední den měsíce! Při neuhrazené faktuře posílej manuálně template „po splatnosti skvot" přes WhatsApp. V den splatnosti upozorni hovorem, při nezvednutí pošli e-mail.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">🏆</span>
+          <div class="flow-stage">Closed Won</div>
+          <div class="flow-desc">Faktura uhrazena. Místo rezervováno!</div>
+          <div class="flow-detail">Klient fakturu uhradil a má pevně rezervované místo v kurzu. E-mail After Payment se pošle automaticky — stačí zrušit task. Zadej: Payment type, Payment ID, amount, payment date, installment, close date (stejně jako payment date), stream, country, lead source, discount, job area, job position.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">📋</span>
+          <div class="flow-stage">Finished Calling</div>
+          <div class="flow-desc">Klient nikdy nezvedl — provoláváme před startem.</div>
+          <div class="flow-detail">Klient náš hovor nikdy nepřijal. Tyto klienty provoláváme poslední týden před startem kurzu — velká šance, že začnou komunikovat a využijí last chance nabídky. Zkontroluj je také na konci týdne/měsíce.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">❌</span>
+          <div class="flow-stage">Closed Lost</div>
+          <div class="flow-desc">Odmítl nebo přestal komunikovat.</div>
+          <div class="flow-detail">Klient se rozhodl nenastoupit nebo přestal komunikovat. Vždy vyber odpovídající rejection reason. Avoids Communication: pokud se nepodařilo dostat vyjádření. Potential: zájem o příští stream → nastav task. Při volání do databáze pracuj stále v CL přes task. Nový Deal zakládáš až při potvrzení zájmu a vystavené faktuře.</div>
+        </div>
+        <div class="flow-card" onclick="this.classList.toggle('open')">
+          <span class="flow-icon">📵</span>
+          <div class="flow-stage">Wrong Number</div>
+          <div class="flow-desc">Špatné telefonní číslo.</div>
+          <div class="flow-detail">Ověř pole Additional Phone Number. Záměrně špatné číslo → Wrong Number + e-mail se shrnutím kurzu. Omylem špatné číslo → Wrong Number bez e-mailu. V obou případech: poznámka do HS (např. „wrong number - the number doesn't exist"), pin poznámky, odkaz na deal posílej do #wrong-numbers na Slacku.</div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div class="section-head-line"></div>
+        <div class="section-head-label">Life of a Lead — pravidla vlastnictví dealu</div>
+        <div class="section-head-line"></div>
+      </div>
+
+      <div class="tips-box">
+        <h3>📋 Kdo vlastní deal?</h3>
+        <div class="tip-item"><span class="tip-num">✓</span> <strong style="color:#fff">Closed Won (2+ kurzy):</strong> Deal zůstává prodejci trvale, dokud pracuje v Labě.</div>
+        <div class="tip-item"><span class="tip-num">✓</span> <strong style="color:#fff">Closed Won (1 kurz):</strong> Deal zůstává prodejci 4 měsíce od data posledního prodeje.</div>
+        <div class="tip-item"><span class="tip-num">✓</span> <strong style="color:#fff">Closed/Lost, Finish Calling — stejný kurz:</strong> Deal předán původnímu prodejci na 2 měsíce od posledního kontaktu.</div>
+        <div class="tip-item"><span class="tip-num">✓</span> <strong style="color:#fff">Closed/Lost — jiný kurz:</strong> Deal přidělen automatickým rozdělením leadů.</div>
+        <div class="tip-item"><span class="tip-num">⚡</span> Volání do databáze jiných prodejců je možné jen po dohodě s Head of Sales (po měsíci od posledního kontaktu).</div>
+      </div>
+    </section>
+
+    <!-- NÁMITKOVNÍK -->
+    <section class="page-section" id="page-namitky">
+      <div class="day-hero">
+        <div>
+          <div class="day-eyebrow">Referenční průvodce</div>
+          <div class="day-title">Námitkovník</div>
+          <div class="day-desc">Námitka není konec hovoru — je to příležitost. Klikni na námitku pro zobrazení strategie a ideální reakce.</div>
+        </div>
+      </div>
+
+      <div class="namitka-list">
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">01</span>
+            <span class="namitka-q">Jaká je cena kurzu? (námitka hned na začátku)</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Izolace a odklad — cenu nesděluj, dokud neprodáš hodnotu</div>
+            <div class="namitka-variants">
+              <div class="variant-box">
+                <div class="variant-label">Varianta 1 — Kariérní poradce</div>
+                <div class="variant-text">„Rád/a vám cenu hned řeknu. Jen abych věděl/a, který konkrétní kurz vám doporučit, potřebuji nejdříve pochopit vaši situaci. V rámci našich tří platforem — Laba, Robot Dreams a Skvot — máme kurzy, které se liší úrovní pokročilosti a cenou. Abych vybral/a ten s největším přínosem, můžeme si krátce promluvit?"</div>
+              </div>
+              <div class="variant-box">
+                <div class="variant-label">Varianta 2 — Hledání poměru cena/výkon</div>
+                <div class="variant-text">„Určitě, k ceně se dostaneme. U tohoto tématu existuje více variant — od intenzivních kurzů pro experty až po kreativní workshopy. Abych vám řekl/a přesnou částku a případné zvýhodnění pro správný směr, potřebuji zjistit, čeho chcete dosáhnout. Můžeme na to mrknout?"</div>
+              </div>
+              <div class="variant-box">
+                <div class="variant-label">Varianta 3 — Expertíza napříč obory</div>
+                <div class="variant-text">„Cena se odvíjí od zaměření. Propojujeme experty z byznysu (Laba), technologií (Robot Dreams) a kreativních průmyslů (Skvot). Rád/a bych vám nabídl/a cestu, která dává největší smysl finančně i profesně. Dovolíte mi pár otázek?"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">02</span>
+            <span class="namitka-q">Je to moc drahé</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Izolace + prodej „ceny nečinnosti"</div>
+            <div class="namitka-response">
+              <strong>Izolace:</strong> „Chápu, že investice může vypadat na první pohled vyšší. Pokud bychom ale teď odsunuli finance stranou — je ten obsah a lektor přesně to, co vám pomůže vyřešit [konkrétní problém]?"<br><br>
+              <strong>Cena nečinnosti:</strong> „Pokud zůstanete u současných postupů, jak to bude vypadat za půl roku? Konkurence se posune dál. Tento kurz není výdaj, ale nástroj, jak zastavit ztráty, které vám vznikají teď."<br><br>
+              <strong>Podle platformy:</strong> Laba = ztráta efektivity a peněz / Robot Dreams = ztráta tržní hodnoty (roční pauza = nižší plat) / Skvot = ztráta zakázek a prémiových klientů.
+            </div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">03</span>
+            <span class="namitka-q">Musím si to rozmyslet</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Technika „Pevný kalendář" — vágní rozmýšlení = ztráta dealu</div>
+            <div class="namitka-response">„Rozumím, je to důležité rozhodnutí. Abych vám mohl/a garantovat aktuální slevu a místo v kurzu, pojďme si rovnou zapsat termín, kdy si potvrdíme výsledek. Bude se vám lépe hodit zítra dopoledne v 10:00, nebo odpoledne kolem 15:00?"</div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">04</span>
+            <span class="namitka-q">Musím se poradit s manželem/manželkou</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Izolace rozhodnutí + Rezervace slovem</div>
+            <div class="namitka-response">
+              <strong>Krok 1 — Izolace:</strong> „To naprosto chápu. Jen se zeptám — pokud by manžel/ka řekl/a ‚běž do toho', je to kurz, který vy osobně opravdu chcete absolvovat?"<br><br>
+              <strong>Krok 2 — Příprava na „domácí prodej":</strong> „Partneři se většinou ptají na dvě věci: kolik to stojí a kolik času to vezme. Máte připravené, jak vám kurz ušetří čas nebo přinese peníze?"<br><br>
+              <strong>Krok 3 — Slovní rezervace:</strong> „Udělám to takto: nebudu vás zatěžovat papírováním. Jednoduše u sebe v systému zarezerváji slevu a místo ‚slovem' do zítřka. Bude pro vás lepší zavolat v 10:30, nebo ve 14:15?"
+            </div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">05</span>
+            <span class="namitka-q">Vaši společnost neznám</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Budování autority přes mezinárodní uznání</div>
+            <div class="namitka-response">„Laba je mezinárodní platforma s certifikacemi HRCI nebo PMI. Naši lektoři jsou experti z praxe — z firem jako Microsoft nebo Coca-Cola. Nejsme teoretici, učíme konkrétní postupy, které hned zavedete do praxe."</div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">06</span>
+            <span class="namitka-q">Online lekce mi nevyhovují</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Zdůraznění interaktivity a flexibility</div>
+            <div class="namitka-response">„Nejde o nudná videa, ale o živé lekce s diskuzí. Pokud byste něco nestihli, záznamy máte k dispozici 2 roky. Navíc dostáváte osobní zpětnou vazbu k úkolům přímo od lektora — to u prezenčního školení často chybí."</div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">07</span>
+            <span class="namitka-q">Pošlete mi to do emailu</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Zamezení „e-mailovému alibismu"</div>
+            <div class="namitka-response">„E-mail vám pošlu hned teď. Aby to ale nezapadlo, pojďme si rovnou říct: pokud tam uvidíte to, o čem jsme mluvili, je něco, co by nám bránilo v registraci do pátku, abyste stihl/a tu slevu?"</div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">08</span>
+            <span class="namitka-q">Teď nemám čas</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Technika „Proč právě teď?" — Urgency</div>
+            <div class="namitka-response">„Chápu, že jste vytížený/á. Na druhou stranu, toto téma se mění každým týdnem. Pokud s tím začneme až za dva měsíce, kolik efektivity vám do té doby uteče? Kurz je nastavený tak, aby se dal zvládnout při práci."</div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">09</span>
+            <span class="namitka-q">Raději se to naučím sám/sama</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Porovnání času a kvality (Syllabus mapping)</div>
+            <div class="namitka-response">„Samostudium je super, ale kolik času strávíte hledáním správných zdrojů a opravováním vlastních chyb? Tady dostanete hotový systém a zpětnou vazbu, která vás posune za měsíc dál než samostudium za rok."</div>
+          </div>
+        </div>
+
+        <div class="namitka-card" onclick="toggleNamitka(this)">
+          <div class="namitka-header">
+            <span class="namitka-num">10</span>
+            <span class="namitka-q">Teď nemám konkrétní projekt / objekt</span>
+            <span class="namitka-chevron">▾</span>
+          </div>
+          <div class="namitka-body">
+            <div class="strategy-tag">Strategie: Příprava jako konkurenční výhoda</div>
+            <div class="namitka-response">„Právě teď je ten nejlepší čas se připravit. Až ten projekt přijde, nebudete mít čas se učit — budete muset doručovat výsledky. Kurz vás vybaví tak, abyste mohl/a od prvního dne doručit profi výstup."</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+const STORAGE_KEY = 'sales_onboarding_v2';
+let state = {};
+
+function loadState() {
+  try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { state = {}; }
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+function toggleCard(el) {
+  const id = el.dataset.id;
+  if (event.target.closest('.card-link')) return;
+  
+  // Toggle completion
+  if (!el.classList.contains('expanded') || el.classList.contains('done')) {
+    if (el.classList.contains('done')) {
+      el.classList.remove('done');
+      delete state[id];
+    } else {
+      el.classList.add('expanded');
+    }
+  }
+  saveState();
+  updateProgress();
+}
+
+document.addEventListener('click', function(e) {
+  const card = e.target.closest('.task-card');
+  if (!card) return;
+  const check = e.target.closest('.card-check, .card-title');
+  if (check && card.classList.contains('expanded')) {
+    card.classList.toggle('done');
+    const id = card.dataset.id;
+    if (card.classList.contains('done')) state[id] = true;
+    else delete state[id];
+    saveState();
+    updateProgress();
+    return;
+  }
+  if (!card.classList.contains('expanded')) {
+    card.classList.add('expanded');
+  }
+});
+
+function getDayCards(day) {
+  return document.querySelectorAll(`#cards-d${day} .task-card`);
+}
+
+function getDayProgress(day) {
+  const cards = getDayCards(day);
+  let done = 0;
+  cards.forEach(c => { if (c.classList.contains('done')) done++; });
+  return { done, total: cards.length };
+}
+
+function updateProgress() {
+  let totalDone = 0, totalAll = 0;
+  for (let d = 1; d <= 4; d++) {
+    const { done, total } = getDayProgress(d);
+    totalDone += done;
+    totalAll += total;
+    const pct = total > 0 ? Math.round(done / total * 100) : 0;
+    const badge = document.getElementById('b' + d);
+    if (badge) badge.textContent = pct + '%';
+    const ov = document.getElementById('ov' + d);
+    if (ov) ov.style.width = pct + '%';
+    const ovp = document.getElementById('ovp' + d);
+    if (ovp) ovp.textContent = pct + '%';
+
+    // Completion banner
+    const cb = document.getElementById('cb' + d);
+    if (cb) {
+      if (total > 0 && done === total) cb.classList.add('show');
+      else cb.classList.remove('show');
+    }
+
+    // Ring
+    const ring = document.getElementById('ring' + d);
+    if (ring) {
+      const circumference = 220;
+      ring.style.strokeDashoffset = circumference - (pct / 100) * circumference;
+    }
+  }
+
+  const gPct = totalAll > 0 ? Math.round(totalDone / totalAll * 100) : 0;
+  const gBar = document.getElementById('global-bar');
+  if (gBar) gBar.style.width = gPct + '%';
+  const gPctEl = document.getElementById('global-pct');
+  if (gPctEl) gPctEl.textContent = totalDone + ' / ' + totalAll + ' splněno';
+
+  document.getElementById('hs-done').textContent = totalDone;
+  document.getElementById('hs-total').textContent = totalAll;
+  document.getElementById('hs-pct').textContent = gPct + '%';
+}
+
+function restoreState() {
+  Object.keys(state).forEach(id => {
+    const el = document.querySelector(`[data-id="${id}"]`);
+    if (el) { el.classList.add('done', 'expanded'); }
+  });
+  updateProgress();
+}
+
+function showPage(name) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('visible'));
+  const target = document.getElementById('page-' + name);
+  if (target) target.classList.add('visible');
+
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  event && event.currentTarget && event.currentTarget.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(b => {
+    if (b.getAttribute('onclick') === `showPage('${name}')`) b.classList.add('active');
+  });
+}
+
+function toggleNamitka(el) {
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.namitka-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+function filterTags(tag, day) {
+  const container = document.getElementById('cards-' + day);
+  if (!container) return;
+  container.querySelectorAll('.task-card').forEach(card => {
+    if (tag === 'all') { card.style.display = ''; return; }
+    const tags = (card.dataset.tags || '').split(' ');
+    card.style.display = tags.includes(tag) ? '' : 'none';
+  });
+  const parent = event && event.target.closest('.tag-filter');
+  if (parent) {
+    parent.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+}
+
+// SEARCH
+const searchIndex = [];
+function buildSearchIndex() {
+  document.querySelectorAll('.task-card').forEach(card => {
+    const page = card.closest('.page-section');
+    let dayLabel = 'Přehled';
+    if (page) {
+      const id = page.id.replace('page-', '');
+      const map = { day1: 'Den 1', day2: 'Den 2', day3: 'Den 3', day4: 'Den 4', workflow: 'Workflow', namitky: 'Námitkovník' };
+      dayLabel = map[id] || id;
+    }
+    searchIndex.push({
+      title: card.querySelector('.card-title')?.textContent || '',
+      detail: card.querySelector('.card-detail')?.textContent || '',
+      day: dayLabel,
+      pageId: page?.id || '',
+      el: card
+    });
+  });
+}
+
+function doSearch(q) {
+  const dd = document.getElementById('search-dropdown');
+  if (!q || q.length < 2) { dd.innerHTML = ''; dd.style.display = 'none'; return; }
+  const results = searchIndex.filter(item =>
+    item.title.toLowerCase().includes(q.toLowerCase()) ||
+    item.detail.toLowerCase().includes(q.toLowerCase())
+  ).slice(0, 8);
+  if (!results.length) { dd.innerHTML = '<div style="padding:12px 14px;font-size:13px;color:var(--text-faint)">Nic nenalezeno.</div>'; dd.style.display = 'block'; return; }
+  dd.innerHTML = results.map((r, i) =>
+    `<div class="search-result-item" onclick="goToResult(${i})">
+      <div class="search-result-day">${r.day}</div>
+      <div>${highlight(r.title, q)}</div>
+    </div>`
+  ).join('');
+  dd.style.display = 'block';
+  dd._results = results;
+}
+
+function highlight(text, q) {
+  const idx = text.toLowerCase().indexOf(q.toLowerCase());
+  if (idx < 0) return text;
+  return text.slice(0, idx) + `<mark class="search-highlight">${text.slice(idx, idx + q.length)}</mark>` + text.slice(idx + q.length);
+}
+
+function goToResult(i) {
+  const dd = document.getElementById('search-dropdown');
+  const r = dd._results && dd._results[i];
+  if (!r) return;
+  const pageName = r.pageId.replace('page-', '');
+  showPage(pageName);
+  setTimeout(() => {
+    r.el.classList.add('expanded');
+    r.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 100);
+  dd.style.display = 'none';
+  document.getElementById('search-input').value = '';
+}
+
+function showSearchDropdown() {
+  const dd = document.getElementById('search-dropdown');
+  if (dd.innerHTML) dd.style.display = 'block';
+}
+function hideSearchDropdown() {
+  document.getElementById('search-dropdown').style.display = 'none';
+}
+
+// INIT
+loadState();
+buildSearchIndex();
+restoreState();
+</script>
+</body>
+</html>
