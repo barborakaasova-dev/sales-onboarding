@@ -74,8 +74,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--black);min-
 mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 
 .content{padding:36px}
-.page{display:none}
-.page.visible{display:block}
+.page{display:none !important}
+.page.visible{display:block !important}
 
 /* HERO */
 .hero{margin-bottom:40px}
@@ -200,8 +200,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .faq-grid{display:flex;flex-direction:column;gap:6px}
 
 /* CONTACTS */
-.contacts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:16px 0}
-.contact-card{background:#FFFFFF;border:1.5px solid #D8D3C8;border-radius:var(--radius);padding:20px;transition:border-color .2s;box-shadow:0 2px 8px rgba(26,23,20,.08)}
+.contacts-grid{display:grid !important;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:20px 0}
+.contact-card{background:#fff !important;border:2px solid #C0B898 !important;border-radius:12px;padding:20px;transition:border-color .2s;box-shadow:0 2px 12px rgba(0,0,0,.1)}
 .contact-card:hover{border-color:var(--black)}
 .contact-role{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
 .contact-name{font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:#1A1714;margin-bottom:8px;letter-spacing:-.2px}
@@ -254,6 +254,37 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   .nav-btn .ni{display:inline}
   .nav-group-label{display:block}
 }
+
+/* HOVOR CARDS */
+.hovor-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:6px}
+.hovor-header{display:flex;align-items:center;gap:12px;padding:10px 14px;flex-wrap:wrap}
+.hovor-num{font-family:var(--mono);font-size:9px;color:var(--faint);flex-shrink:0;min-width:54px}
+.hovor-link{font-size:13px;color:var(--black);text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.hovor-link:hover{color:var(--off)}
+.hovor-instruction{padding:0 14px 10px;font-size:12.5px;color:var(--off);line-height:1.55;border-bottom:1px solid var(--border)}
+.hovor-instruction p{margin:0}
+
+/* HOVOR REVEAL */
+.hovor-analysis{display:none;padding:18px;border-top:1px solid var(--border);background:var(--bg3)}
+.hovor-analysis.visible{display:block}
+.hovor-reveal-btn{width:100%;padding:12px 18px;background:none;border:none;border-top:1px solid var(--border);color:var(--black);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:500}
+.hovor-reveal-btn:hover{background:var(--laba);color:var(--black)}
+.hovor-reveal-btn.revealed{background:var(--laba);color:var(--black)}
+.analysis-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--off);margin-bottom:12px}
+.spin-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.spin-box{background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;text-align:center}
+.spin-box-label{font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.06em;margin-bottom:4px}
+.spin-box-val{font-family:'Unbounded',sans-serif;font-weight:900;font-size:22px;line-height:1;color:var(--black)}
+.spin-box-val.good{color:var(--rd)}
+.spin-box-val.bad{color:var(--skvot)}
+.pain-list{margin-bottom:14px}
+.pain-item{display:flex;gap:10px;margin-bottom:8px;font-size:12.5px;color:var(--black);line-height:1.5}
+.pain-dot{width:6px;height:6px;border-radius:50%;background:var(--off);flex-shrink:0;margin-top:5px}
+.feedback-box{background:var(--cream);border-left:3px solid;border-radius:0 8px 8px 0;padding:12px 16px;font-size:12.5px;color:var(--black);line-height:1.6;margin-top:12px}
+.feedback-box.positive{border-color:var(--rd)}
+.feedback-box.negative{border-color:var(--skvot)}
+.feedback-box.mixed{border-color:var(--laba-dark)}
+.feedback-title{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;color:var(--off)}
 </style>
 </head>
 <body>
@@ -266,7 +297,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
         <span style="background:#D0D0CC;border-radius:3px;padding:2px 5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#333;font-weight:600;letter-spacing:.02em">r_d</span>
         <span style="font-family:'Inter',sans-serif;font-size:8.5px;color:#888;line-height:1.3;font-weight:400">robot_<br>dreams</span>
       </span>
-      <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
+      <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:15px;color:#1A1714;letter-spacing:-.3px">Skvot</span>
     </div>
     <div class="sb-title" style="color:#1A1714">SALES<br>ONBOARDING</div>
     <div class="sb-sub" style="color:#9A8E7A">// průvodce nováčka</div>
@@ -299,7 +330,6 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="nav-group">
     <div class="nav-group-label">Pomoc</div>
     <button class="nav-btn" onclick="goPage('faq',this)"><span class="ni">—</span> FAQ</button>
-    <button class="nav-btn" onclick="goPage('kontakty',this)"><span class="ni">—</span> Kontakty</button>
   </div>
 
   <div style="flex:1"></div>
@@ -401,17 +431,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div><div class="day-label">// Den 1 · Prodej &amp; SPIN</div><div class="day-h">PRODEJ<br>&amp; TECHNIKY</div><div class="day-desc">Struktura prodejního hovoru, SPIN technika, sendvič prezentace ceny, práce s námitkami, poslech hovorů.</div></div>
     <div class="day-big-n">01</div>
   </div>
-  <div class="rg"><div class="rg-title">// navigace</div><div class="rg-list">
-    <a href="https://docs.google.com/document/d/1CJIdO1padYNqd6dVgsKYZZ4BuQaYAj3C/edit" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Navigace — průvodce dokumenty</div><div class="ri-sub">google docs · otevřít v nové záložce</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-<button class="doc-toggle" onclick="toggleDoc('nav-doc')">
-  <span class="dt-icon"></span>Zobrazit dokument
-</button>
-<div class="doc-embed-box" id="nav-doc">
-  <div class="doc-embed-wrap">
-    <iframe src="https://docs.google.com/document/d/1CJIdO1padYNqd6dVgsKYZZ4BuQaYAj3C/preview" loading="lazy" allowfullscreen></iframe>
-  </div>
+  <div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+
 </div>
-  </div></div>
+  </div>
   <div class="rg"><div class="rg-title">// videa — sleduj v pořadí</div><div class="rg-list">
     <a href="https://drive.google.com/file/d/1o0bYV47CDtT7zdsetRRVSDB_bTwC-lO3/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Video 0 — Vítejte v naší společnosti (SPIN)</div><div class="ri-sub">google drive · ~6 min</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
     <a href="https://drive.google.com/file/d/1mTmakZDIzocCm9keGmGIqOJECU9HUVGg/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Video 1 — Úvod do hovoru</div><div class="ri-sub">google drive · ~8 min</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
@@ -424,12 +447,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <a href="https://drive.google.com/file/d/1G2AoO_EsiNOfoyqGyOSHSMl3SgFQ4upP/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Video 8 — Jak řešit námitky</div><div class="ri-sub">google drive · ~24 min</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
   </div></div>
   <div class="rg"><div class="rg-title">// kvíz</div><div class="rg-list">
-    <button class="quiz-toggle" onclick="toggleQuiz('q_prodejni_techniky')">
-  <span class="qt-icon"></span> KVÍZ — Prodejní techniky
-</button>
-<div class="quiz-embed" id="q_prodejni_techniky">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf7DpiKP3U99eQfvArSOspTCLQWZ6upHvpFemGShmbgT4PM7A/viewform?embedded=true" height="2861" loading="lazy">Loading…</iframe>
-</div>
+    
   </div></div>
   <div class="rg"><div class="rg-title">// workshopy</div><div class="rg-list">
     <a href="https://docs.google.com/document/d/1U-ic_312kKmqxwmCCtfXmFfNS5sY_dRJ_1XUWh38ee4/edit?tab=t.0" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Workshop: Práce s námitkami (4 námitky)</div><div class="ri-sub">google docs</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
@@ -589,30 +607,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   </div>
   <div class="rg"><div class="rg-title">// kvízy</div><div class="rg-list">
     <a href="https://docs.google.com/forms/d/1F09_3aGGTqe91vNywbbFECrcorWwVgwfJYjrqHoJR3M/edit" target="_blank" class="ri"><div class="ri-icon q"><span style="font-family:var(--mono);font-size:10px;color:var(--faint);font-weight:500">Q</span></div><div class="ri-body"><div class="ri-title">KVÍZ — opakování Dne 1</div><div class="ri-sub">google forms</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_spin_sendvic')">
-  <span class="qt-icon"></span> KVÍZ — Prodejní dovednosti (SPIN a Sendvič)
-</button>
-<div class="quiz-embed" id="q_spin_sendvic">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeKlI-UelM9wXw18AAcN-mn2KoyhQUZ6k3kHQzqMhBpGvXNiA/viewform?embedded=true" height="1372" loading="lazy">Loading…</iframe>
-</div>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_krotitele')">
-  <span class="qt-icon"></span> KVÍZ — Krotitelé výmluv (Námitkovník v akci)
-</button>
-<div class="quiz-embed" id="q_krotitele">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScxWed3eSklV9xEdybzxkPmo5GI7aZ4SZVj_N_Q4u3gtUQXug/viewform?embedded=true" height="1412" loading="lazy">Loading…</iframe>
-</div>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_deal_stage')">
-  <span class="qt-icon"></span> KVÍZ — Deal Stage a Rejection Reason v praxi
-</button>
-<div class="quiz-embed" id="q_deal_stage">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdpNrxqlw6HUgnSG7AnzxycesFwW70HgOyzfbX3Z1Y85EXqRw/viewform?embedded=true" height="3667" loading="lazy">Loading…</iframe>
-</div>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_rekap2')">
-  <span class="qt-icon"></span> KVÍZ — Velká rekapitulace 2. dne
-</button>
-<div class="quiz-embed" id="q_rekap2">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDZ99PbStobcz8jZYz8XcKCpK6UNY-b6l24SzH55MM3bs_Wg/viewform?embedded=true" height="3645" loading="lazy">Loading…</iframe>
-</div>
+    
+    
+    
+    
   </div></div>
   <div class="rg"><div class="rg-title">// nástroje — registrace a nastavení</div><div class="rg-list">
     <a href="https://profity.io/distribution/907f30d77029386aa1ce5df0bd1138f5" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Profity — registrace</div><div class="ri-sub">výkon, plnění plánu, hovory, faktury</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
@@ -705,30 +703,14 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     </div>
   </div></div>
   <div class="rg"><div class="rg-title">// kvízy</div><div class="rg-list">
-    <button class="quiz-toggle" onclick="toggleQuiz('q_psychologie')">
-  <span class="qt-icon"></span> KVÍZ — Psychologie hovoru a první krůčky
-</button>
-<div class="quiz-embed" id="q_psychologie">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHeeVoiS--Y-b9RULipCr9QsouhaYeloR_p9oPqj5tV3e3OQ/viewform?embedded=true" height="1430" loading="lazy">Loading…</iframe>
-</div>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_benefity')">
-  <span class="qt-icon"></span> KVÍZ — Benefity a cenový sendvič
-</button>
-<div class="quiz-embed" id="q_benefity">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAAkdglqHRjiiwuyudOx1AY8IoTBesUGRCXwhYwOMiVX-Yew/viewform?embedded=true" height="1412" loading="lazy">Loading…</iframe>
-</div>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_finale3')">
-  <span class="qt-icon"></span> KVÍZ — Velké finále 3. dne
-</button>
-<div class="quiz-embed" id="q_finale3">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdnM2qoWK_hmfYpNUVbcbbGB10jAsNmFuezADvUnC_6PGVbPg/viewform?embedded=true" height="2046" loading="lazy">Loading…</iframe>
-</div>
+    
+    
+    
   </div></div>
   <div class="tips">
     <h3>Program dne</h3>
-    <div class="tip" style="color:#3A3730"><span class="tip-n">1</span><strong style="color:var(--black)">Workshop: Sales 21. stol.</strong> — skupinový workshop, moderní prodejní mindset</div>
-    <div class="tip" style="color:#3A3730"><span class="tip-n">2</span><strong style="color:var(--black)">Zkouška na znalost kurzu</strong> — PitchMonster · login: gabriela.herczogova@l-a-b-a.cz / LabaAIsimulace</div>
-    <div class="tip" style="color:#3A3730"><span class="tip-n">3</span><strong style="color:var(--black)">ZV na první hovory</strong> — kolektivní poslech, hodnocení otevření, námitky, prezentace ceny</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">1</span><div class="tip" style="color:#3A3730"><span class="tip-n">2</span><strong style="color:var(--black)">Zkouška na znalost kurzu</strong> — PitchMonster · login: gabriela.herczogova@l-a-b-a.cz / LabaAIsimulace</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">3</span><strong style="color:var(--black)">Feedback na první hovory</strong> — kolektivní poslech, hodnocení otevření, námitky, prezentace ceny</div>
     <div class="tip" style="color:#3A3730"><span class="tip-n">4</span><strong style="color:var(--black)">Role Play: SPIN</strong> — simuluj část skriptu, odhal situaci zákazníka a jeho potřeby</div>
     <div class="tip" style="color:#3A3730"><span class="tip-n">5</span><strong style="color:var(--black)">Role Play: Sendvič</strong> — benefit → cena → benefit</div>
     <div class="tip" style="color:#3A3730"><span class="tip-n">6</span><strong style="color:var(--black)">Role Play: Plný hovor</strong> — úvod → SPIN → benefity → cena → zakončení + sebereflexe</div>
@@ -743,30 +725,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="day-big-n">04</div>
   </div>
   <div class="rg"><div class="rg-title">// kvízy</div><div class="rg-list">
-    <button class="quiz-toggle" onclick="toggleQuiz('q_filtry')">
-  <span class="qt-icon"></span> KVÍZ — HubSpot: Pokročilé filtry a přehledy
-</button>
-<div class="quiz-embed" id="q_filtry">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc2igQd2wUhsLUfNc5DSKdPMJRZ8e2qauUI5rHsHO9Yytchjw/viewform?embedded=true" height="1472" loading="lazy">Loading…</iframe>
-</div>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_deal_sablony')">
-  <span class="qt-icon"></span> KVÍZ — Deal Stages a šablony
-</button>
-<div class="quiz-embed" id="q_deal_sablony">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdK9dHXdjVuHqwwALsQkxC-FYGoZbOmKL0nwPX4SDU_zpgofg/viewform?embedded=true" height="1468" loading="lazy">Loading…</iframe>
-</div>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_fakturace')">
-  <span class="qt-icon"></span> KVÍZ — Procesy fakturace a platební brána Stripe
-</button>
-<div class="quiz-embed" id="q_fakturace">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdWo2gDLHIZ_UhFQssHNvbjkw1y0UtII5jOATDuT7aB--mCIA/viewform?embedded=true" height="1430" loading="lazy">Loading…</iframe>
-</div>
-    <button class="quiz-toggle" onclick="toggleQuiz('q_finale4')">
-  <span class="qt-icon"></span> KVÍZ — Závěrečné velké finále 4. dne
-</button>
-<div class="quiz-embed" id="q_finale4">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHnYbkJfwxn6xB10O1_sX3oKfG0bavFJejqDXzTmyIDfadYg/viewform?embedded=true" height="2232" loading="lazy">Loading…</iframe>
-</div>
+    
+    
+    
+    
   </div></div>
   <div class="rg"><div class="rg-title">// hubspot videa</div><div class="rg-list">
     <a href="https://drive.google.com/file/d/1Ues2EYOJtM_qKgS7HNMwQGqVKlR2lW9T/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Poznámky a Tasky</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
@@ -977,8 +939,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     </div>
     <div style="background:var(--cream);border:1.5px solid var(--border);border-radius:var(--radius);padding:18px;border-top:4px solid #ddd">
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px">
-        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
-        <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:12px;color:var(--black)">Skvot</span>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:15px;color:#1A1714;letter-spacing:-.3px">Skvot</span>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:12px;color:#1A1714">Skvot</span>
       </div>
       <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px">Cílový klient</div>
       <div style="font-size:12.5px;color:var(--off);line-height:1.55;margin-bottom:10px">Kreativci — grafici, UX designéři, fotografové, filmaři, social media manažeři.</div>
@@ -1145,28 +1107,28 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap">
     <div class="tahak-step">
       <div class="tahak-box" onclick="openTahak('nq')" style="border-color:#bbb;flex-direction:column;gap:4px;background:#F8F8F8">
-        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:15px;color:#1A1714;letter-spacing:-.3px">Skvot</span>
         <span style="font-family:var(--mono);font-size:7px;color:#888;letter-spacing:.04em;font-weight:600">NEZVEDL</span>
       </div>
       <div class="tahak-label">NOT<br>QUALIFIED</div>
     </div>
     <div class="tahak-step">
       <div class="tahak-box" onclick="openTahak('fc')" style="border-color:#bbb;flex-direction:column;gap:4px;background:#F8F8F8">
-        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:15px;color:#1A1714;letter-spacing:-.3px">Skvot</span>
         <span style="font-family:var(--mono);font-size:7px;color:#888;letter-spacing:.04em;font-weight:600">KONEC</span>
       </div>
       <div class="tahak-label">FINISHED<br>CALLING</div>
     </div>
     <div class="tahak-step">
       <div class="tahak-box" onclick="openTahak('cl')" style="border-color:#cc5555;flex-direction:column;gap:4px;background:#FFF0F0">
-        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:15px;color:#1A1714;letter-spacing:-.3px">Skvot</span>
         <span style="font-family:var(--mono);font-size:7px;color:#cc5555;letter-spacing:.04em;font-weight:600">ODMÍTL</span>
       </div>
       <div class="tahak-label">CLOSED<br>LOST</div>
     </div>
     <div class="tahak-step">
       <div class="tahak-box" onclick="openTahak('wn')" style="border-color:#bbb;flex-direction:column;gap:4px;background:#F8F8F8">
-        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
+        <span style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:15px;color:#1A1714;letter-spacing:-.3px">Skvot</span>
         <span style="font-family:var(--mono);font-size:7px;color:#888;letter-spacing:.04em;font-weight:600">ŠPATNÉ Č.</span>
       </div>
       <div class="tahak-label">WRONG<br>NUMBER</div>
@@ -1485,12 +1447,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   </div>
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// nástroje</div><div class="divider-line"></div></div>
   <div class="gloss-grid">
-    <div class="gloss-item"><div class="gloss-term">HubSpot (HS)</div><div class="gloss-def">Hlavní CRM systém — vše o klientech, dealech, taskách a fakturaci.</div></div>
-    <div class="gloss-item"><div class="gloss-term">Profity</div><div class="gloss-def">Dashboard výkonu — hovory, minuty, faktury, plnění plánu v %.</div></div>
+    <div class="gloss-item"><div class="gloss-term"><a href="https://app-eu1.hubspot.com/contacts/25652196/objects/0-3/views/143597452/list" target="_blank" style="color:inherit;text-decoration:none">HubSpot (HS) ↗</a></div><div class="gloss-def">Hlavní CRM systém — vše o klientech, dealech, taskách a fakturaci.</div></div>
+    <div class="gloss-item"><div class="gloss-term"><a href="https://profity.io/sales-pulse" target="_blank" style="color:inherit;text-decoration:none">Profity ↗</a></div><div class="gloss-def">Dashboard výkonu — hovory, minuty, faktury, plnění plánu v %.</div></div>
     <div class="gloss-item"><div class="gloss-term">UniTalk</div><div class="gloss-def">Dialer v Chrome — volání klientům přes VoIP, záznamy hovorů.</div></div>
-    <div class="gloss-item"><div class="gloss-term">PitchMonster</div><div class="gloss-def">AI simulátor hovorů — tréning, zkouška znalosti kurzů.</div></div>
-    <div class="gloss-item"><div class="gloss-term">Stripe</div><div class="gloss-def">Platební brána pro kartové platby, Apple Pay, Google Pay.</div></div>
-    <div class="gloss-item"><div class="gloss-term">ZOHO</div><div class="gloss-def">HR portál — dovolená, sick leave, přihlašování do kurzů.</div></div>
+    <div class="gloss-item"><div class="gloss-term"><a href="https://team.pitchmonster.io/" target="_blank" style="color:inherit;text-decoration:none">PitchMonster ↗</a></div><div class="gloss-def">AI simulátor hovorů — tréning, zkouška znalosti kurzů.</div></div>
+    <div class="gloss-item"><div class="gloss-term"><a href="https://dashboard.stripe.com/acct_1N6qucDD3DhYyrqB/payments" target="_blank" style="color:inherit;text-decoration:none">Stripe ↗</a></div><div class="gloss-def">Platební brána pro kartové platby, Apple Pay, Google Pay.</div></div>
+    <div class="gloss-item"><div class="gloss-term"><a href="https://people.zoho.com/labalaba/zp#home/myspace/overview-actionlist" target="_blank" style="color:inherit;text-decoration:none">ZOHO ↗</a></div><div class="gloss-def">HR portál — dovolená, sick leave, přihlašování do kurzů.</div></div>
   </div>
 </div>
 
@@ -1563,107 +1525,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   </div>
 </div>
 
-<!-- KONTAKTY -->
-<div class="page" id="page-kontakty">
-  <div class="hero">
-    <div class="hero-label">Pomoc</div>
-    <div class="hero-h" style="font-size:32px">KON<span class="laba-hl">TAKTY</span></div>
-    <div class="hero-desc">Na koho se obrátit s čím. Vždy nejdřív Slack, pak e-mail, pak telefon.</div>
-    <div class="hero-line"></div>
-  </div>
-  <div class="divider"><div class="divider-line"></div><div class="divider-label">// sales tým</div><div class="divider-line"></div></div>
-  <div class="contacts-grid">
-    <div class="contact-card" style="border-top:3px solid var(--laba)">
-      <div style="width:52px;height:52px;border-radius:50%;background:var(--laba);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--black);margin-bottom:12px">LO</div>
-      <div class="contact-role">Head of Sales</div>
-      <div class="contact-name">Luboš Ondrůj</div>
-      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Schválení slev, volno, dovolená</div>
-      <div class="contact-links">
-        <a href="mailto:lubos.ondruj@l-a-b-a.cz" class="contact-link"><span class="cl-icon">✉</span>lubos.ondruj@l-a-b-a.cz</a>
-      </div>
-    </div>
-    <div class="contact-card" style="border-top:3px solid var(--laba)">
-      <div style="width:52px;height:52px;border-radius:50%;background:var(--laba);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--black);margin-bottom:12px">BK</div>
-      <div class="contact-role">Sales Development Manager</div>
-      <div class="contact-name">Barbora Kaasová</div>
-      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Onboarding, scripty, zkoušky kurzů, chyby v procesu</div>
-      <div class="contact-links">
-        <a href="mailto:barbora.kaasova@skvt.cz" class="contact-link"><span class="cl-icon">✉</span>barbora.kaasova@skvt.cz</a>
-        <a href="tel:+420733280287" class="contact-link"><span class="cl-icon">☎</span>+420 733 280 287</a>
-      </div>
-    </div>
-    <div class="contact-card" style="border-top:3px solid var(--border2)">
-      <div style="width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--faint);margin-bottom:12px">AL</div>
-      <div class="contact-role">Technical Support CRM Global</div>
-      <div class="contact-name">Anastasiia Litoshko</div>
-      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Databáze, práce v CRM, HubSpot technické problémy</div>
-      <div class="contact-links">
-        <a href="mailto:anastasiia.litoshko@laba.academy" class="contact-link"><span class="cl-icon">✉</span>anastasiia.litoshko@laba.academy</a>
-      </div>
-    </div>
-    <div class="contact-card" style="border-top:3px solid var(--border2)">
-      <div style="width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--faint);margin-bottom:12px">AK</div>
-      <div class="contact-role">Chief Sales Operations Officer</div>
-      <div class="contact-name">Alina Kulishova</div>
-      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Nadřízená Anastasiie — pokud Anastasiia nemůže pomoci</div>
-      <div class="contact-links">
-        <a href="mailto:alina.kulishova@laba.academy" class="contact-link"><span class="cl-icon">✉</span>alina.kulishova@laba.academy</a>
-        <a href="tel:+380979298425" class="contact-link"><span class="cl-icon">☎</span>+380 979 298 425</a>
-      </div>
-    </div>
-    <div class="contact-card" style="border-top:3px solid var(--border2)">
-      <div style="width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--faint);margin-bottom:12px">OK</div>
-      <div class="contact-role">Global Sales Laba Group</div>
-      <div class="contact-name">Olga Koval</div>
-      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Distribuce na kurzy, Laba Group</div>
-      <div class="contact-links">
-        <a href="mailto:o.koval@laba.academy" class="contact-link"><span class="cl-icon">✉</span>o.koval@laba.academy</a>
-      </div>
-    </div>
-    <div class="contact-card" style="border-top:3px solid var(--border2)">
-      <div style="width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--faint);margin-bottom:12px">JS</div>
-      <div class="contact-role">HR & Office Assistant</div>
-      <div class="contact-name">Jana Šváchová</div>
-      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">HR záležitosti, ZOHO, přístupy, onboarding administrativa</div>
-      <div class="contact-links">
-        <a href="mailto:jana.svachova@l-a-b-a.cz" class="contact-link"><span class="cl-icon">✉</span>jana.svachova@l-a-b-a.cz</a>
-        <a href="tel:733731896" class="contact-link"><span class="cl-icon">☎</span>733 731 896</a>
-      </div>
-    </div>
-    <div class="contact-card" style="border-top:3px solid var(--laba)">
-      <div style="width:52px;height:52px;border-radius:50%;background:var(--laba);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px">🤖</div>
-      <div class="contact-role">AI Asistent 24/7</div>
-      <div class="contact-name">Laba Sales Bot</div>
-      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Fakturace, provize, HubSpot, prodejní procesy</div>
-      <div class="contact-links">
-        <a href="https://laba-finance-bot.vercel.app/" target="_blank" class="contact-link"><span class="cl-icon">→</span>laba-finance-bot.vercel.app</a>
-      </div>
-    </div>
-  </div>
-  <div class="divider"><div class="divider-line"></div><div class="divider-label">// skupiny na slacku</div><div class="divider-line"></div></div>
-  <div class="gloss-grid">
-    <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> daily-priority-lsd</div><div class="gloss-def"><strong style="color:var(--black)">Nejdůležitější kanál</strong> — všechny informace od sales managementu.</div></div>
-    <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> product-sellers</div><div class="gloss-def">Jakýkoliv dotaz ke kurzu, který si sám nedokážeš zjistit — vždy označ produktáka daného kurzu.</div></div>
-    <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> courses-changes</div><div class="gloss-def">Zde jsou vždy uvedeny veškeré změny v kurzech.</div></div>
-    <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> distribution-lsd</div><div class="gloss-def">Zadané zkoušky, splněné zkoušky.</div></div>
-    <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> sales_invoices</div><div class="gloss-def">Platby ze Stripe, faktury, výpisy plateb.</div></div>
-    <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> cs-sales</div><div class="gloss-def">Přidávání lidí do kurzu v den začátku kurzu, veškerá komunikace se zákaznickou podporou.</div></div>
-    <div class="gloss-item"><div class="gloss-term">obedy-lsd</div><div class="gloss-def">Kdykoliv se vypneš/zapneš nebo seš vypnutý/zapnutý, je třeba dát vědět týmu i s důvodem.</div></div>
-    <div class="gloss-item"><div class="gloss-term">feedback-on-leads</div><div class="gloss-def">Pokud máš NL s bad TA, dáš s odkazem a krátkým komentářem sem.</div></div>
-    <div class="gloss-item"><div class="gloss-term">emailové_templaty</div><div class="gloss-def">Pokud je chyba v emailu v HS, napíšeš jaká v jakém kurzu a označíš produktáka kurzu.</div></div>
-    <div class="gloss-item"><div class="gloss-term">wrong-numbers</div><div class="gloss-def">Pokud číslo v NL neexistuje.</div></div>
-    <div class="gloss-item"><div class="gloss-term">tech_support_cz</div><div class="gloss-def">Tech podpora — problém se zadává na global Slacku a pak se řeší v tomto kanálu.</div></div>
-    <div class="gloss-item"><div class="gloss-term">czech-rockstars-labatka-zviratka</div><div class="gloss-def">Skupina pro celou firmu.</div></div>
-    <div class="gloss-item"><div class="gloss-term">general</div><div class="gloss-def">Obecné oficiální oznámení (komunikace v angličtině).</div></div>
-    <div class="gloss-item"><div class="gloss-term">feedback</div><div class="gloss-def">Zpětná vazba od klientů.</div></div>
-    <div class="gloss-item"><div class="gloss-term">best-clients</div><div class="gloss-def">Kanál pro srandu mezi prodejci — zajímaví klienti. </div></div>
-    <div class="gloss-item"><div class="gloss-term">sales-reps</div><div class="gloss-def">Využívá se minimálně, ale je pro jakékoliv informace pro sales oddělení.</div></div>
-    <div class="gloss-item"><div class="gloss-term">dovolenkování</div><div class="gloss-def">Pro celou firmu — informace když máš dovolenou, volno, sick leave.</div></div>
-    <div class="gloss-item"><div class="gloss-term">chálky-delivery</div><div class="gloss-def">Pro objednání jídla společně do kanclu. </div></div>
-  </div>
-</div>
 
-  </div>
+
+  
+
+</div>
+</div>
 </main>
 
 <script>
@@ -1694,7 +1561,7 @@ function buildIdx() {
     const page = el.closest(".page");
     if (!page) return;
     const pid = page.id.replace("page-","");
-    const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",tahak:"Tahák",workflow:"Deal Stages",namitky:"Námitkovník",glossar:"Glossář",faq:"FAQ",kontakty:"Kontakty"};
+    const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",tahak:"Tahák",workflow:"Deal Stages",namitky:"Námitkovník",glossar:"Glossář",faq:"FAQ"};
     const title = el.querySelector(".ri-title")?.textContent || "";
     if (title) searchIdx.push({title, day:map[pid]||pid, pageId:pid, el});
   });
