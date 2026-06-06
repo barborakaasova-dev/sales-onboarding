@@ -29,7 +29,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;font-size:14px;line-height:1.6}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--black);min-height:100vh;font-size:14px;line-height:1.6}
 
 /* SIDEBAR */
 .sidebar{position:fixed;left:0;top:0;bottom:0;width:260px;background:#F5F1E4;border-right:1.5px solid #E0D9C8;display:flex;flex-direction:column;z-index:100;overflow-y:auto}
@@ -42,7 +42,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);min-
 .brand-tag.laba{color:var(--black);border-color:var(--black);background:var(--laba)}
 .brand-tag.rd{color:var(--rd);border-color:var(--rd);background:rgba(0,255,136,.06);font-style:italic}
 .brand-tag.skvot{color:var(--skvot);border-color:var(--skvot);background:rgba(255,59,59,.06)}
-.sb-title{font-family:'Unbounded',sans-serif;font-weight:900;font-size:14px;color:var(--cream);letter-spacing:-.3px;line-height:1.2}
+.sb-title{font-family:'Unbounded',sans-serif;font-weight:900;font-size:14px;color:var(--black);letter-spacing:-.3px;line-height:1.2}
 .sb-sub{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:4px;letter-spacing:.06em}
 
 .nav-group{padding:12px 12px 4px;border-top:1px solid rgba(0,0,0,.06)}
@@ -82,7 +82,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .hero-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .hero-label::before{content:'';display:inline-block;width:24px;height:2px;background:var(--laba-dark);border-radius:2px}
 .hero-h{font-family:'Unbounded',sans-serif;font-weight:900;font-size:38px;letter-spacing:-2px;line-height:.95;color:var(--black);margin-bottom:16px}
-.hero-h .hl,.hero-h .laba-hl{background:none;color:var(--black);display:inline;border-bottom:4px solid var(--laba)}
+.hero-h .hl,.hero-h .laba-hl{background:var(--laba);padding:2px 8px;border-radius:4px;color:#1A1714;display:inline}
 .hero-h .rd-hl{color:var(--rd)}
 .hero-h .skvot-hl{color:var(--skvot)}
 .hero-desc{color:var(--off);font-size:14.5px;max-width:500px;line-height:1.65}
@@ -110,7 +110,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 /* TIPS */
 .tips{background:var(--laba-bg);border:1.5px solid rgba(197,168,0,.2);border-left:4px solid var(--laba-dark);border-radius:var(--radius);padding:22px 26px;margin:24px 0}
 .tips h3{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:var(--black);margin-bottom:14px;letter-spacing:.02em;text-transform:uppercase;padding-bottom:10px;border-bottom:2px solid var(--laba)}
-.tip{display:flex;align-items:flex-start;gap:12px;margin-bottom:9px;font-size:13px;color:var(--off);line-height:1.55}
+.tip{display:flex;align-items:flex-start;gap:12px;margin-bottom:9px;font-size:13px;color:var(--black);line-height:1.55}
 .tip-n{font-family:var(--mono);font-size:10px;color:var(--off);flex-shrink:0;padding-top:2px;min-width:20px}
 
 /* DIVIDER */
@@ -175,7 +175,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .acc-card.open .acc-body{display:block}
 .strat{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin:12px 0 10px;background:var(--laba);color:var(--black);border:none}
 .acc-resp{font-size:13px;color:var(--off);line-height:1.7}
-.acc-resp strong{color:var(--cream);font-weight:600}
+.acc-resp strong{color:var(--black);font-weight:600}
 .var-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
 .var-box{background:var(--bg3);border-radius:8px;padding:12px 14px;border:1px solid var(--border)}
 .var-label{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
@@ -201,12 +201,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 
 /* CONTACTS */
 .contacts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:16px 0}
-.contact-card{background:var(--cream);border:1.5px solid var(--border);border-radius:var(--radius);padding:18px;transition:border-color .2s;box-shadow:0 1px 4px rgba(26,23,20,.04)}
+.contact-card{background:#FFFFFF;border:1.5px solid #D8D3C8;border-radius:var(--radius);padding:20px;transition:border-color .2s;box-shadow:0 2px 8px rgba(26,23,20,.08)}
 .contact-card:hover{border-color:var(--black)}
 .contact-role{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
-.contact-name{font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--black);margin-bottom:8px;letter-spacing:-.2px}
+.contact-name{font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:#1A1714;margin-bottom:8px;letter-spacing:-.2px}
 .contact-links{display:flex;flex-direction:column;gap:4px}
-.contact-link{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--off);text-decoration:none;transition:color .15s}
+.contact-link{display:flex;align-items:center;gap:7px;font-size:12px;color:#5a5248;text-decoration:none;transition:color .15s}
 .contact-link:hover{color:var(--black)}
 .contact-link .cl-icon{font-size:12px;opacity:.6;width:14px}
 
@@ -214,6 +214,46 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .rule-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:rgba(255,59,59,.1);color:var(--skvot);border:1px solid rgba(255,59,59,.2);margin-bottom:8px}
 
 @media(max-width:900px){.sidebar{width:220px}.main{margin-left:220px}.ov-grid{grid-template-columns:repeat(2,1fr)}}
+
+@media(max-width:768px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1.5px solid var(--border);flex-direction:row;flex-wrap:wrap;overflow-y:visible;overflow-x:auto}
+  .sb-logo{padding:16px;border-bottom:none;border-right:1px solid var(--border);flex-shrink:0}
+  .sb-title{font-size:13px}
+  .nav-group{padding:8px;display:flex;flex-direction:row;flex-wrap:wrap;gap:4px;align-items:center;border-top:none}
+  .nav-group-label{display:none}
+  .nav-btn{padding:6px 10px;font-size:11px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;flex-shrink:0}
+  .nav-btn .ni{display:none}
+  .sb-bot{margin:8px;padding:8px 12px;font-size:10px;flex-shrink:0}
+  .main{margin-left:0}
+  .topbar{padding:10px 16px}
+  .content{padding:20px 16px}
+  .hero-h{font-size:26px;letter-spacing:-1px}
+  .ov-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .contacts-grid{grid-template-columns:1fr 1fr}
+  .gloss-grid{grid-template-columns:1fr}
+  .flow-grid{grid-template-columns:repeat(2,1fr)}
+  .spin-row{grid-template-columns:repeat(2,1fr)}
+  .tahak-flow{gap:4px}
+  .tahak-box{width:60px;height:60px}
+  .tahak-arrow{font-size:12px;padding:0 2px}
+  .tahak-label{font-size:7.5px}
+  .day-big-n{font-size:60px}
+  .day-h{font-size:22px}
+  .bot-cta{flex-direction:column;gap:16px;padding:20px}
+  .bot-cta::before{display:none}
+  .bot-link{margin-left:0;width:100%;text-align:center;justify-content:center}
+  .search-wrap{max-width:100%}
+  .topbar{flex-wrap:wrap}
+}
+@media(max-width:480px){
+  .ov-grid{grid-template-columns:1fr}
+  .contacts-grid{grid-template-columns:1fr}
+  .sidebar{flex-direction:column}
+  .nav-group{border-top:1px solid var(--border);padding:6px 12px}
+  .nav-btn{font-size:12px;padding:7px 12px;border-radius:8px;width:100%}
+  .nav-btn .ni{display:inline}
+  .nav-group-label{display:block}
+}
 </style>
 </head>
 <body>
@@ -226,10 +266,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
         <span style="background:#D0D0CC;border-radius:3px;padding:2px 5px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#333;font-weight:600;letter-spacing:.02em">r_d</span>
         <span style="font-family:'Inter',sans-serif;font-size:8.5px;color:#888;line-height:1.3;font-weight:400">robot_<br>dreams</span>
       </span>
-      <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="16" cy="16" r="13" stroke="#222" stroke-width="2"/>
-        <path d="M18 5 L10 17 H16 L14 27 L22 15 H16 Z" fill="#222"/>
-      </svg>
+      <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
     </div>
     <div class="sb-title" style="color:#1A1714">SALES<br>ONBOARDING</div>
     <div class="sb-sub" style="color:#9A8E7A">// průvodce nováčka</div>
@@ -349,12 +386,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// pravidla</div><div class="divider-line"></div></div>
   <div class="tips">
     <h3>Zlatá pravidla</h3>
-    <div class="tip"><span class="tip-n">01</span>Neomluvuj se za cenu — prezentuj ji jako investici do vysněného já klienta.</div>
-    <div class="tip"><span class="tip-n">02</span>Nepoužívej „voucher" ani „kupón" — říkej „zvýhodněná cena" nebo „sleva za předregistraci".</div>
-    <div class="tip"><span class="tip-n">03</span>Neprodávej seznam lekcí — prodávej úsporu času a řešení konkrétní bolesti klienta.</div>
-    <div class="tip"><span class="tip-n">04</span><strong style="color:#fff">In a Call</strong> zadávej vždy jen u New Leadu se kterým právě pracuješ. Max 20–30 minut!</div>
-    <div class="tip"><span class="tip-n">05</span>Každý den ověř, že máš zapnuté notifikace v Telegramu — žádný lead nesmí utéct.</div>
-    <div class="tip"><span class="tip-n">06</span>Task nastavuj vždy s předstihem — nikdy ne na poslední den měsíce!</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">01</span>Neomluvuj se za cenu — prezentuj ji jako investici do vysněného já klienta.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">02</span>Nepoužívej „voucher" ani „kupón" — říkej „zvýhodněná cena" nebo „sleva za předregistraci".</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">03</span>Neprodávej seznam lekcí — prodávej úsporu času a řešení konkrétní bolesti klienta.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">04</span><strong style="color:var(--black)">In a Call</strong> zadávej vždy jen u New Leadu se kterým právě pracuješ. Max 20–30 minut!</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">05</span>Každý den ověř, že máš zapnuté notifikace v Telegramu — žádný lead nesmí utéct.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">06</span>Task nastavuj vždy s předstihem — nikdy ne na poslední den měsíce!</div>
   </div>
 </div>
 
@@ -689,13 +726,13 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   </div></div>
   <div class="tips">
     <h3>Program dne</h3>
-    <div class="tip"><span class="tip-n">1</span><strong style="color:#fff">Workshop: Sales 21. stol.</strong> — skupinový workshop, moderní prodejní mindset</div>
-    <div class="tip"><span class="tip-n">2</span><strong style="color:#fff">Zkouška na znalost kurzu</strong> — PitchMonster · login: gabriela.herczogova@l-a-b-a.cz / LabaAIsimulace</div>
-    <div class="tip"><span class="tip-n">3</span><strong style="color:#fff">ZV na první hovory</strong> — kolektivní poslech, hodnocení otevření, námitky, prezentace ceny</div>
-    <div class="tip"><span class="tip-n">4</span><strong style="color:#fff">Role Play: SPIN</strong> — simuluj část skriptu, odhal situaci zákazníka a jeho potřeby</div>
-    <div class="tip"><span class="tip-n">5</span><strong style="color:#fff">Role Play: Sendvič</strong> — benefit → cena → benefit</div>
-    <div class="tip"><span class="tip-n">6</span><strong style="color:#fff">Role Play: Plný hovor</strong> — úvod → SPIN → benefity → cena → zakončení + sebereflexe</div>
-    <div class="tip"><span class="tip-n">7</span><strong style="color:#fff">Role Play: Opakování + námitka</strong> — vysoká cena / termín / nejistota / rozmyšlení</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">1</span><strong style="color:var(--black)">Workshop: Sales 21. stol.</strong> — skupinový workshop, moderní prodejní mindset</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">2</span><strong style="color:var(--black)">Zkouška na znalost kurzu</strong> — PitchMonster · login: gabriela.herczogova@l-a-b-a.cz / LabaAIsimulace</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">3</span><strong style="color:var(--black)">ZV na první hovory</strong> — kolektivní poslech, hodnocení otevření, námitky, prezentace ceny</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">4</span><strong style="color:var(--black)">Role Play: SPIN</strong> — simuluj část skriptu, odhal situaci zákazníka a jeho potřeby</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">5</span><strong style="color:var(--black)">Role Play: Sendvič</strong> — benefit → cena → benefit</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">6</span><strong style="color:var(--black)">Role Play: Plný hovor</strong> — úvod → SPIN → benefity → cena → zakončení + sebereflexe</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">7</span><strong style="color:var(--black)">Role Play: Opakování + námitka</strong> — vysoká cena / termín / nejistota / rozmyšlení</div>
   </div>
 </div>
 
@@ -874,11 +911,11 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 
   <div class="tips">
     <h3>Ranní checklist</h3>
-    <div class="tip"><span class="tip-n">1</span>Zkontroluj <strong>Telegram</strong> — notifikace musí být zapnuté. Žádný NL nesmí uniknout.</div>
-    <div class="tip"><span class="tip-n">2</span>Otevři <strong>HubSpot</strong> — zkontroluj počet NL a tasků na dnešek. Zapiš stav ve formátu [16/120] do příslušného pole.</div>
-    <div class="tip"><span class="tip-n">3</span>Zkontroluj <strong>WP dealy</strong> — má někdo splatnost dnes nebo zítra?</div>
-    <div class="tip"><span class="tip-n">4</span>Zkontroluj <strong>MD dealy</strong> — máš s někým domluvené volání na konkrétní čas?</div>
-    <div class="tip"><span class="tip-n">5</span>Připrav si <strong>tasky na den</strong> — seřaď podle priority. Cíl: 120 tasků připravených.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">1</span>Zkontroluj <strong>Telegram</strong> — notifikace musí být zapnuté. Žádný NL nesmí uniknout.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">2</span>Otevři <strong>HubSpot</strong> — zkontroluj počet NL a tasků na dnešek. Zapiš stav ve formátu [16/120] do příslušného pole.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">3</span>Zkontroluj <strong>WP dealy</strong> — má někdo splatnost dnes nebo zítra?</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">4</span>Zkontroluj <strong>MD dealy</strong> — máš s někým domluvené volání na konkrétní čas?</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">5</span>Připrav si <strong>tasky na den</strong> — seřaď podle priority. Cíl: 120 tasků připravených.</div>
   </div>
 
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// časté chyby — co nedělat</div><div class="divider-line"></div></div>
@@ -940,7 +977,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     </div>
     <div style="background:var(--cream);border:1.5px solid var(--border);border-radius:var(--radius);padding:18px;border-top:4px solid #ddd">
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px">
-        <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" stroke="#222" stroke-width="2"/><path d="M18 5 L10 17 H16 L14 27 L22 15 H16 Z" fill="#222"/></svg>
+        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
         <span style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:12px;color:var(--black)">Skvot</span>
       </div>
       <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px">Cílový klient</div>
@@ -1108,28 +1145,28 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap">
     <div class="tahak-step">
       <div class="tahak-box" onclick="openTahak('nq')" style="border-color:#bbb;flex-direction:column;gap:4px;background:#F8F8F8">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/></svg>
+        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
         <span style="font-family:var(--mono);font-size:7px;color:#888;letter-spacing:.04em;font-weight:600">NEZVEDL</span>
       </div>
       <div class="tahak-label">NOT<br>QUALIFIED</div>
     </div>
     <div class="tahak-step">
       <div class="tahak-box" onclick="openTahak('fc')" style="border-color:#bbb;flex-direction:column;gap:4px;background:#F8F8F8">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
         <span style="font-family:var(--mono);font-size:7px;color:#888;letter-spacing:.04em;font-weight:600">KONEC</span>
       </div>
       <div class="tahak-label">FINISHED<br>CALLING</div>
     </div>
     <div class="tahak-step">
       <div class="tahak-box" onclick="openTahak('cl')" style="border-color:#cc5555;flex-direction:column;gap:4px;background:#FFF0F0">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cc5555" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6" stroke-linecap="round"/></svg>
+        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
         <span style="font-family:var(--mono);font-size:7px;color:#cc5555;letter-spacing:.04em;font-weight:600">ODMÍTL</span>
       </div>
       <div class="tahak-label">CLOSED<br>LOST</div>
     </div>
     <div class="tahak-step">
       <div class="tahak-box" onclick="openTahak('wn')" style="border-color:#bbb;flex-direction:column;gap:4px;background:#F8F8F8">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.44 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4"/><line x1="1" y1="1" x2="23" y2="23" stroke-linecap="round"/></svg>
+        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" stroke="#2a2a2a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="36"/><path d="M 76 20 L 32 32 L 64 68 L 20 78" fill="none"/><path d="M 65 10 L 78 19 L 70 31" fill="none"/></svg>
         <span style="font-family:var(--mono);font-size:7px;color:#888;letter-spacing:.04em;font-weight:600">ŠPATNÉ Č.</span>
       </div>
       <div class="tahak-label">WRONG<br>NUMBER</div>
@@ -1166,10 +1203,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 
   <div class="tips" style="margin-bottom:24px">
     <h3>Základní princip</h3>
-    <div class="tip"><span class="tip-n">→</span>SPIN není dotazník — je to <strong style="color:#fff">přirozený rozhovor</strong> vedený tak, aby klient sám dospěl k tomu, že kurz potřebuje.</div>
-    <div class="tip"><span class="tip-n">→</span>Lidé nakupují od lidí, kterým věří a kteří jim rozumí. SPIN ti pomáhá <strong style="color:#fff">porozumět situaci klienta dřív než začneš prezentovat.</strong></div>
-    <div class="tip"><span class="tip-n">→</span>Čím více klient mluví o svých problémech, tím více si uvědomuje, že je potřebuje řešit — a ty mu nabídneš řešení ve správný moment.</div>
-    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--skvot)">Nejčastější chyba:</strong> přeskočit P, I, N a hned prezentovat kurz po situačních otázkách. Bez implikace a need-payoff klient necítí urgenci.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">→</span>SPIN není dotazník — je to <strong style="color:var(--black)">přirozený rozhovor</strong> vedený tak, aby klient sám dospěl k tomu, že kurz potřebuje.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">→</span>Lidé nakupují od lidí, kterým věří a kteří jim rozumí. SPIN ti pomáhá <strong style="color:var(--black)">porozumět situaci klienta dřív než začneš prezentovat.</strong></div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">→</span>Čím více klient mluví o svých problémech, tím více si uvědomuje, že je potřebuje řešit — a ty mu nabídneš řešení ve správný moment.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">·</span><strong style="color:var(--skvot)">Nejčastější chyba:</strong> přeskočit P, I, N a hned prezentovat kurz po situačních otázkách. Bez implikace a need-payoff klient necítí urgenci.</div>
   </div>
 
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// 4 fáze SPIN</div><div class="divider-line"></div></div>
@@ -1183,8 +1220,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
           <div style="font-family:var(--mono);font-size:9px;color:var(--off);letter-spacing:.1em;margin-top:4px">SITUACE</div>
         </div>
         <div style="padding:18px 20px;flex:1">
-          <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--cream);margin-bottom:6px">Situační otázky</div>
-          <div style="font-size:13px;color:var(--off);line-height:1.6;margin-bottom:10px">Zjišťuješ kontext — kde klient pracuje, co dělá, jaká je jeho role. <strong style="color:#fff">Nepřehánět</strong> — příliš mnoho situačních otázek klienta unaví. Maximálně 3–4, jen to nejnutnější.</div>
+          <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--black);margin-bottom:6px">Situační otázky</div>
+          <div style="font-size:13px;color:var(--off);line-height:1.6;margin-bottom:10px">Zjišťuješ kontext — kde klient pracuje, co dělá, jaká je jeho role. <strong style="color:var(--black)">Nepřehánět</strong> — příliš mnoho situačních otázek klienta unaví. Maximálně 3–4, jen to nejnutnější.</div>
           <div style="font-family:var(--mono);font-size:10px;color:var(--black);letter-spacing:.06em;margin-bottom:8px">// cíl: pochopit prostředí klienta</div>
           <div style="display:flex;flex-direction:column;gap:5px">
             <div style="background:var(--bg3);border-radius:6px;padding:9px 14px;font-size:12.5px;color:var(--off);border:1px solid var(--border);font-style:italic">„Proč vás zaujal zrovna tento kurz?"</div>
@@ -1204,8 +1241,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
           <div style="font-family:var(--mono);font-size:9px;color:var(--skvot);letter-spacing:.1em;margin-top:4px">PROBLÉM</div>
         </div>
         <div style="padding:18px 20px;flex:1">
-          <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--cream);margin-bottom:6px">Problematické otázky</div>
-          <div style="font-size:13px;color:var(--off);line-height:1.6;margin-bottom:10px">Odhaluješ bolest — co klienta trápí, s čím se potýká, co mu nejde. Klient musí sám pojmenovat svůj problém, ne ty za něj. <strong style="color:#fff">Buď zvědavý, ne soudce.</strong></div>
+          <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--black);margin-bottom:6px">Problematické otázky</div>
+          <div style="font-size:13px;color:var(--off);line-height:1.6;margin-bottom:10px">Odhaluješ bolest — co klienta trápí, s čím se potýká, co mu nejde. Klient musí sám pojmenovat svůj problém, ne ty za něj. <strong style="color:var(--black)">Buď zvědavý, ne soudce.</strong></div>
           <div style="font-family:var(--mono);font-size:10px;color:var(--skvot);letter-spacing:.06em;margin-bottom:8px">// cíl: klient sám pojmenuje svůj problém</div>
           <div style="display:flex;flex-direction:column;gap:5px">
             <div style="background:var(--bg3);border-radius:6px;padding:9px 14px;font-size:12.5px;color:var(--off);border:1px solid var(--border);font-style:italic">„Kde v téhle oblasti vnímáte největší mezery?"</div>
@@ -1225,8 +1262,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
           <div style="font-family:var(--mono);font-size:9px;color:var(--rd);letter-spacing:.1em;margin-top:4px">IMPLIKACE</div>
         </div>
         <div style="padding:18px 20px;flex:1">
-          <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--cream);margin-bottom:6px">Implikační otázky</div>
-          <div style="font-size:13px;color:var(--off);line-height:1.6;margin-bottom:10px">Zesilíš bolest — ptáš se na <strong style="color:#fff">důsledky a dopady</strong> problému. Klient si uvědomí, že jeho situace je závažnější, než si myslel. Toto je <strong style="color:#fff">nejdůležitější fáze</strong> — právě tu prodejci nejčastěji přeskakují.</div>
+          <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--black);margin-bottom:6px">Implikační otázky</div>
+          <div style="font-size:13px;color:var(--off);line-height:1.6;margin-bottom:10px">Zesilíš bolest — ptáš se na <strong style="color:var(--black)">důsledky a dopady</strong> problému. Klient si uvědomí, že jeho situace je závažnější, než si myslel. Toto je <strong style="color:var(--black)">nejdůležitější fáze</strong> — právě tu prodejci nejčastěji přeskakují.</div>
           <div style="font-family:var(--mono);font-size:10px;color:var(--rd);letter-spacing:.06em;margin-bottom:8px">// cíl: klient pocítí urgenci problém řešit</div>
           <div style="display:flex;flex-direction:column;gap:5px">
             <div style="background:var(--bg3);border-radius:6px;padding:9px 14px;font-size:12.5px;color:var(--off);border:1px solid var(--border);font-style:italic">„Jak vás to ovlivňuje ve vaší každodenní práci?"</div>
@@ -1246,8 +1283,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
           <div style="font-family:var(--mono);font-size:9px;color:#8899ff;letter-spacing:.1em;margin-top:4px">NEED-PAYOFF</div>
         </div>
         <div style="padding:18px 20px;flex:1">
-          <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--cream);margin-bottom:6px">Need-payoff otázky (Užitečnost)</div>
-          <div style="font-size:13px;color:var(--off);line-height:1.6;margin-bottom:10px">Necháš klienta <strong style="color:#fff">vlastními slovy popsat řešení</strong> — jaký by měl pocit, kdyby problém zmizel. Tím si sám prodá hodnotu kurzu. Prezentace pak navazuje přesně na to, co řekl.</div>
+          <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;color:var(--black);margin-bottom:6px">Need-payoff otázky (Užitečnost)</div>
+          <div style="font-size:13px;color:var(--off);line-height:1.6;margin-bottom:10px">Necháš klienta <strong style="color:var(--black)">vlastními slovy popsat řešení</strong> — jaký by měl pocit, kdyby problém zmizel. Tím si sám prodá hodnotu kurzu. Prezentace pak navazuje přesně na to, co řekl.</div>
           <div style="font-family:var(--mono);font-size:10px;color:#8899ff;letter-spacing:.06em;margin-bottom:8px">// cíl: klient sám popíše, proč kurz potřebuje</div>
           <div style="display:flex;flex-direction:column;gap:5px">
             <div style="background:var(--bg3);border-radius:6px;padding:9px 14px;font-size:12.5px;color:var(--off);border:1px solid var(--border);font-style:italic">„Jak by se vám líbilo, kdybyste to uměl/a dělat sebejistě a rychle?"</div>
@@ -1266,10 +1303,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 
   <div class="tips">
     <h3>Přechod ze SPIN do prezentace</h3>
-    <div class="tip"><span class="tip-n">1</span>Po N otázkách uděláš <strong style="color:#fff">sumarizaci</strong> — zopakuješ vlastními slovy, co klient řekl: <em style="color:var(--faint)">„Takže pokud tomu dobře rozumím, potřebujete X, abyste dosáhl/a Y..."</em></div>
-    <div class="tip"><span class="tip-n">2</span>Klient potvrdí (nebo upřesní) — a teprve pak začneš prezentovat kurz jako <strong style="color:#fff">přesné řešení jeho problému.</strong></div>
-    <div class="tip"><span class="tip-n">3</span>Neprezentuj seznam lekcí — prezentuj <strong style="color:#fff">výsledky</strong>. Co klient umí po kurzu, co mu to přinese, jak se změní jeho situace.</div>
-    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--skvot)">Pamatuj:</strong> Cena vždy až po prezentaci benefitů — sendvičem. Nikdy jako první odpověď na otázku „kolik to stojí?"</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">1</span>Po N otázkách uděláš <strong style="color:var(--black)">sumarizaci</strong> — zopakuješ vlastními slovy, co klient řekl: <em style="color:var(--faint)">„Takže pokud tomu dobře rozumím, potřebujete X, abyste dosáhl/a Y..."</em></div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">2</span>Klient potvrdí (nebo upřesní) — a teprve pak začneš prezentovat kurz jako <strong style="color:var(--black)">přesné řešení jeho problému.</strong></div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">3</span>Neprezentuj seznam lekcí — prezentuj <strong style="color:var(--black)">výsledky</strong>. Co klient umí po kurzu, co mu to přinese, jak se změní jeho situace.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">·</span><strong style="color:var(--skvot)">Pamatuj:</strong> Cena vždy až po prezentaci benefitů — sendvičem. Nikdy jako první odpověď na otázku „kolik to stojí?"</div>
   </div>
 </div>
 
@@ -1287,12 +1324,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-bottom:24px">
     <div style="background:var(--cream);border:1px solid var(--border);border-left:3px solid var(--rd);border-radius:var(--radius);padding:18px 20px">
       <div style="font-family:var(--mono);font-size:9px;color:var(--rd);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Closed Won — 2 a více kurzů</div>
-      <div style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:20px;color:var(--cream);margin-bottom:8px">Tvůj navždy </div>
+      <div style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:20px;color:var(--black);margin-bottom:8px">Tvůj navždy </div>
       <div style="font-size:13px;color:var(--off);line-height:1.6">Pokud klient u tebe koupil 2 a více kurzů, deal zůstává tvůj po celou dobu, co pracuješ v Labě. Všechny nové registrace jdou tobě a nikdo jiný mu nesmí volat.</div>
     </div>
     <div style="background:var(--cream);border:1px solid var(--border);border-left:3px solid var(--laba);border-radius:var(--radius);padding:18px 20px">
       <div style="font-family:var(--mono);font-size:9px;color:var(--off);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Closed Won — 1 kurz</div>
-      <div style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:20px;color:var(--cream);margin-bottom:8px">4 měsíce </div>
+      <div style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:20px;color:var(--black);margin-bottom:8px">4 měsíce </div>
       <div style="font-size:13px;color:var(--off);line-height:1.6">Deal zůstává tvůj 4 měsíce od data posledního prodeje. Po uplynutí doby může klient přijít do automatického rozdělení.</div>
     </div>
   </div>
@@ -1302,13 +1339,13 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-bottom:24px">
     <div style="background:var(--cream);border:1px solid var(--border);border-left:3px solid var(--laba);border-radius:var(--radius);padding:18px 20px">
       <div style="font-family:var(--mono);font-size:9px;color:var(--off);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">CL / FC — stejný kurz</div>
-      <div style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:20px;color:var(--cream);margin-bottom:8px">2 měsíce </div>
-      <div style="font-size:13px;color:var(--off);line-height:1.6">Pokud se klient znovu přihlásí na <strong style="color:#fff">stejný kurz</strong>, vrátí se původnímu prodejci. Platí 2 měsíce od posledního kontaktu.</div>
+      <div style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:20px;color:var(--black);margin-bottom:8px">2 měsíce </div>
+      <div style="font-size:13px;color:var(--off);line-height:1.6">Pokud se klient znovu přihlásí na <strong style="color:var(--black)">stejný kurz</strong>, vrátí se původnímu prodejci. Platí 2 měsíce od posledního kontaktu.</div>
     </div>
     <div style="background:var(--cream);border:1px solid var(--border);border-left:3px solid var(--faint);border-radius:var(--radius);padding:18px 20px">
       <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">CL — jiný kurz</div>
-      <div style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:20px;color:var(--cream);margin-bottom:8px">Automat </div>
-      <div style="font-size:13px;color:var(--off);line-height:1.6">Pokud se klient přihlásí na <strong style="color:#fff">jiný kurz</strong>, deal dostane ten prodejce, kterému ho systém přidělí automaticky.</div>
+      <div style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:20px;color:var(--black);margin-bottom:8px">Automat </div>
+      <div style="font-size:13px;color:var(--off);line-height:1.6">Pokud se klient přihlásí na <strong style="color:var(--black)">jiný kurz</strong>, deal dostane ten prodejce, kterému ho systém přidělí automaticky.</div>
     </div>
   </div>
 
@@ -1316,9 +1353,9 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 
   <div class="tips">
     <h3>Pravidla databáze</h3>
-    <div class="tip"><span class="tip-n">·</span>Volání do databáze jiných prodejců je možné <strong style="color:#fff">pouze po dohodě s Lubošem Ondrůjem (HoS)</strong> — a to po uplynutí 1 měsíce od posledního kontaktu.</div>
-    <div class="tip"><span class="tip-n">·</span>Při volání do databáze pracuješ v Closed Lost přes task. <strong style="color:#fff">Nový Deal vytvářej AŽ při potvrzení zájmu a vystavené faktuře.</strong></div>
-    <div class="tip"><span class="tip-n">·</span>Nikdy nedělej stejný list databáze ve stejnou chvíli s jiným prodejcem — vždy zkontroluj, zda nemá kolega u kontaktu task.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">·</span>Volání do databáze jiných prodejců je možné <strong style="color:var(--black)">pouze po dohodě s Lubošem Ondrůjem (HoS)</strong> — a to po uplynutí 1 měsíce od posledního kontaktu.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">·</span>Při volání do databáze pracuješ v Closed Lost přes task. <strong style="color:var(--black)">Nový Deal vytvářej AŽ při potvrzení zájmu a vystavené faktuře.</strong></div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">·</span>Nikdy nedělej stejný list databáze ve stejnou chvíli s jiným prodejcem — vždy zkontroluj, zda nemá kolega u kontaktu task.</div>
   </div>
 
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// přehledně — timeline vlastnictví</div><div class="divider-line"></div></div>
@@ -1336,17 +1373,17 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
         <tr style="border-bottom:1px solid var(--border)">
           <td style="padding:10px 12px;color:var(--off)">Klient koupil 2+ kurzy (CW)</td>
           <td style="padding:10px 12px;color:var(--rd);font-weight:500">Původní prodejce</td>
-          <td style="padding:10px 12px;color:var(--cream);font-family:var(--mono);font-size:11px">Navždy </td>
+          <td style="padding:10px 12px;color:var(--black);font-family:var(--mono);font-size:11px">Navždy </td>
         </tr>
         <tr style="border-bottom:1px solid var(--border)">
           <td style="padding:10px 12px;color:var(--off)">Klient koupil 1 kurz (CW)</td>
           <td style="padding:10px 12px;color:var(--black);font-weight:500">Původní prodejce</td>
-          <td style="padding:10px 12px;color:var(--cream);font-family:var(--mono);font-size:11px">4 měsíce od prodeje</td>
+          <td style="padding:10px 12px;color:var(--black);font-family:var(--mono);font-size:11px">4 měsíce od prodeje</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border)">
           <td style="padding:10px 12px;color:var(--off)">CL / FC → přihlásí se znovu na stejný kurz</td>
           <td style="padding:10px 12px;color:var(--black);font-weight:500">Původní prodejce</td>
-          <td style="padding:10px 12px;color:var(--cream);font-family:var(--mono);font-size:11px">2 měsíce od posl. kontaktu</td>
+          <td style="padding:10px 12px;color:var(--black);font-family:var(--mono);font-size:11px">2 měsíce od posl. kontaktu</td>
         </tr>
         <tr>
           <td style="padding:10px 12px;color:var(--off)">CL → přihlásí se na jiný kurz</td>
@@ -1381,11 +1418,11 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// life of a lead</div><div class="divider-line"></div></div>
   <div class="tips">
     <h3>Vlastnictví dealu</h3>
-    <div class="tip"><span class="tip-n"></span><strong style="color:#fff">CW — 2+ kurzy:</strong> Deal zůstává prodejci trvale.</div>
-    <div class="tip"><span class="tip-n"></span><strong style="color:#fff">CW — 1 kurz:</strong> 4 měsíce od posledního prodeje.</div>
-    <div class="tip"><span class="tip-n"></span><strong style="color:#fff">CL/FC — stejný kurz:</strong> Původní prodejce na 2 měsíce od posledního kontaktu.</div>
-    <div class="tip"><span class="tip-n"></span><strong style="color:#fff">CL — jiný kurz:</strong> Automatické rozdělení leadů.</div>
-    <div class="tip"><span class="tip-n">·</span>Volání do databáze jiných prodejců jen po dohodě s HoS (po měsíci od posledního kontaktu).</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n"></span><strong style="color:var(--black)">CW — 2+ kurzy:</strong> Deal zůstává prodejci trvale.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n"></span><strong style="color:var(--black)">CW — 1 kurz:</strong> 4 měsíce od posledního prodeje.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n"></span><strong style="color:var(--black)">CL/FC — stejný kurz:</strong> Původní prodejce na 2 měsíce od posledního kontaktu.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n"></span><strong style="color:var(--black)">CL — jiný kurz:</strong> Automatické rozdělení leadů.</div>
+    <div class="tip" style="color:#3A3730"><span class="tip-n">·</span>Volání do databáze jiných prodejců jen po dohodě s HoS (po měsíci od posledního kontaktu).</div>
   </div>
 </div>
 
@@ -1536,59 +1573,76 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   </div>
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// sales tým</div><div class="divider-line"></div></div>
   <div class="contacts-grid">
-    <div class="contact-card">
+    <div class="contact-card" style="border-top:3px solid var(--laba)">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--laba);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--black);margin-bottom:12px">LO</div>
       <div class="contact-role">Head of Sales</div>
       <div class="contact-name">Luboš Ondrůj</div>
+      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Schválení slev, volno, dovolená</div>
       <div class="contact-links">
-        <span class="contact-link"><span class="cl-icon"></span>Schválení slev, volna, dovolené</span>
+        <a href="mailto:lubos.ondruj@l-a-b-a.cz" class="contact-link"><span class="cl-icon">✉</span>lubos.ondruj@l-a-b-a.cz</a>
       </div>
     </div>
-    <div class="contact-card">
+    <div class="contact-card" style="border-top:3px solid var(--laba)">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--laba);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--black);margin-bottom:12px">BK</div>
       <div class="contact-role">Sales Development Manager</div>
       <div class="contact-name">Barbora Kaasová</div>
+      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Onboarding, scripty, zkoušky kurzů, chyby v procesu</div>
       <div class="contact-links">
-        <span class="contact-link"><span class="cl-icon"></span>Onboarding, script chyby, zkoušky kurzů</span>
+        <a href="mailto:barbora.kaasova@skvt.cz" class="contact-link"><span class="cl-icon">✉</span>barbora.kaasova@skvt.cz</a>
+        <a href="tel:+420733280287" class="contact-link"><span class="cl-icon">☎</span>+420 733 280 287</a>
       </div>
     </div>
-    <div class="contact-card">
-      <div class="contact-role">CRM Support</div>
+    <div class="contact-card" style="border-top:3px solid var(--border2)">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--faint);margin-bottom:12px">AL</div>
+      <div class="contact-role">Technical Support CRM Global</div>
       <div class="contact-name">Anastasiia Litoshko</div>
+      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Databáze, práce v CRM, HubSpot technické problémy</div>
       <div class="contact-links">
-        <span class="contact-link"><span class="cl-icon"></span>Databáze, práce v CRM, HubSpot</span>
+        <a href="mailto:anastasiia.litoshko@laba.academy" class="contact-link"><span class="cl-icon">✉</span>anastasiia.litoshko@laba.academy</a>
       </div>
     </div>
-    <div class="contact-card">
+    <div class="contact-card" style="border-top:3px solid var(--border2)">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--faint);margin-bottom:12px">AK</div>
       <div class="contact-role">Chief Sales Operations Officer</div>
       <div class="contact-name">Alina Kulishova</div>
+      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Nadřízená Anastasiie — pokud Anastasiia nemůže pomoci</div>
       <div class="contact-links">
-        <span class="contact-link"><span class="cl-icon"></span>Nadřízená Anastasiie — pokud Anastasiia nemůže</span>
+        <a href="mailto:alina.kulishova@laba.academy" class="contact-link"><span class="cl-icon">✉</span>alina.kulishova@laba.academy</a>
+        <a href="tel:+380979298425" class="contact-link"><span class="cl-icon">☎</span>+380 979 298 425</a>
       </div>
     </div>
-    <div class="contact-card">
-      <div class="contact-role">Global Sales — Distribuce kurzů</div>
+    <div class="contact-card" style="border-top:3px solid var(--border2)">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--faint);margin-bottom:12px">OK</div>
+      <div class="contact-role">Global Sales Laba Group</div>
       <div class="contact-name">Olga Koval</div>
+      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Distribuce na kurzy, Laba Group</div>
       <div class="contact-links">
-        <span class="contact-link"><span class="cl-icon"></span>Distribuce na kurzy, Laba Group</span>
+        <a href="mailto:o.koval@laba.academy" class="contact-link"><span class="cl-icon">✉</span>o.koval@laba.academy</a>
       </div>
     </div>
-    <div class="contact-card">
-      <div class="contact-role">Tech Support</div>
-      <div class="contact-name">Slack kanál</div>
+    <div class="contact-card" style="border-top:3px solid var(--border2)">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:var(--faint);margin-bottom:12px">JS</div>
+      <div class="contact-role">HR & Office Assistant</div>
+      <div class="contact-name">Jana Šváchová</div>
+      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">HR záležitosti, ZOHO, přístupy, onboarding administrativa</div>
       <div class="contact-links">
-        <span class="contact-link"><span class="cl-icon"></span>#tech_support_cz — tasky se přiřazují dle příslušnosti</span>
+        <a href="mailto:jana.svachova@l-a-b-a.cz" class="contact-link"><span class="cl-icon">✉</span>jana.svachova@l-a-b-a.cz</a>
+        <a href="tel:733731896" class="contact-link"><span class="cl-icon">☎</span>733 731 896</a>
       </div>
     </div>
-    <div class="contact-card">
-      <div class="contact-role">Laba Sales Bot</div>
-      <div class="contact-name">AI asistent 24/7</div>
+    <div class="contact-card" style="border-top:3px solid var(--laba)">
+      <div style="width:52px;height:52px;border-radius:50%;background:var(--laba);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px">🤖</div>
+      <div class="contact-role">AI Asistent 24/7</div>
+      <div class="contact-name">Laba Sales Bot</div>
+      <div style="font-size:11.5px;color:var(--off);margin-bottom:10px;line-height:1.4">Fakturace, provize, HubSpot, prodejní procesy</div>
       <div class="contact-links">
-        <a href="https://laba-finance-bot.vercel.app/" target="_blank" class="contact-link"><span class="cl-icon"></span>laba-finance-bot.vercel.app</a>
+        <a href="https://laba-finance-bot.vercel.app/" target="_blank" class="contact-link"><span class="cl-icon">→</span>laba-finance-bot.vercel.app</a>
       </div>
     </div>
   </div>
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// skupiny na slacku</div><div class="divider-line"></div></div>
   <div class="gloss-grid">
-    <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> daily-priority-lsd</div><div class="gloss-def"><strong style="color:#fff">Nejdůležitější kanál</strong> — všechny informace od sales managementu.</div></div>
+    <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> daily-priority-lsd</div><div class="gloss-def"><strong style="color:var(--black)">Nejdůležitější kanál</strong> — všechny informace od sales managementu.</div></div>
     <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> product-sellers</div><div class="gloss-def">Jakýkoliv dotaz ke kurzu, který si sám nedokážeš zjistit — vždy označ produktáka daného kurzu.</div></div>
     <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> courses-changes</div><div class="gloss-def">Zde jsou vždy uvedeny veškeré změny v kurzech.</div></div>
     <div class="gloss-item" style="border-color:rgba(245,229,71,.3)"><div class="gloss-term" style="color:var(--black)"> distribution-lsd</div><div class="gloss-def">Zadané zkoušky, splněné zkoušky.</div></div>
@@ -1722,4 +1776,4 @@ function toggleQuiz(id) {
 }
 </script>
 </body>
-</html> 
+</html>
