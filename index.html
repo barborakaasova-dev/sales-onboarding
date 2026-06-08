@@ -60,13 +60,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--black);min-
 
 /* MAIN */
 .main{margin-left:260px;min-height:100vh}
-.topbar{position:sticky;top:0;background:rgba(253,251,244,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 36px;display:flex;align-items:center;gap:14px;z-index:50}
+.topbar{position:sticky;top:0;background:rgba(245,241,230,.98);backdrop-filter:blur(16px);border-bottom:1.5px solid #D8D0BC;padding:12px 36px;display:flex;align-items:center;gap:14px;z-index:50}
 .search-wrap{flex:1;max-width:340px;position:relative}
-.search-wrap input{width:100%;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:8px 14px 8px 34px;font-family:'Inter',sans-serif;font-size:13px;color:var(--black);outline:none;transition:border .15s}
+.search-wrap input{width:100%;background:#fff;border:1.5px solid #C8C0B0;border-radius:8px;padding:8px 14px 8px 34px;font-family:'Inter',sans-serif;font-size:13px;color:var(--black);outline:none;transition:border .15s;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .search-wrap input::placeholder{color:var(--faint);}
 .search-wrap input:focus{border-color:var(--black)}
 .search-wrap .si{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:14px}
-.search-drop{position:absolute;top:calc(100%+6px);left:0;right:0;background:var(--cream);border:1.5px solid var(--border);border-radius:8px;max-height:300px;overflow-y:auto;box-shadow:0 8px 32px rgba(26,23,20,.12);z-index:200;display:none}
+.search-drop{position:absolute;top:calc(100%+6px);left:0;right:0;background:#fff;border:1.5px solid #C8C0B0;border-radius:8px;max-height:300px;overflow-y:auto;box-shadow:0 8px 32px rgba(26,23,20,.12);z-index:200;display:none}
 .sd-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border);font-size:12.5px;color:var(--black);transition:background .1s}
 .sd-item:last-child{border-bottom:none}
 .sd-item:hover{background:var(--bg3)}
@@ -1665,21 +1665,72 @@ function openTahak(key) {
 
 const searchIdx = [];
 function buildIdx() {
+  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",faq:"FAQ"};
+
+  // Index .ri resource links
   document.querySelectorAll(".ri").forEach(el => {
-    const page = el.closest(".page");
-    if (!page) return;
+    const page = el.closest(".page"); if (!page) return;
     const pid = page.id.replace("page-","");
-    const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",tahak:"Tahák",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář",faq:"FAQ"};
     const title = el.querySelector(".ri-title")?.textContent || "";
-    if (title) searchIdx.push({title, day:map[pid]||pid, pageId:pid, el});
+    if (title) searchIdx.push({title, snippet:"", day:map[pid]||pid, pageId:pid, el});
+  });
+
+  // Index FAQ questions + answers
+  document.querySelectorAll(".acc-card").forEach(el => {
+    const page = el.closest(".page"); if (!page) return;
+    const pid = page.id.replace("page-","");
+    const q = el.querySelector(".acc-q")?.textContent || "";
+    const a = el.querySelector(".acc-resp")?.textContent || "";
+    if (q) searchIdx.push({title:q, snippet:a.slice(0,80), day:map[pid]||pid, pageId:pid, el});
+  });
+
+  // Index glossar terms
+  document.querySelectorAll(".gloss-item").forEach(el => {
+    const page = el.closest(".page"); if (!page) return;
+    const pid = page.id.replace("page-","");
+    const term = el.querySelector(".gloss-term")?.textContent || "";
+    const def = el.querySelector(".gloss-def")?.textContent || "";
+    if (term) searchIdx.push({title:term, snippet:def.slice(0,80), day:map[pid]||pid, pageId:pid, el});
+  });
+
+  // Index tips content
+  document.querySelectorAll(".tip").forEach(el => {
+    const page = el.closest(".page"); if (!page) return;
+    const pid = page.id.replace("page-","");
+    const text = el.textContent.trim();
+    if (text.length > 10) searchIdx.push({title:text.slice(0,60), snippet:text.slice(0,100), day:map[pid]||pid, pageId:pid, el});
+  });
+
+  // Index flow cards / workflow stages
+  document.querySelectorAll(".flow-card,.flow-stage").forEach(el => {
+    const page = el.closest(".page"); if (!page) return;
+    const pid = page.id.replace("page-","");
+    const text = el.textContent.trim();
+    if (text.length > 2) searchIdx.push({title:text.slice(0,60), snippet:"", day:map[pid]||pid, pageId:pid, el});
+  });
+
+  // Index namitky (accordions in námitkovník)
+  document.querySelectorAll(".namitka-card").forEach(el => {
+    const page = el.closest(".page"); if (!page) return;
+    const pid = page.id.replace("page-","");
+    const title = el.querySelector(".namitka-title")?.textContent || el.querySelector(".acc-q")?.textContent || "";
+    if (title) searchIdx.push({title, snippet:"", day:map[pid]||pid, pageId:pid, el});
+  });
+
+  // Index all headings and section dividers
+  document.querySelectorAll(".divider-label,.rg-title,.hero-h,.day-h").forEach(el => {
+    const page = el.closest(".page"); if (!page) return;
+    const pid = page.id.replace("page-","");
+    const text = el.textContent.trim();
+    if (text.length > 3) searchIdx.push({title:text, snippet:"", day:map[pid]||pid, pageId:pid, el});
   });
 }
 function doSearch(q) {
   const sd = document.getElementById("sd");
   if (!q || q.length < 2) { sd.innerHTML=""; sd.style.display="none"; return; }
-  const res = searchIdx.filter(i => i.title.toLowerCase().includes(q.toLowerCase())).slice(0,8);
+  const ql = q.toLowerCase(); const res = searchIdx.filter(i => i.title.toLowerCase().includes(ql) || i.snippet.toLowerCase().includes(ql)).slice(0,10);
   if (!res.length) { sd.innerHTML="<div style=\"padding:12px 14px;font-size:12px;color:var(--faint)\">Nic nenalezeno.</div>"; sd.style.display="block"; return; }
-  sd.innerHTML = res.map((r,i)=>`<div class="sd-item" onclick="goR(${i})"><div class="sd-day">${r.day}</div><div>${r.title.replace(new RegExp(q,"gi"),m=>"<mark>"+m+"</mark>")}</div></div>`).join("");
+  sd.innerHTML = res.map((r,i)=>`<div class="sd-item" onclick="goR(${i})"><div class="sd-day">${r.day}</div><div style="font-size:13px">${r.title.replace(new RegExp(q,"gi"),m=>"<mark>"+m+"</mark>")}</div>${r.snippet?`<div style="font-size:11px;color:var(--faint);margin-top:2px">${r.snippet}</div>`:""}</div>`).join("");
   sd._r = res; sd.style.display = "block";
 }
 function goR(i) {
