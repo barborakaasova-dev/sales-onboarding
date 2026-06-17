@@ -229,6 +229,15 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .kpi-num{font-family:'Unbounded',sans-serif;font-weight:900;font-size:26px;color:var(--black);line-height:1}
 .kpi-label{font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.06em;margin-top:6px}
 
+/* WORKFLOW CADENCE TABLES */
+.wf-table-wrap{background:var(--bg3);border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:18px}
+.wf-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.wf-table th{text-align:left;padding:10px 14px;font-family:var(--mono);font-size:9px;color:var(--faint);font-weight:400;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--border)}
+.wf-table td{padding:10px 14px;color:var(--off);border-bottom:1px solid var(--border);vertical-align:top}
+.wf-table tr:last-child td{border-bottom:none}
+.wf-table td.strong{color:var(--black);font-weight:500}
+.wf-table td.tag{white-space:nowrap;font-family:var(--mono);font-size:11px;color:var(--black);font-weight:600}
+
 @media(max-width:900px){.sidebar{width:220px}.main{margin-left:220px}.ov-grid{grid-template-columns:repeat(2,1fr)}}
 
 @media(max-width:768px){
@@ -942,27 +951,23 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// jak správně značit tasky v hubspotu</div><div class="divider-line"></div></div>
 
   <div style="background:var(--cream);border:1.5px solid var(--border);border-radius:var(--radius);padding:22px 24px;margin-bottom:24px">
-    <div style="font-size:13px;color:var(--off);line-height:1.7;margin-bottom:16px">Název tasku musí být na první pohled jasný — co je to za leada, který den volám a v kolik. Vždy ve stejném formátu:</div>
+    <div style="font-size:13px;color:var(--off);line-height:1.7;margin-bottom:16px">Název tasku musí být na první pohled jasný — co je to za lead, který den volám a v kolik. Vždy ve stejném formátu:</div>
     <div style="display:flex;flex-direction:column;gap:8px">
       <div style="background:var(--laba);border-radius:8px;padding:13px 16px;display:flex;align-items:center;gap:14px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">NQ 1. den 2/2</div>
-        <div style="font-size:12px;color:#5a4a00">Lead ve statusu Not Qualified, první den kontaktování, druhý call ze dvou plánovaných dnes</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">NQ 2. den 1/2</div>
+        <div style="font-size:12px;color:#5a4a00">Not Qualified, voláme už druhý den, první hovor ze dvou plánovaných na ten den</div>
       </div>
       <div style="background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:13px 16px;display:flex;align-items:center;gap:14px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">MD v 15</div>
-        <div style="font-size:12px;color:var(--off)">Lead ve statusu Making Decision, domluvené volání ve 15:00</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">Q 3. den kolem 14h</div>
+        <div style="font-size:12px;color:var(--off)">Qualified, voláme už třetí den, domluvený call je kolem 14:00</div>
       </div>
       <div style="background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:13px 16px;display:flex;align-items:center;gap:14px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">WP do 28.6.</div>
-        <div style="font-size:12px;color:var(--off)">Waiting for Payment, splatnost faktury je 28. června</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">WP do 8.7.</div>
+        <div style="font-size:12px;color:var(--off)">Waiting for Payment, splatnost faktury 8. července — task si dáváme den předem, abychom ověřili, že klient fakturu v pořádku dostal a nezapomene zaplatit</div>
       </div>
       <div style="background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:13px 16px;display:flex;align-items:center;gap:14px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">Q 3. den dopo</div>
-        <div style="font-size:12px;color:var(--off)">Qualified, třetí den kontaktování, volat dopoledne</div>
-      </div>
-      <div style="background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:13px 16px;display:flex;align-items:center;gap:14px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">NQ 2. den odpo</div>
-        <div style="font-size:12px;color:var(--off)">Not Qualified, druhý den, volat odpoledne</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--black);flex-shrink:0">MD 2/2</div>
+        <div style="font-size:12px;color:var(--off)">Making Decision, druhý hovor ze dvou plánovaných</div>
       </div>
     </div>
     <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
@@ -978,11 +983,11 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
         </div>
         <div style="background:var(--bg3);border-radius:7px;padding:10px 12px">
           <div style="font-family:var(--mono);font-size:9px;color:var(--faint);margin-bottom:4px">POČET CALLŮ</div>
-          <div style="font-size:12px;color:var(--black);font-weight:500">2/2 (jen když víc než 1)</div>
+          <div style="font-size:12px;color:var(--black);font-weight:500">1/2, 2/2… (jen když víc než 1)</div>
         </div>
         <div style="background:var(--bg3);border-radius:7px;padding:10px 12px">
           <div style="font-family:var(--mono);font-size:9px;color:var(--faint);margin-bottom:4px">ČAS / SPLATNOST</div>
-          <div style="font-size:12px;color:var(--black);font-weight:500">v 15 / dopo / do 28.6.</div>
+          <div style="font-size:12px;color:var(--black);font-weight:500">kolem 14h / dopo / do 8.7.</div>
         </div>
       </div>
     </div>
@@ -1012,7 +1017,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     </div>
     <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#FFF0F0;border:1.5px solid #f5c0c0;border-radius:8px">
       <div style="font-family:var(--mono);font-size:11px;color:#cc4444;flex-shrink:0;margin-top:1px;font-weight:600">✕</div>
-      <div style="font-size:12.5px;color:var(--black);line-height:1.55"><strong>Cena zadaná bez DPH / s DPH omylem</strong> — vždy zadávej cenu bez DPH. Pokud chybíš, okamžitě napiš do #sales_invoices.</div>
+      <div style="font-size:12.5px;color:var(--black);line-height:1.55"><strong>Cena zadaná bez DPH / s DPH omylem</strong> — vždy zadávej cenu bez DPH. Pokud chybuješ, okamžitě napiš do #sales_invoices.</div>
     </div>
     <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#FFF0F0;border:1.5px solid #f5c0c0;border-radius:8px">
       <div style="font-family:var(--mono);font-size:11px;color:#cc4444;flex-shrink:0;margin-top:1px;font-weight:600">✕</div>
@@ -1487,15 +1492,97 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="flow-grid">
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">New Deal</div><div class="flow-desc">Klientovi ještě nikdo nevolal. Do 4 minut!</div><div class="flow-detail">V čase 9–17 pracuj vždy do 4 minut. Ihned změň na In a Call, zkontroluj kartu klienta, vytvoř task. Pak okamžitě vytáčej.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">In a Call</div><div class="flow-desc">Právě vytáčím. Max 20–30 min!</div><div class="flow-detail">Dávej hned při vytáčení — zastavíš LPT. POZOR: zadávej VŽDY jen u New Leadu se kterým právě pracuješ. Nesmí zůstat déle než 30 minut.</div></div>
-    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Not Qualified</div><div class="flow-desc">Klient hovor nepřijal.</div><div class="flow-detail">D1: 2 hovory + No Answer e-mail. D2: 2 hovory. D3: 1 hovor + Emailová komunikace. D5: 1 hovor. D6: 1 hovor → CL avoids. D7: FC + e-mail s obsahem. Po NQ → auto WA zpráva.</div></div>
-    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Qualified</div><div class="flow-desc">Zvedl, prezentace neproběhla.</div><div class="flow-detail">D2: žádné akce. D3–6: ob 1 den. Pokud nezvedá a nereaguje na e-mail → task ob 1 den.</div></div>
-    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Making Decision</div><div class="flow-desc">Prezentace proběhla, čekám.</div><div class="flow-detail">Kompletní prezentace proběhla, klient dostal podklady. Vždy se domluv na konkrétní den a čas. Po MD → auto WA zpráva.</div></div>
-    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Waiting for Payment</div><div class="flow-desc">Klient obdržel fakturu.</div><div class="flow-detail">Task s předstihem — nikdy ne poslední den měsíce! Při neuhrazení pošli WA template po splatnosti. V den splatnosti upozorni hovorem.</div></div>
+    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Not Qualified</div><div class="flow-desc">Klient hovor nepřijal.</div><div class="flow-detail">Vstup do NQ → auto WA zpráva (+20 min). D1: 2 hovory + No Answer e-mail. D2: 2 hovory. D3: 1 hovor + Emailová komunikace. D4: zablokované číslo → CL Don't call anymore. D5–6: 1 hovor. D7: FC + e-mail s obsahem kurzu. Detail níže ↓</div></div>
+    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Qualified</div><div class="flow-desc">Zvedl, prezentace neproběhla.</div><div class="flow-detail">Volá se stejně jako Not Qualified — totožná cadence dní i e-mailů. Jediný rozdíl: máš s klientem domluvený konkrétní den a čas, takže voláš primárně v něj. Detail níže ↓</div></div>
+    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Making Decision</div><div class="flow-desc">Prezentace proběhla, čekám.</div><div class="flow-detail">Kompletní prezentace proběhla, klient dostal podklady. Vždy se domluv na konkrétní den a čas. Po MD → auto WA zpráva. Pokud nezvedne v domluvený čas → e-mail Making Decision + task na další den, pak ob 1 den, den 4 = CL avoids. Detail níže ↓</div></div>
+    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Waiting for Payment</div><div class="flow-desc">Klient obdržel fakturu.</div><div class="flow-detail">Task s předstihem — nikdy ne poslední den měsíce! V den splatnosti upozorni hovorem, nezvedne → e-mail. Při neuhrazení pošli WA template „po splatnosti skvot" manuálně.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Closed Won</div><div class="flow-desc">Zaplaceno. Místo rezervováno!</div><div class="flow-detail">After Payment e-mail odchází auto. Zadej: Payment type, Payment ID, amount, payment date, installment, close date, stream, country, discount, job area, job position.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Finished Calling</div><div class="flow-desc">Nikdy nezvedl — voláme před startem.</div><div class="flow-detail">Provoláváme poslední týden před startem kurzu. Velká šance na last chance. Zkontroluj konec týdne/měsíce.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Closed Lost</div><div class="flow-desc">Odmítl nebo přestal komunikovat.</div><div class="flow-detail">Vždy vyber rejection reason. Potential → task na příští stream. Nový Deal až při potvrzení zájmu a vystavené faktuře.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Wrong Number</div><div class="flow-desc">Špatné číslo.</div><div class="flow-detail">Ověř Additional Phone Number. Poznámka + pin do HS, odkaz na deal do #wrong-numbers na Slacku.</div></div>
   </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// kdy volat a co poslat — denní cadence</div><div class="divider-line"></div></div>
+
+  <div class="rg-title">Not Qualified</div>
+  <div class="wf-table-wrap">
+    <table class="wf-table">
+      <thead><tr><th>Den</th><th>Kolikrát volat</th><th>E-mail / WhatsApp</th></tr></thead>
+      <tbody>
+        <tr><td class="tag">Vstup do NQ</td><td>—</td><td>WhatsApp <strong style="color:var(--black)">automaticky</strong>, s odstupem 20 minut</td></tr>
+        <tr><td class="tag">Den 1</td><td class="strong">2 hovory, různé časy</td><td>Po 1. nezvednutém → e-mail <strong style="color:var(--black)">„No Answer"</strong></td></tr>
+        <tr><td class="tag">Den 2</td><td class="strong">2 hovory, různé časy</td><td>—</td></tr>
+        <tr><td class="tag">Den 3</td><td class="strong">1 hovor, jiný čas</td><td>E-mail <strong style="color:var(--black)">„Emailová komunikace"</strong></td></tr>
+        <tr><td class="tag">Den 4</td><td>Pokud klient zablokoval číslo</td><td>→ <strong style="color:var(--black)">Closed Lost – Don't call anymore</strong>, poznámka „zablokoval"</td></tr>
+        <tr><td class="tag">Den 5</td><td class="strong">1 hovor</td><td>—</td></tr>
+        <tr><td class="tag">Den 6</td><td class="strong">1 hovor</td><td>—</td></tr>
+        <tr><td class="tag">Den 7</td><td>Pokud se nedovoláš ani dnes</td><td>→ <strong style="color:var(--black)">Finished Calling</strong> + e-mail s obsahem kurzu</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rg-title">Qualified</div>
+  <div class="tips" style="margin:0 0 16px">
+    <div class="tip" style="margin-bottom:0"><span class="tip-n">=</span>Volá se <strong style="color:var(--black)">stejně jako Not Qualified</strong> — totožná cadence dní i e-mailů. Jediný rozdíl: s klientem už <strong style="color:var(--black)">máš domluvený konkrétní den a čas</strong> hovoru, takže voláš primárně v něj (a záložně jinou část dne), ne nahodile.</div>
+  </div>
+  <div class="wf-table-wrap">
+    <table class="wf-table">
+      <thead><tr><th>Den</th><th>Kolikrát volat</th><th>E-mail / WhatsApp</th></tr></thead>
+      <tbody>
+        <tr><td class="tag">Den 1</td><td class="strong">2 hovory — domluvený čas + záložní čas téhož dne</td><td>Po 1. nezvednutém → e-mail <strong style="color:var(--black)">„No Answer"</strong></td></tr>
+        <tr><td class="tag">Den 2</td><td class="strong">2 hovory, různé časy</td><td>—</td></tr>
+        <tr><td class="tag">Den 3</td><td class="strong">1 hovor, jiný čas</td><td>E-mail <strong style="color:var(--black)">„Emailová komunikace"</strong></td></tr>
+        <tr><td class="tag">Den 4</td><td>Pokud klient zablokoval číslo</td><td>→ <strong style="color:var(--black)">Closed Lost – Don't call anymore</strong>, poznámka „zablokoval"</td></tr>
+        <tr><td class="tag">Den 5</td><td class="strong">1 hovor</td><td>—</td></tr>
+        <tr><td class="tag">Den 6</td><td class="strong">1 hovor</td><td>—</td></tr>
+        <tr><td class="tag">Den 7</td><td>Pokud se nedovoláš ani dnes</td><td>→ <strong style="color:var(--black)">Finished Calling</strong> + e-mail s obsahem kurzu</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rg-title">Making Decision</div>
+  <div class="wf-table-wrap">
+    <table class="wf-table">
+      <thead><tr><th>Kdy</th><th>Akce</th><th>E-mail / WhatsApp</th></tr></thead>
+      <tbody>
+        <tr><td class="tag">Vstup do MD</td><td>—</td><td>WhatsApp <strong style="color:var(--black)">automaticky</strong></td></tr>
+        <tr><td class="tag">Domluvený den/čas</td><td>Klient nezvedne → task na další den, jiný čas</td><td>E-mail <strong style="color:var(--black)">„Making Decision"</strong></td></tr>
+        <tr><td class="tag">+ 2 dny</td><td>Stále nedovoláno a žádná reakce na e-mail → task ob 1 den</td><td>—</td></tr>
+        <tr><td class="tag">Den 4</td><td>Stále nedovoláno → ověř e-mailovou komunikaci, zruš task</td><td>→ <strong style="color:var(--black)">Closed Lost – avoids communication</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rg-title">Waiting for Payment</div>
+  <div class="wf-table-wrap">
+    <table class="wf-table">
+      <thead><tr><th>Kdy</th><th>Akce</th><th>E-mail / WhatsApp</th></tr></thead>
+      <tbody>
+        <tr><td class="tag">V den splatnosti</td><td>Upozorni klienta hovorem</td><td>Nezvedne → e-mail</td></tr>
+        <tr><td class="tag">Po splatnosti</td><td>Faktura stále neuhrazena</td><td>WhatsApp <strong style="color:var(--black)">manuálně</strong>, template <strong style="color:var(--black)">„po splatnosti skvot"</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// přehled šablon — e-mail &amp; whatsapp</div><div class="divider-line"></div></div>
+  <div class="wf-table-wrap">
+    <table class="wf-table">
+      <thead><tr><th>Šablona</th><th>Kanál</th><th>Kdy se posílá</th><th>Typ</th></tr></thead>
+      <tbody>
+        <tr><td class="strong">„No Answer"</td><td>E-mail</td><td>NQ / Qualified — po 1. nezvednutém hovoru</td><td>Manuálně</td></tr>
+        <tr><td class="strong">„Emailová komunikace"</td><td>E-mail</td><td>NQ / Qualified — den 3</td><td>Manuálně</td></tr>
+        <tr><td class="strong">„Making Decision"</td><td>E-mail</td><td>MD — klient nezvedne v domluvený den/čas</td><td>Manuálně</td></tr>
+        <tr><td class="strong">E-mail s obsahem kurzu</td><td>E-mail</td><td>NQ / Qualified — Finished Calling (den 7)</td><td>Manuálně</td></tr>
+        <tr><td class="strong">Souhrn ke kurzu</td><td>E-mail</td><td>Wrong Number — záměrně špatné číslo</td><td>Manuálně</td></tr>
+        <tr><td class="strong">After Payment</td><td>E-mail</td><td>Closed Won</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
+        <tr><td class="strong">— (bez názvu)</td><td>WhatsApp</td><td>Vstup do Not Qualified (+20 min)</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
+        <tr><td class="strong">— (bez názvu)</td><td>WhatsApp</td><td>Vstup do Making Decision</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
+        <tr><td class="strong">„po splatnosti skvot"</td><td>WhatsApp</td><td>Waiting for Payment — neuhrazená faktura</td><td>Manuálně</td></tr>
+        <tr><td class="strong">„cz database"</td><td>WhatsApp</td><td>Volání do databáze (Closed Lost / call to base)</td><td>Manuálně</td></tr>
+      </tbody>
+    </table>
+  </div>
+
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// life of a lead</div><div class="divider-line"></div></div>
   <div class="tips">
     <h3>Vlastnictví dealu</h3>
@@ -1769,11 +1856,11 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 const tahakData = {
   nl:{title:" New Lead",text:"V čase 9–17 pracuj vždy do 4 minut od příchodu leadu. Okamžitě přejdi na In a Call, zkontroluj kartu klienta a vytvoř task. Pak bez otálení vytáčej."},
   call:{title:" In a Call",text:"Zadávej VŽDY pouze u New Leadu se kterým právě pracuješ. Nesmí zůstat déle než 20–30 minut — deformuje LPT statistiku celého týmu. Po hovoru okamžitě přesuň na správnou stage."},
-  q:{title:" Qualified",text:"Klient zvedl, ale prezentace neproběhla. Den 2: žádné akce. Den 3–6: kontaktuj ob 1 den. Pokud nezvedá a nereaguje na e-mail → task ob 1 den."},
+  q:{title:" Qualified",text:"Klient zvedl, ale prezentace neproběhla. Volá se stejně jako Not Qualified — D1: 2 hovory (domluvený čas + záloha). D2: 2 hovory. D3: 1 hovor + e-mail Emailová komunikace. D4: zablokované číslo → CL Don't call anymore. D5–6: 1 hovor. D7: Finished Calling + e-mail s obsahem kurzu. Jediný rozdíl od NQ: voláš v domluvený den a čas."},
   md:{title:" Making Decision",text:"Kompletní prezentace proběhla, klient dostal e-mailem podklady. Vždy se domluv na konkrétní den a čas dalšího kontaktu. Po přechodu na MD odchází automatická WA zpráva."},
   wp:{title:" Waiting for Payment",text:"Faktura vystavena. Task nastavuj s předstihem — nikdy ne na poslední den měsíce! V den splatnosti zavolej. Pošli WA template po splatnosti manuálně."},
   won:{title:" Closed Won",text:"E-mail After Payment odchází automaticky. Povinně vyplň: Payment type, Payment ID, amount, payment date, installment, close date, stream, country, discount, job area, job position."},
-  nq:{title:" Not Qualified",text:"D1: 2 hovory v různou dobu + e-mail No Answer. D2: 2 hovory. D3: 1 hovor + Emailová komunikace. D5: 1 hovor. D6: 1 hovor → CL avoids communication. D7: FC + e-mail se shrnutím kurzu. Po NQ odchází auto WA zpráva."},
+  nq:{title:" Not Qualified",text:"D1: 2 hovory v různou dobu + e-mail No Answer. D2: 2 hovory. D3: 1 hovor + Emailová komunikace. D4: zablokované číslo → CL Don't call anymore. D5: 1 hovor. D6: 1 hovor. D7: Finished Calling + e-mail se shrnutím kurzu. Po vstupu do NQ odchází auto WA zpráva (+20 min)."},
   fc:{title:" Finished Calling",text:"Klient nikdy nezvedl. Provoláváme ho poslední týden před startem kurzu — velká šance na last chance nabídku. Kontroluj také konec týdne a měsíce."},
   cl:{title:" Closed Lost",text:"Vždy vyber rejection reason. Potential = zájem o příští stream → nastav task. Nový Deal zakládáš až při potvrzení zájmu a vystavené faktuře. V CL stále pracuješ přes task."},
   wn:{title:" Wrong Number",text:"Ověř pole Additional Phone Number. Záměrně špatné → WN + e-mail. Omylem špatné → WN bez e-mailu. V obou případech: poznámka + pin do HS, odkaz na deal do #wrong-numbers."}
