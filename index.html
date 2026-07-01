@@ -188,6 +188,19 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .gloss-term{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--black);margin-bottom:4px;letter-spacing:.02em}
 .gloss-def{font-size:12.5px;color:var(--off);line-height:1.5}
 
+/* SLACK CHANNELS */
+.slack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px;margin:16px 0}
+.slack-item{background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color .15s;box-shadow:0 1px 4px rgba(26,23,20,.03)}
+.slack-item:hover{border-color:var(--black)}
+.slack-item.critical{border-color:var(--laba-dark);background:var(--laba-bg)}
+.slack-star{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--laba-dark);margin-bottom:7px;display:flex;align-items:center;gap:4px;font-weight:600}
+.slack-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.slack-name{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--black);letter-spacing:.02em}
+.slack-def{font-size:12.5px;color:var(--off);line-height:1.5}
+.slack-badge{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.slack-badge.add{background:rgba(201,168,0,.15);color:var(--laba-dark);border:1px solid rgba(201,168,0,.3)}
+.slack-badge.self{background:rgba(0,122,74,.1);color:var(--rd);border:1px solid rgba(0,122,74,.2)}
+
 /* TAHÁK */
 .tahak-flow{display:flex;align-items:flex-start;gap:0;margin:20px 0;overflow-x:auto;padding-bottom:8px}
 .tahak-step{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px;min-width:90px}
@@ -351,6 +364,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <button class="nav-btn" onclick="goPage('workflow',this)"><span class="ni">—</span> Workflow</button>
     <button class="nav-btn" onclick="goPage('namitky',this)"><span class="ni">—</span> Námitkovník</button>
     <button class="nav-btn" onclick="goPage('glossar',this)"><span class="ni">—</span> Glossář pojmů</button>
+    <button class="nav-btn" onclick="goPage('slack',this)"><span class="ni">—</span> Slack kanály</button>
     <button class="nav-btn" onclick="goPage('certifikaty',this)"><span class="ni">—</span> Certifikáty klientů</button>
   </div>
 
@@ -1871,6 +1885,109 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   </div>
 </div>
 
+<!-- SLACK KANÁLY -->
+<div class="page" id="page-slack">
+  <div class="hero">
+    <div class="hero-label">Referenční průvodce</div>
+    <div class="hero-h" style="font-size:32px">SLACK <span class="laba-hl">KANÁLY</span></div>
+    <div class="hero-desc">Skupiny na Slacku, které v sales používáme. U každé vidíš k čemu slouží a jestli si do ní vstoupíš sám/sama, nebo tě tam musí někdo přidat.</div>
+    <div class="hero-line"></div>
+  </div>
+
+  <div class="tips">
+    <h3>// Jak to číst</h3>
+    <div class="tip"><span class="tip-n">⭐</span><strong>Klíčové kanály pro prodejce</strong> — tyhle sleduj denně, je v nich nejdůležitější provoz a info od sales managementu.</div>
+    <div class="tip"><span class="tip-n">🔒</span><strong>Musí tě přidat</strong> — do kanálu se sám/sama nedostaneš, napiš Barboře nebo Lubošovi ať tě přidají.</div>
+    <div class="tip"><span class="tip-n">🔓</span><strong>Vstoupíš sám/sama</strong> — najdeš kanál v seznamu na Slacku a připojíš se rovnou, bez čekání na pozvánku.</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// nejdůležitější pro prodejce</div><div class="divider-line"></div></div>
+  <div class="slack-grid">
+    <div class="slack-item critical">
+      <div class="slack-star">⭐ klíčový kanál</div>
+      <div class="slack-head"><div class="slack-name">#daily-priority-lsd</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Nejdůležitější kanál — všechny informace od sales managementu.</div>
+    </div>
+    <div class="slack-item critical">
+      <div class="slack-star">⭐ klíčový kanál</div>
+      <div class="slack-head"><div class="slack-name">#product-sellers</div><span class="slack-badge self">🔓 vstoupíš sám/a</span></div>
+      <div class="slack-def">Jakýkoliv dotaz ke kurzu, který si sám/sama nedokážeš zjistit — vždy označ produkťáka daného kurzu.</div>
+    </div>
+    <div class="slack-item critical">
+      <div class="slack-star">⭐ klíčový kanál</div>
+      <div class="slack-head"><div class="slack-name">#courses-changes</div><span class="slack-badge self">🔓 vstoupíš sám/a</span></div>
+      <div class="slack-def">Zde jsou vždy uvedeny veškeré změny v kurzech.</div>
+    </div>
+    <div class="slack-item critical">
+      <div class="slack-star">⭐ klíčový kanál</div>
+      <div class="slack-head"><div class="slack-name">#distribution-lsd</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Zadané zkoušky, splněné zkoušky.</div>
+    </div>
+    <div class="slack-item critical">
+      <div class="slack-star">⭐ klíčový kanál</div>
+      <div class="slack-head"><div class="slack-name">#sales_invoices</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Platby ze Stripe, faktury, výpisy plateb.</div>
+    </div>
+    <div class="slack-item critical">
+      <div class="slack-star">⭐ klíčový kanál</div>
+      <div class="slack-head"><div class="slack-name">#cs-sales</div><span class="slack-badge self">🔓 vstoupíš sám/a</span></div>
+      <div class="slack-def">Přidávání lidí do kurzu v den začátku kurzu, veškerá komunikace se zákaznickou podporou.</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// ostatní kanály</div><div class="divider-line"></div></div>
+  <div class="slack-grid">
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#obedy-lsd</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Kdykoliv se vypneš/zapneš nebo seš vypnutý/vypnutá, je třeba dát vědět týmu i s důvodem.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#feedback-on-leads</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Pokud máš NL s bad TA, dáš sem odkaz a krátký komentář.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#emailové_templaty</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Pokud je chyba v emailu v HS, napíšeš jaká a v jakém kurzu a označíš produkťáka kurzu.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#wrong-numbers</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Pokud číslo v NL neexistuje.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#tech_support_cz</div><span class="slack-badge self">🔓 vstoupíš sám/a</span></div>
+      <div class="slack-def">Tech podpora — problém se zadává na global slacku a pak se řeší v tomto kanálu.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#czech-rockstars-labatka-zviratka</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Skupina pro celou firmu.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#general</div><span class="slack-badge self">🔓 vstoupíš sám/a</span></div>
+      <div class="slack-def">Obecná oficiální oznámení (komunikace v angličtině).</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#feedback</div><span class="slack-badge self">🔓 vstoupíš sám/a</span></div>
+      <div class="slack-def">Zpětná vazba od klientů.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#best-clients</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Kanál pro srandu mezi prodejci — zajímaví klienti.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#sales-reps</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Využívá se minimálně, ale je pro jakékoliv informace pro sales oddělení.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#dovolenkování</div><span class="slack-badge self">🔓 vstoupíš sám/a</span></div>
+      <div class="slack-def">Pro celou firmu — informace, když máš dovolenou, volno, sick leave.</div>
+    </div>
+    <div class="slack-item">
+      <div class="slack-head"><div class="slack-name">#chálky-delivery</div><span class="slack-badge add">🔒 musí tě přidat</span></div>
+      <div class="slack-def">Pro objednání jídla společně do kanclu.</div>
+    </div>
+  </div>
+</div>
+
 <!-- FAQ -->
 <div class="page" id="page-faq">
   <div class="hero">
@@ -2025,7 +2142,16 @@ function openTahak(key) {
 
 const searchIdx = [];
 function buildIdx() {
-  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",day7:"První hovory",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",faq:"FAQ",certifikaty:"Certifikáty"};
+  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",day7:"První hovory",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",slack:"Slack kanály",faq:"FAQ",certifikaty:"Certifikáty"};
+
+  // Index slack channels
+  document.querySelectorAll(".slack-item").forEach(el => {
+    const page = el.closest(".page"); if (!page) return;
+    const pid = page.id.replace("page-","");
+    const term = el.querySelector(".slack-name")?.textContent || "";
+    const def = el.querySelector(".slack-def")?.textContent || "";
+    if (term) searchIdx.push({title:term, snippet:def.slice(0,80), day:map[pid]||pid, pageId:pid, el});
+  });
 
   // Index .ri resource links
   document.querySelectorAll(".ri").forEach(el => {
