@@ -1850,11 +1850,11 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">New Deal</div><div class="flow-desc">Klientovi ještě nikdo nevolal. Do 4 minut!</div><div class="flow-detail">V čase 9–17 pracuj vždy do 4 minut. Ihned změň na In a Call, zkontroluj kartu klienta, vytvoř task. Pak okamžitě vytáčej.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">In a Call</div><div class="flow-desc">Právě vytáčím. Max 20–30 min!</div><div class="flow-detail">Dávej hned při vytáčení — zastavíš LPT. POZOR: zadávej VŽDY jen u New Leadu se kterým právě pracuješ. Nesmí zůstat déle než 30 minut.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Not Qualified</div><div class="flow-desc">Klient hovor nepřijal.</div><div class="flow-detail">Vstup do NQ → auto WA zpráva (+20 min). D1: 2 hovory + No Answer e-mail. D2: 2 hovory. D3: 1 hovor + Emailová komunikace. D4: zablokované číslo → CL Don't call anymore. D5–6: 1 hovor. D7: FC + e-mail s obsahem kurzu. Detail níže ↓</div></div>
-    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Qualified</div><div class="flow-desc">Zvedl, prezentace neproběhla.</div><div class="flow-detail">Volá se stejně jako Not Qualified — totožná cadence dní i e-mailů. Jediný rozdíl: máš s klientem domluvený konkrétní den a čas, takže voláš primárně v něj. Detail níže ↓</div></div>
-    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Making Decision</div><div class="flow-desc">Prezentace proběhla, čekám.</div><div class="flow-detail">Kompletní prezentace proběhla, klient dostal podklady. Vždy se domluv na konkrétní den a čas. Po MD → auto WA zpráva. Pokud nezvedne v domluvený čas → e-mail Making Decision + task na další den, pak ob 1 den, den 4 = CL avoids. Detail níže ↓</div></div>
+    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Qualified</div><div class="flow-desc">Zvedl, prezentace neproběhla.</div><div class="flow-detail">Voláš primárně v domluvený den a čas (a záložně jinou část dne). Den 1–2 stejné jako Not Qualified, ale od dne 3 se dál nevolá → Closed Lost – avoids communication. Detail níže ↓</div></div>
+    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Making Decision</div><div class="flow-desc">Prezentace proběhla, čekám.</div><div class="flow-detail">Kompletní prezentace proběhla, klient dostal podklady. Vždy se domluv na konkrétní den a čas. Po MD → auto WA zpráva. Pokud nezvedne v domluvený čas → e-mail Making Decision + task na další den, den 3 = zruš task + CL avoids. Detail níže ↓</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Waiting for Payment</div><div class="flow-desc">Klient obdržel fakturu.</div><div class="flow-detail">Task s předstihem — nikdy ne poslední den měsíce! V den splatnosti upozorni hovorem, nezvedne → e-mail. Při neuhrazení pošli WA template „po splatnosti skvot" manuálně.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Closed Won</div><div class="flow-desc">Zaplaceno. Místo rezervováno!</div><div class="flow-detail">After Payment e-mail odchází auto. Zadej: Payment type, Payment ID, amount, payment date, installment, close date, stream, country, discount, job area, job position.</div></div>
-    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Finished Calling</div><div class="flow-desc">Nikdy nezvedl — voláme před startem.</div><div class="flow-detail">Provoláváme poslední týden před startem kurzu. Velká šance na last chance. Zkontroluj konec týdne/měsíce.</div></div>
+    <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Finished Calling</div><div class="flow-desc">Nikdy nezvedl — voláme před startem.</div><div class="flow-detail">Provoláváme poslední týden před startem kurzu. Velká šance na last chance. Zkontroluj konec týdne/měsíce. Po vstupu do stage → auto WhatsApp (1h po změně stage).</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Closed Lost</div><div class="flow-desc">Odmítl nebo přestal komunikovat.</div><div class="flow-detail">Vždy vyber rejection reason. Potential → task na příští stream. Nový Deal až při potvrzení zájmu a vystavené faktuře.</div></div>
     <div class="flow-card" onclick="this.classList.toggle('open')"><div class="flow-stage">Wrong Number</div><div class="flow-desc">Špatné číslo.</div><div class="flow-detail">Ověř Additional Phone Number. Poznámka + pin do HS, odkaz na deal do #wrong-numbers na Slacku.</div></div>
   </div>
@@ -1870,29 +1870,25 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
         <tr><td class="tag">Den 1</td><td class="strong">2 hovory, různé časy</td><td>Po 1. nezvednutém → e-mail <strong style="color:var(--black)">„No Answer"</strong></td></tr>
         <tr><td class="tag">Den 2</td><td class="strong">2 hovory, různé časy</td><td>—</td></tr>
         <tr><td class="tag">Den 3</td><td class="strong">1 hovor, jiný čas</td><td>E-mail <strong style="color:var(--black)">„Emailová komunikace"</strong></td></tr>
-        <tr><td class="tag">Den 4</td><td>Pokud klient zablokoval číslo</td><td>→ <strong style="color:var(--black)">Closed Lost – Don't call anymore</strong>, poznámka „zablokoval"</td></tr>
+        <tr><td class="tag">Den 4</td><td class="strong">1 hovor</td><td>—</td></tr>
         <tr><td class="tag">Den 5</td><td class="strong">1 hovor</td><td>—</td></tr>
         <tr><td class="tag">Den 6</td><td class="strong">1 hovor</td><td>—</td></tr>
-        <tr><td class="tag">Den 7</td><td>Pokud se nedovoláš ani dnes</td><td>→ <strong style="color:var(--black)">Finished Calling</strong> + e-mail s obsahem kurzu</td></tr>
+        <tr><td class="tag">Den 7</td><td>Pokud se nedovoláš ani dnes</td><td>→ <strong style="color:var(--black)">Finished Calling</strong> + e-mail s obsahem kurzu + auto WhatsApp (1h po vstupu do stage)</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="rg-title">Qualified</div>
   <div class="tips" style="margin:0 0 16px">
-    <div class="tip" style="margin-bottom:0"><span class="tip-n">=</span>Volá se <strong style="color:var(--black)">stejně jako Not Qualified</strong> — totožná cadence dní i e-mailů. Jediný rozdíl: s klientem už <strong style="color:var(--black)">máš domluvený konkrétní den a čas</strong> hovoru, takže voláš primárně v něj (a záložně jinou část dne), ne nahodile.</div>
+    <div class="tip" style="margin-bottom:0"><span class="tip-n">=</span>Voláš primárně v <strong style="color:var(--black)">domluvený den a čas</strong> hovoru (a záložně jinou část dne), ne nahodile. Cadence je kratší než u Not Qualified — od dne 3 jde rovnou do Closed Lost.</div>
   </div>
   <div class="wf-table-wrap">
     <table class="wf-table">
       <thead><tr><th>Den</th><th>Kolikrát volat</th><th>E-mail / WhatsApp</th></tr></thead>
       <tbody>
-        <tr><td class="tag">Den 1</td><td class="strong">2 hovory — domluvený čas + záložní čas téhož dne</td><td>Po 1. nezvednutém → e-mail <strong style="color:var(--black)">„No Answer"</strong></td></tr>
+        <tr><td class="tag">Den 1</td><td class="strong">2 hovory — domluvený čas + záložní čas téhož dne</td><td>Klient domluví hovor, ale nezvedne → e-mail <strong style="color:var(--black)">„No Answer"</strong> + WhatsApp <strong style="color:var(--black)">cz_qualified_no_answer</strong> (manuálně, dle projektu — laba/skvot/rd)</td></tr>
         <tr><td class="tag">Den 2</td><td class="strong">2 hovory, různé časy</td><td>—</td></tr>
-        <tr><td class="tag">Den 3</td><td class="strong">1 hovor, jiný čas</td><td>E-mail <strong style="color:var(--black)">„Emailová komunikace"</strong></td></tr>
-        <tr><td class="tag">Den 4</td><td>Pokud klient zablokoval číslo</td><td>→ <strong style="color:var(--black)">Closed Lost – Don't call anymore</strong>, poznámka „zablokoval"</td></tr>
-        <tr><td class="tag">Den 5</td><td class="strong">1 hovor</td><td>—</td></tr>
-        <tr><td class="tag">Den 6</td><td class="strong">1 hovor</td><td>—</td></tr>
-        <tr><td class="tag">Den 7</td><td>Pokud se nedovoláš ani dnes</td><td>→ <strong style="color:var(--black)">Finished Calling</strong> + e-mail s obsahem kurzu</td></tr>
+        <tr><td class="tag">Den 3</td><td class="strong">1 hovor, jiný čas</td><td>→ <strong style="color:var(--black)">Closed Lost – avoids communication</strong> (od dne 4 se dál nevolá)</td></tr>
       </tbody>
     </table>
   </div>
@@ -1902,10 +1898,9 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <table class="wf-table">
       <thead><tr><th>Kdy</th><th>Akce</th><th>E-mail / WhatsApp</th></tr></thead>
       <tbody>
-        <tr><td class="tag">Vstup do MD</td><td>—</td><td>WhatsApp <strong style="color:var(--black)">automaticky</strong></td></tr>
-        <tr><td class="tag">Domluvený den/čas</td><td>Klient nezvedne → task na další den, jiný čas</td><td>E-mail <strong style="color:var(--black)">„Making Decision"</strong></td></tr>
-        <tr><td class="tag">+ 2 dny</td><td>Stále nedovoláno a žádná reakce na e-mail → task ob 1 den</td><td>—</td></tr>
-        <tr><td class="tag">Den 4</td><td>Stále nedovoláno → ověř e-mailovou komunikaci, zruš task</td><td>→ <strong style="color:var(--black)">Closed Lost – avoids communication</strong></td></tr>
+        <tr><td class="tag">Den 1 v domluvený čas</td><td>Klient nezvedne → task na další den, jiný čas</td><td>E-mail <strong style="color:var(--black)">„Making Decision"</strong> + WhatsApp <strong style="color:var(--black)">CZ Making decision</strong> (manuálně)</td></tr>
+        <tr><td class="tag">Den 2</td><td>—</td><td>—</td></tr>
+        <tr><td class="tag">Den 3</td><td>Zruš task</td><td>→ <strong style="color:var(--black)">Closed Lost – avoids communication</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -1915,8 +1910,9 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <table class="wf-table">
       <thead><tr><th>Kdy</th><th>Akce</th><th>E-mail / WhatsApp</th></tr></thead>
       <tbody>
-        <tr><td class="tag">V den splatnosti</td><td>Upozorni klienta hovorem</td><td>Nezvedne → e-mail</td></tr>
-        <tr><td class="tag">Po splatnosti</td><td>Faktura stále neuhrazena</td><td>WhatsApp <strong style="color:var(--black)">manuálně</strong>, template <strong style="color:var(--black)">„po splatnosti skvot"</strong></td></tr>
+        <tr><td class="tag">V den splatnosti</td><td>Upozorni klienta hovorem</td><td>Nezvedne → e-mail <strong style="color:var(--black)">„[LABA/RD/SKVOT] dnes splatnost faktury"</strong></td></tr>
+        <tr><td class="tag">1 den po splatnosti</td><td>1x volat</td><td>E-mail <strong style="color:var(--black)">„[LABA/RD/SKVOT] FAKTURA – faktura po splatnosti 1 den"</strong> + WhatsApp</td></tr>
+        <tr><td class="tag">2 dny po splatnosti</td><td>1x volat</td><td>E-mail <strong style="color:var(--black)">„[LABA/RD/SKVOT] FAKTURA – zrušení účasti na kurzu (neuhrazená faktura)"</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -1927,14 +1923,18 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
       <thead><tr><th>Šablona</th><th>Kanál</th><th>Kdy se posílá</th><th>Typ</th></tr></thead>
       <tbody>
         <tr><td class="strong">„No Answer"</td><td>E-mail</td><td>NQ / Qualified — po 1. nezvednutém hovoru</td><td>Manuálně</td></tr>
-        <tr><td class="strong">„Emailová komunikace"</td><td>E-mail</td><td>NQ / Qualified — den 3</td><td>Manuálně</td></tr>
+        <tr><td class="strong">„Emailová komunikace"</td><td>E-mail</td><td>NQ — den 3</td><td>Manuálně</td></tr>
         <tr><td class="strong">„Making Decision"</td><td>E-mail</td><td>MD — klient nezvedne v domluvený den/čas</td><td>Manuálně</td></tr>
-        <tr><td class="strong">E-mail s obsahem kurzu</td><td>E-mail</td><td>NQ / Qualified — Finished Calling (den 7)</td><td>Manuálně</td></tr>
+        <tr><td class="strong">E-mail s obsahem kurzu (line item kurzu)</td><td>E-mail</td><td>NQ — Finished Calling (den 7)</td><td>Manuálně</td></tr>
         <tr><td class="strong">Souhrn ke kurzu</td><td>E-mail</td><td>Wrong Number — záměrně špatné číslo</td><td>Manuálně</td></tr>
         <tr><td class="strong">After Payment</td><td>E-mail</td><td>Closed Won</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
-        <tr><td class="strong">— (bez názvu)</td><td>WhatsApp</td><td>Vstup do Not Qualified (+20 min)</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
-        <tr><td class="strong">— (bez názvu)</td><td>WhatsApp</td><td>Vstup do Making Decision</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
-        <tr><td class="strong">„po splatnosti skvot"</td><td>WhatsApp</td><td>Waiting for Payment — neuhrazená faktura</td><td>Manuálně</td></tr>
+        <tr><td class="strong">Not qualified</td><td>WhatsApp</td><td>Vstup do Not Qualified (+20 min)</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
+        <tr><td class="strong">Making Decision</td><td>WhatsApp</td><td>Vstup do Making Decision</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
+        <tr><td class="strong">cz_finish calling_A</td><td>WhatsApp</td><td>Vstup do Finished Calling (+1h)</td><td><strong style="color:var(--black)">Automaticky</strong></td></tr>
+        <tr><td class="strong">cz_qualified_no_answer_laba / _skvot / _rd</td><td>WhatsApp</td><td>Qualified — klient domluví hovor a nezvedne</td><td>Manuálně</td></tr>
+        <tr><td class="strong">CZ Making decision</td><td>WhatsApp</td><td>Making Decision — klient nezvedne první domluvený hovor</td><td>Manuálně</td></tr>
+        <tr><td class="strong">CZ LABA / CZ RD / CZ SKVOT waiting for payment</td><td>WhatsApp</td><td>Waiting for Payment — 1 den po splatnosti</td><td>Manuálně</td></tr>
+        <tr><td class="strong">cz_database</td><td>WhatsApp</td><td>Volání do databáze — klienta se nedovoláme</td><td>Manuálně</td></tr>
       </tbody>
     </table>
   </div>
@@ -2126,8 +2126,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// hubspot — dealy a stages</div><div class="divider-line"></div></div>
   <div class="acc-list">
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Co dělám, když přijde nový New Deal?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">New Deal = klientovi ještě nikdo nevolal. V čase 9–17 pracuj do 4 minut: změň Deal Stage ihned na <strong>„In a Call"</strong>, zkontroluj kartu klienta v HubSpotu, vytvoř task a okamžitě vytáčej. POZOR: In a Call zadávej VŽDY pouze u New Leadu se kterým právě pracuješ — nezadávej ho pokud nebudeš volat obratem.</div></div></div>
-    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Jaký je follow-up plán pro Not Qualified klienta den po dni?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp"><strong>Den 1:</strong> 2 hovory v různé časy + email „No Answer" po 1. nezvednutém<br><strong>Den 2:</strong> 2 hovory v různé časy<br><strong>Den 3:</strong> 1 hovor v odlišný čas + email „Emailová komunikace"<br><strong>Den 4:</strong> Zablokoval číslo → CL „Don't call anymore" + poznámka „zablokoval"<br><strong>Den 5:</strong> 1 hovor<br><strong>Den 6:</strong> 1 hovor, nezvedne → email template + CL avoids communication<br><strong>Den 7:</strong> Stále bez kontaktu → Finished Calling + email s obsahem kurzu</div></div></div>
-    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Kdy a jak posílám WhatsApp zprávy klientům?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp"><strong>Automaticky (systém odešle sám):</strong><br>• Not Qualified: zpráva s odstupem 20 minut po změně stage<br>• Making Decision: zpráva po změně stage<br>• Closed Won: Email After Payment automaticky<br><br><strong>Manuálně (ty odesíláš):</strong><br>• Waiting for Payment — neuhrazená faktura: template „po splatnosti skvot"<br>• Closed Lost — volání do databáze: template „cz database"</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Jaký je follow-up plán pro Not Qualified klienta den po dni?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp"><strong>Den 1:</strong> 2 hovory v různé časy + email „No Answer" po 1. nezvednutém<br><strong>Den 2:</strong> 2 hovory v různé časy<br><strong>Den 3:</strong> 1 hovor v odlišný čas + email „Emailová komunikace"<br><strong>Den 4:</strong> 1 hovor<br><strong>Den 5:</strong> 1 hovor<br><strong>Den 6:</strong> 1 hovor<br><strong>Den 7:</strong> Stále bez kontaktu → Finished Calling + email s obsahem kurzu</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Kdy a jak posílám WhatsApp zprávy klientům?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp"><strong>Automaticky (systém odešle sám):</strong><br>• Not Qualified: zpráva s odstupem 20 minut po změně stage<br>• Making Decision: zpráva po změně stage<br>• Finished Calling: zpráva 1h po změně stage (template „cz_finish calling_A")<br>• Closed Won: Email After Payment automaticky<br><br><strong>Manuálně (ty odesíláš):</strong><br>• Qualified — klient domluví hovor a nezvedne: template „cz_qualified_no_answer" (dle projektu)<br>• Making Decision — klient nezvedne první domluvený hovor: template „cz_making desicion"<br>• Waiting for Payment — neuhrazená faktura: template „cz_waiting for payment" (dle projektu)<br>• Closed Lost — volání do databáze: template „cz_database"</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">V jakých případech se vytváří nový deal?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Nový deal děláš ručně jen tehdy, když: 1. Prodáváš klientovi něco navíc k tomu co už má (Upsell). 2. Prodáváš databázi. 3. Jde o případy Paid no Show nebo Paid by Another. Jinak dealy přichází automaticky jako New Leady.</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Kdy dávám BAD TA?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">BAD TA dáváš pokud klient nemluví česky/slovensky (kurzy jsou v čj nebo sk) nebo pokud jsou mimo cílovou skupinu (TA), které v kurzu očekáváme. TA najdeš ve scriptu nebo v course card. Deal pak dej do kanálu <strong>#feedback-on-leads</strong> s krátkým komentářem.</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Co dělám s klienty ve stage Finished Calling?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Provolávej je <strong>poslední týden před startem kurzu</strong> — tehdy je největší šance, že začnou komunikovat a využijí last chance nabídku. Kontroluj je také na konci každého týdne a měsíce.</div></div></div>
@@ -2461,12 +2461,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 const tahakData = {
   nl:{title:" New Lead",text:"V čase 9–17 pracuj vždy do 4 minut od příchodu leadu. Okamžitě přejdi na In a Call, zkontroluj kartu klienta a vytvoř task. Pak bez otálení vytáčej."},
   call:{title:" In a Call",text:"Zadávej VŽDY pouze u New Leadu se kterým právě pracuješ. Nesmí zůstat déle než 20–30 minut — deformuje LPT statistiku celého týmu. Po hovoru okamžitě přesuň na správnou stage."},
-  q:{title:" Qualified",text:"Klient zvedl, ale prezentace neproběhla. Volá se stejně jako Not Qualified — D1: 2 hovory (domluvený čas + záloha). D2: 2 hovory. D3: 1 hovor + e-mail Emailová komunikace. D4: zablokované číslo → CL Don't call anymore. D5–6: 1 hovor. D7: Finished Calling + e-mail s obsahem kurzu. Jediný rozdíl od NQ: voláš v domluvený den a čas."},
-  md:{title:" Making Decision",text:"Kompletní prezentace proběhla, klient dostal e-mailem podklady. Vždy se domluv na konkrétní den a čas dalšího kontaktu. Po přechodu na MD odchází automatická WA zpráva."},
-  wp:{title:" Waiting for Payment",text:"Faktura vystavena. Task nastavuj s předstihem — nikdy ne na poslední den měsíce! V den splatnosti zavolej. Pošli WA template po splatnosti manuálně."},
+  q:{title:" Qualified",text:"Klient zvedl, ale prezentace neproběhla. D1: 2 hovory (domluvený čas + záloha), nezvedne → e-mail No Answer + WhatsApp cz_qualified_no_answer. D2: 2 hovory. D3: 1 hovor → Closed Lost – avoids communication. Od dne 4 se dál nevolá. Voláš primárně v domluvený den a čas."},
+  md:{title:" Making Decision",text:"Kompletní prezentace proběhla, klient dostal e-mailem podklady. Vždy se domluv na konkrétní den a čas dalšího kontaktu. Po přechodu na MD odchází automatická WA zpráva. D1 v domluvený čas nezvedne → e-mail + WA Making Decision, task na D2. D3: zruš task → Closed Lost – avoids communication."},
+  wp:{title:" Waiting for Payment",text:"Faktura vystavena. Task nastavuj s předstihem — nikdy ne na poslední den měsíce! V den splatnosti zavolej, nezvedne → e-mail „dnes splatnost faktury". Den po splatnosti: volej + e-mail „faktura po splatnosti 1 den" + WA. 2 dny po splatnosti: volej + e-mail „zrušení účasti na kurzu"."},
   won:{title:" Closed Won",text:"E-mail After Payment odchází automaticky. Povinně vyplň: Payment type, Payment ID, amount, payment date, installment, close date, stream, country, discount, job area, job position."},
-  nq:{title:" Not Qualified",text:"D1: 2 hovory v různou dobu + e-mail No Answer. D2: 2 hovory. D3: 1 hovor + Emailová komunikace. D4: zablokované číslo → CL Don't call anymore. D5: 1 hovor. D6: 1 hovor. D7: Finished Calling + e-mail se shrnutím kurzu. Po vstupu do NQ odchází auto WA zpráva (+20 min)."},
-  fc:{title:" Finished Calling",text:"Klient nikdy nezvedl. Provoláváme ho poslední týden před startem kurzu — velká šance na last chance nabídku. Kontroluj také konec týdne a měsíce."},
+  nq:{title:" Not Qualified",text:"D1: 2 hovory v různou dobu + e-mail No Answer. D2: 2 hovory. D3: 1 hovor + Emailová komunikace. D4: 1 hovor. D5: 1 hovor. D6: 1 hovor. D7: Finished Calling + e-mail se shrnutím kurzu + auto WA (1h po vstupu do stage). Po vstupu do NQ odchází auto WA zpráva (+20 min)."},
+  fc:{title:" Finished Calling",text:"Klient nikdy nezvedl. Provoláváme ho poslední týden před startem kurzu — velká šance na last chance nabídku. Po vstupu do stage odchází auto WA (1h). Kontroluj také konec týdne a měsíce."},
   cl:{title:" Closed Lost",text:"Vždy vyber rejection reason. Potential = zájem o příští stream → nastav task. Nový Deal zakládáš až při potvrzení zájmu a vystavené faktuře. V CL stále pracuješ přes task."},
   wn:{title:" Wrong Number",text:"Ověř pole Additional Phone Number. Záměrně špatné → WN + e-mail. Omylem špatné → WN bez e-mailu. V obou případech: poznámka + pin do HS, odkaz na deal do #wrong-numbers."}
 };
