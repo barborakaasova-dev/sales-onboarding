@@ -372,6 +372,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <button class="nav-btn" onclick="goPage('powerbi',this)"><span class="ni">—</span> Power BI návod</button>
     <button class="nav-btn" onclick="goPage('hsfiltry',this)"><span class="ni">—</span> HubSpot filtry — Active & No contact</button>
     <button class="nav-btn" onclick="goPage('dph',this)"><span class="ni">—</span> DPH & fakturace</button>
+    <button class="nav-btn" onclick="goPage('dotace',this)"><span class="ni">—</span> Dotační programy</button>
   </div>
 
   <div class="nav-group">
@@ -2492,6 +2493,95 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 
 </div>
 
+<!-- DOTACE -->
+<div class="page" id="page-dotace">
+  <div class="hero">
+    <div class="hero-label">Bude se ti hodit vědět</div>
+    <div class="hero-h" style="font-size:32px">DOTAČNÍ <span class="hl">PROGRAMY</span></div>
+    <div class="hero-desc">Klienti se čím dál častěji ptají, jestli jde náš kurz čerpat na dotaci. Cílem není dotace prodávat — cílem je umět věcně a sebejistě odpovědět, proč se náš kurz (ne)kvalifikuje, a zvládnout námitku "bez dotace nekoupím".</div>
+    <div class="hero-line"></div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// souhrn ve zkratce</div><div class="divider-line"></div></div>
+
+  <div style="border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;max-width:900px;margin-bottom:24px">
+    <div style="display:grid;grid-template-columns:1.1fr 1fr 1.8fr;background:var(--bg3);border-bottom:1.5px solid var(--border)">
+      <div style="padding:10px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)">Program</div>
+      <div style="padding:10px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border-left:1.5px solid var(--border)">Status u nás</div>
+      <div style="padding:10px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border-left:1.5px solid var(--border)">Hlavní důvod</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.1fr 1fr 1.8fr;border-bottom:1.5px solid var(--border)">
+      <div style="padding:12px 14px;font-size:12.5px;color:var(--black);font-weight:600">Vzdělávání pro firmy 2026–2028 (ÚP ČR)</div>
+      <div style="padding:12px 14px;font-size:12.5px;color:var(--black);border-left:1.5px solid var(--border)">Neprodáváme u standardních kurzů</div>
+      <div style="padding:12px 14px;font-size:12.5px;color:var(--off);line-height:1.55;border-left:1.5px solid var(--border)">Náš kurz má 18 h, program vyžaduje 50+ h. Limit 15 osob je navíc strop na celý běh, ne jen na dotované — nekompatibilní s velkými otevřenými kohortami. Dává smysl jen u uzavřených in-company zakázek pro jednu firmu (B2B) — řešíme individuálně.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.1fr 1fr 1.8fr">
+      <div style="padding:12px 14px;font-size:12.5px;color:var(--black);font-weight:600">Jsem v kurzu (MPSV)</div>
+      <div style="padding:12px 14px;font-size:12.5px;color:var(--black);border-left:1.5px solid var(--border)">Neprodáváme, aktivně nekomunikujeme</div>
+      <div style="padding:12px 14px;font-size:12.5px;color:var(--off);line-height:1.55;border-left:1.5px solid var(--border)">Vlastní zkušenost: pokud klient kurz nedokončí, nedostaneme zaplaceno vůbec. Velká administrativa, nelze míchat dotované a samoplátce v jedné skupině. Od dubna 2026 navíc úřad zamítá žadatele se vzděláním v oboru nebo se zaměstnáním — tedy náš typický zákazník.</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// battlecard — vzdělávání pro firmy 2026–2028</div><div class="divider-line"></div></div>
+
+  <div class="rg-title">// program ve zkratce</div>
+  <div style="border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;max-width:900px;margin-bottom:20px">
+    <div style="display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--border)"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Kdo žádá o dotaci</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)">Vždy zaměstnavatel (firma) nebo OSVČ — nikdy zaměstnanec sám, nikdy my jako dodavatel</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--border)"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Kdo dostává peníze</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)">Firma — proplaceno zpětně (ex-post), až po dokončení kurzu</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--border)"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Kdy lze žádat</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)">Od 1. 7. 2026 do 31. 8. 2028 — běží dlouhodobě, není to jednorázová akce</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--border)"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Co pokrývá</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)">Jen IT dovednosti nad základní úroveň (Power BI, AI, cloud, kyberbezpečnost, programování…), technické/odborné vzdělávání a čeština pro cizince. Nepokrývá soft skills, manažerské ani obecné byznys kurzy.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--border)"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Min. délka kurzu</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)"><strong>50 hodin</strong> výuky na účastníka — náš standardní kurz má 18 h</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--border)"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Forma výuky</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)">Musí být živá (prezenčně nebo online s videopřenosem v reálném čase). Asynchronní e-learning se nekvalifikuje.</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--border)"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Max. účastníků na běh</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)"><strong>15 osob</strong> — strop na celý běh (dotovaní + samoplátci dohromady), ne jen na dotované</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--border)"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Výše dotace</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)">Cca 260 Kč/osobohodinu (+ mzdový příspěvek navíc) → max. cca 38 000–48 000 Kč na osobu při 80–100 hodinách</div></div>
+    <div style="display:grid;grid-template-columns:1fr 2fr"><div style="padding:10px 14px;font-size:12px;color:var(--off)">Kdo vybírá dodavatele</div><div style="padding:10px 14px;font-size:12px;color:var(--black);border-left:1px solid var(--border)">Firma sama — žádný centrální seznam schválených dodavatelů neexistuje. Kvalifikujeme se automaticky (živnostenské oprávnění + kvalifikovaní lektoři + obsah v podporované oblasti).</div></div>
+  </div>
+
+  <div style="background:#FDF0F0;border:1.5px solid #E8C5C5;border-radius:10px;padding:14px 18px;max-width:900px;margin-bottom:20px">
+    <div style="font-family:var(--mono);font-size:9px;color:#B23A3A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Interní rozhodnutí</div>
+    <div style="font-size:12.5px;color:var(--black);line-height:1.6">Tento program <strong>neprodáváme</strong> u standardních (otevřených) kurzů. Nenabízíme bundling do 54h balíčku ani dotaci u otevřených kohort. Dvojitý nesoulad: náš kurz má 18 h místo požadovaných 50+ h, a limit 15 osob je strop na celý běh — u kohort na desítky/stovky lidí by to znamenalo běžet samostatný uměle omezený běh vedle standardní výuky, což je provozně neúnosné.<br><br>Program dává smysl jen u <strong>uzavřených in-company zakázek pro jednu firmu</strong>, kde je skupina přirozeně malá (pod 15 lidí). Pokud se objeví taková poptávka, eskaluj interně — neřeš to jako standardní nabídku, ale případ od případu.</div>
+  </div>
+
+  <div class="rg-title">// reakce na odmítnutí kvůli chybějící dotaci</div>
+  <div class="tips" style="margin-bottom:20px">
+    <div class="tip"><span class="tip-n">1</span>Potvrď fakta, nepolemizuj o tom, že dotace existuje.</div>
+    <div class="tip"><span class="tip-n">2</span>Vysvětli krátce a bez omluvného tónu, proč se náš kurz nekvalifikuje.</div>
+    <div class="tip"><span class="tip-n">3</span>Přesměruj pozornost na hodnotu kurzu nezávisle na dotaci — cena, rychlost, kvalita, výsledek.</div>
+    <div class="tip"><span class="tip-n">4</span>Nabídni srovnání skutečných nákladů, ne jen dojem "dotace = zadarmo".</div>
+  </div>
+
+  <div class="acc-list" style="margin-bottom:32px">
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">01</span><span class="acc-q">Tak počkáme, najdeme kurz, který dotaci má.</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„Rozumím té úvaze, ale stojí za zvážení, co vás to skutečně bude stát v čase i penězích. Kurzy splňující podmínku 50+ hodin jsou zpravidla podstatně dražší a delší — i po odečtení dotace (cca 260 Kč/hodinu, cca 20–48 tisíc Kč na osobu) může vyjít net cena srovnatelně nebo hůř, než náš kurz rovnou. K tomu si připočtěte tři až čtyři měsíce navíc na administrativu — žádost, schválení, samotnou 50hodinovou výuku, doložení dokladů, než se peníze vůbec vrátí. Váš tým mezitím nemá žádnou novou dovednost.“<br><br><em style="color:var(--faint);font-size:11.5px">Pozn.: čísla jsou orientační z podmínek programu — ověř si aktuální sazbu, než je použiješ v konkrétní nabídce.</em></div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">02</span><span class="acc-q">Ale dotace nám sníží náklady, proč bychom to nevyužili?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„Chápu tu logiku, ale dotace nesnižuje vaše okamžité náklady — je to zpětné proplacení, tedy vy napřed zaplatíte kurz v plné výši a peníze dostanete zpátky až po úspěšném dokončení a doložení všech dokladů. Je to spíš sleva s odloženou platností a papírováním, ne okamžitá úspora. Pokud chcete tým proškolit teď a rychle, náš kurz vám dá tu hodnotu bez čekání.“</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">03</span><span class="acc-q">Konkurence nabízí kurzy s dotací, vy ne — proč bychom šli k vám?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„Protože nekupujete dotaci, kupujete výsledek — dovednost, kterou váš tým reálně použije. Kurzy stavěné primárně na to, aby splnily podmínky programu (50+ hodin, danou strukturou), jsou často natahované kvůli parametrům dotace, ne kvůli tomu, co tým skutečně potřebuje. Rádi vám ukážeme rozdíl v obsahu a výsledcích, ne jen v ceníkové položce 'dotace ano/ne'.“</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">04</span><span class="acc-q">Můžete nám kurz prodloužit na 50 hodin, ať to projde?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„To bohužel neděláme — nechceme uměle natahovat kurz jen kvůli splnění administrativní podmínky, to by šlo na úkor kvality a vašeho času. Pokud byste přesto chtěli víc obsahu, můžeme se bavit o navazujícím kurzu jako samostatném produktu, ale ne jako o účelovém 'naballastrování' na 50 hodin.“</div></div></div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// program: jsem v kurzu (MPSV)</div><div class="divider-line"></div></div>
+
+  <div style="background:#FDF0F0;border:1.5px solid #E8C5C5;border-radius:10px;padding:14px 18px;max-width:900px;margin-bottom:20px">
+    <div style="font-family:var(--mono);font-size:9px;color:#B23A3A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Naše reálná zkušenost — má přednost před oficiálními podmínkami</div>
+    <div style="font-size:12.5px;color:var(--black);line-height:1.6">Oficiální podmínky ÚP/MPSV vyznívají vstřícně, realita provozu je jiná — a byla důvodem, proč jsme program přestali nabízet:</div>
+  </div>
+
+  <div class="tips" style="margin-bottom:20px">
+    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--black)">Platební riziko je celé na nás.</strong> Pokud klient kurz nedokončí, peníze od ÚP nepřijdou vůbec — ne částečně, nula. Kurz odučíme, náklady máme, příjem za tohoto klienta nikdy nedostaneme.</div>
+    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--black)">Neúměrná administrativa</strong> vzhledem k objemu — evidence docházky, potvrzování do 15 dnů, čekání 30–45+ dní na platbu s rizikem dalšího zpoždění.</div>
+    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--black)">Nejde namixovat skupinu</strong> — dotovaní klienti z databáze a naši běžní studenti z marketingových kampaní nemůžou sedět ve stejné kohortě.</div>
+    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--black)">Nárok už není automatický</strong> — od dubna 2026 úřad zamítá uchazeče s maturitou/VŠ v oboru i zaměstnané lidi. Cílí jen na úzkou skupinu (dlouhodobě nezaměstnaní, znevýhodnění na trhu práce) — to je náš typický zákazník přesně opačně.</div>
+  </div>
+
+  <div style="font-size:12.5px;color:var(--off);line-height:1.6;max-width:820px;margin-bottom:8px"><strong style="color:var(--black)">Závěr pro sales:</strong> program aktivně nenabízíme a nekomunikujeme klientům, že ho podporujeme. Pokud se klient sám zeptá, viz reakce na námitky níže.</div>
+  <div style="font-size:11.5px;color:var(--faint);line-height:1.6;max-width:820px;margin-bottom:20px">Oficiální parametry (pro kontext, ne jako prodejní argument): dvě kategorie — rekvalifikace (akreditace MŠMT) a kurz digitálního vzdělávání / KDV (živnostenské oprávnění, min. 16 h, IT/digitální obsah). ÚP hradí až 50 000 Kč/3 roky na osobu, platba jde přímo dodavateli — jen pokud klient projde individuálním posouzením a kurz dokončí.</div>
+
+  <div class="rg-title">// reakce na námitky</div>
+  <div class="acc-list">
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">01</span><span class="acc-q">Slyšel jsem o programu Jsem v kurzu, proč mi ho nenabízíte?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„Znám ho, dokonce jsme přes něj dřív pracovali. Realita je bohužel taková, že úřad práce teď posuzuje každou žádost individuálně, a lidé s maturitou, vysokoškolským vzděláním v oboru nebo se zaměstnáním bývají zamítáni — tedy přesně profil většiny našich klientů. Nechci vám slibovat dotaci, na kterou byste s vysokou pravděpodobností nedosáhli.“</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">02</span><span class="acc-q">Tak to aspoň zkusíme, nic neztratíme.</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„Chápu tu logiku, ale je tu jeden háček — pokud byste žádost podal a nebyla schválena nebo kurz z jakéhokoli důvodu nedokončil, na naší straně by to neznamenalo žádnou změnu ceny ani podmínek — kurz byste si hradil stejně jako běžný samoplátce. Dotace by fungovala jen jako bonus navíc, ne jako záruka slevy, a šance na schválení je u vašeho profilu bohužel nízká.“</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">03</span><span class="acc-q">Proč to nezkusíte znovu nabízet, když je 16 hodin místo 50?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„To je fér otázka. Délka kurzu není problém — náš 18h formát by parametry splnil. Problém je jinde: pokud klient kurz nedokončí, nedostaneme zaplaceno vůbec, ne částečně, a administrativa kolem evidence a schvalování je neúměrně velká vzhledem k tomu, jak málo klientů by dnes reálně prošlo schválením. Zvažovali jsme to, ale zatím to pro nás finančně a provozně nedává smysl.“</div></div></div>
+  </div>
+</div>
+
 </main>
 
 <script>
@@ -2518,7 +2608,7 @@ function openTahak(key) {
 
 const searchIdx = [];
 function buildIdx() {
-  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",day7:"První hovory",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",volani:"Volání do databáze",znaceni:"Značení tasků",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",slack:"Slack kanály",faq:"FAQ",certifikaty:"Certifikáty",pmpravidla:"Pravidla zkoušek",powerbi:"Power BI návod",hsfiltry:"HubSpot filtry",dph:"DPH & fakturace"};
+  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",day7:"První hovory",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",volani:"Volání do databáze",znaceni:"Značení tasků",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",slack:"Slack kanály",faq:"FAQ",certifikaty:"Certifikáty",pmpravidla:"Pravidla zkoušek",powerbi:"Power BI návod",hsfiltry:"HubSpot filtry",dph:"DPH & fakturace",dotace:"Dotační programy"};
 
   // Index slack channels
   document.querySelectorAll(".slack-item").forEach(el => {
