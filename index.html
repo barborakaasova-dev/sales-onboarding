@@ -373,6 +373,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <button class="nav-btn" onclick="goPage('hsfiltry',this)"><span class="ni">—</span> HubSpot filtry — Active & No contact</button>
     <button class="nav-btn" onclick="goPage('dph',this)"><span class="ni">—</span> DPH & fakturace</button>
     <button class="nav-btn" onclick="goPage('dotace',this)"><span class="ni">—</span> Dotační programy</button>
+    <button class="nav-btn" onclick="goPage('comgate',this)"><span class="ni">—</span> Comgate — platební proces</button>
   </div>
 
   <div class="nav-group">
@@ -2580,6 +2581,78 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">02</span><span class="acc-q">Tak to aspoň zkusíme, nic neztratíme.</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„Chápu tu logiku, ale je tu jeden háček — pokud byste žádost podal a nebyla schválena nebo kurz z jakéhokoli důvodu nedokončil, na naší straně by to neznamenalo žádnou změnu ceny ani podmínek — kurz byste si hradil stejně jako běžný samoplátce. Dotace by fungovala jen jako bonus navíc, ne jako záruka slevy, a šance na schválení je u vašeho profilu bohužel nízká.“</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">03</span><span class="acc-q">Proč to nezkusíte znovu nabízet, když je 16 hodin místo 50?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">„To je fér otázka. Délka kurzu není problém — náš 18h formát by parametry splnil. Problém je jinde: pokud klient kurz nedokončí, nedostaneme zaplaceno vůbec, ne částečně, a administrativa kolem evidence a schvalování je neúměrně velká vzhledem k tomu, jak málo klientů by dnes reálně prošlo schválením. Zvažovali jsme to, ale zatím to pro nás finančně a provozně nedává smysl.“</div></div></div>
   </div>
+</div>
+
+<!-- COMGATE -->
+<div class="page" id="page-comgate">
+  <div class="hero">
+    <div class="hero-label">Bude se ti hodit vědět</div>
+    <div class="hero-h" style="font-size:32px">COMGATE <span class="hl">— PLATEBNÍ PROCES</span></div>
+    <div class="hero-desc">Co se děje od chvíle, kdy lead odešle objednávku, až po zaplacenou fakturu — dashboard klienta, generování platebního odkazu v HubSpotu a samotná platba přes Comgate.</div>
+    <div class="hero-line"></div>
+  </div>
+
+  <div class="rg-title">// autorizace klienta v dashboardu</div>
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6;max-width:820px;margin-bottom:14px">Poté, co klient odešle objednávku na webových stránkách, objeví se v dashboardu. V ten okamžik je uživatel automaticky přihlášen pomocí své e-mailové adresy. Pokud klient není autorizován, může se do dashboardu vždy přihlásit zadáním e-mailu — na ten je pak zaslán verifikační kód k potvrzení přihlášení.</div>
+
+  <div style="background:#FDF0F0;border:1.5px solid #E8C5C5;border-radius:10px;padding:14px 18px;max-width:820px;margin-bottom:24px">
+    <div style="font-family:var(--mono);font-size:9px;color:#B23A3A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Důležité — párování podle e-mailu</div>
+    <div style="font-size:12.5px;color:var(--black);line-height:1.6">V sekci „Moje Nákupy“ jsou všechny požadavky propojeny s e-mailovou adresou. Pokud klient odešle dva požadavky s různými e-maily, vytvoří se <strong>dva samostatné Purchases účty</strong> — nákupy se mu tak nesejdou na jednom místě.</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// payment workflow v hubspotu</div><div class="divider-line"></div></div>
+
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6;max-width:820px;margin-bottom:14px">V HubSpotu se lead přesune do deal stage <strong>Waiting for Payment</strong>. Tady je možné změnit cenu kurzu, specifikovat DPH a použít speciální nastavení:</div>
+
+  <div class="tips" style="margin-bottom:20px">
+    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--black)">Allowed payment systems</strong> — určuje platební metody viditelné pro klienta (Comgate, Comgate Installment). Pokud není vybráno nic, zobrazí se standardně všechny.</div>
+    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--black)">Send automatic payment link</strong> — definuje stav, do kterého se lead přesune po úspěšné platbě. Pokud není vybráno nic, přesune se do stavu Paid Online.</div>
+    <div class="tip"><span class="tip-n">·</span><strong style="color:var(--black)">Amount vždy zkontroluj</strong> — pokud je platba na splátky nebo klient dostal slevu, musí být cena upravená. Amount se pak zobrazuje na faktuře, takže chyba tady = chyba na faktuře. Vždy uváděj v <strong>CZK</strong>.</div>
+  </div>
+
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6;max-width:820px;margin-bottom:8px">Poté, co je lead přesunut do Waiting for Payment a je vyplněno vše potřebné, vygeneruje se v HubSpotu přímý platební odkaz v poli <strong>E-commerce payment url</strong>. Odkaz se skládá takto:</div>
+
+  <div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:8px;padding:12px 16px;max-width:820px;margin-bottom:14px;font-family:var(--mono);font-size:11.5px;color:var(--off);line-height:1.7;overflow-wrap:anywhere">https://l-a-b-a.cz/purchases#/order/ <span style="color:var(--black)">+ orderID</span><br><span style="color:var(--faint)">např.: https://l-a-b-a.cz/purchases#/order/31f1de1c-8148-4726-9b28-492aaab947cf</span></div>
+
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6;max-width:820px;margin-bottom:20px">Link se klientovi zašle <strong>automaticky</strong> do e-mailu.</div>
+
+  <a href="https://drive.google.com/file/d/1ju8BYDlq0chHSOJlB4xBTHdKMEWFI2H2/view?usp=sharing" target="_blank" class="ri" style="max-width:820px;margin-bottom:8px"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Video instrukce — Payment workflow</div><div class="ri-sub">Google Drive · postup krok za krokem</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// platební proces na straně klienta</div><div class="divider-line"></div></div>
+
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6;max-width:820px;margin-bottom:14px">Klient klikne na tlačítko na kartě pro rozbalení platební sekce. Pokud přistoupil přímo přes odkaz, je přesměrován rovnou na rozšířené zobrazení platby, kde vidí: cenu kurzu, jméno klienta/firmy, e-mail, telefon, výběr Comgate, možnost splátek a cenu + DPH. Pokud zvolí Comgate Installment, zpřístupní se tři platební možnosti a po výběru se zobrazí posuvník s dostupným počtem splátek.</div>
+
+  <div class="rg-title">// limity částek pro poskytovatele splátek (installment group)</div>
+  <div style="font-size:11.5px;color:var(--faint);line-height:1.5;max-width:820px;margin-bottom:10px">Pokud částka překročí maximum, poskytovatel se klientovi nezobrazí jako možnost.</div>
+
+  <div class="wf-table-wrap" style="max-width:820px">
+    <table class="wf-table">
+      <thead><tr><th>Poskytovatel</th><th>Podmínky</th><th>Minimum</th><th>Maximum</th></tr></thead>
+      <tbody>
+        <tr><td class="strong">Twisto</td><td>Nákup na třetiny — 3 splátky bez úroku</td><td>1 000 Kč</td><td>Neomezeno <span style="color:var(--faint)">(tarify od 1 500 Kč)</span></td></tr>
+        <tr><td class="strong">Skip Pay</td><td>Na Třetinu — 3 splátky bez úroku</td><td>1 000 Kč</td><td>15 000 Kč</td></tr>
+        <tr><td class="strong">Essox</td><td>3 splátky</td><td>2 000 Kč</td><td>30 000 Kč</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6;max-width:820px;margin:18px 0 0">Po výběru platební metody a kliknutí na tlačítko Pay je klient přesměrován na platební stránku Comgate. Po úspěšné platbě je přesměrován zpět do dashboardu — karta se nachází v záložce „Zaplacené“.</div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// po úspěšné platbě</div><div class="divider-line"></div></div>
+
+  <div class="wf-table-wrap" style="max-width:900px">
+    <table class="wf-table">
+      <tbody>
+        <tr><td class="tag" style="white-space:normal">Stav dealu</td><td>V HubSpotu se deal přesune do <strong style="color:var(--black)">Paid Online</strong>, případně <strong style="color:var(--black)">Closed Won</strong> nebo <strong style="color:var(--black)">Prepayment</strong> — podle toho, co bylo zvolené v Send automatic payment link.</td></tr>
+        <tr><td class="tag" style="white-space:normal">Vyplněná pole</td><td>Payment Date, Payment ID, Payment Type — u Comgate vždy <strong style="color:var(--black)">Comgate</strong>.</td></tr>
+        <tr><td class="tag" style="white-space:normal">Faktura</td><td>K dealu se navíc přiloží faktura, generovaná v systému Abra.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// zrušené objednávky</div><div class="divider-line"></div></div>
+
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6;max-width:820px">Všechny zrušené nebo smazané objednávky se nacházejí ve <strong>čtvrté záložce</strong> dashboardu.</div>
 </div>
 
 </main>
