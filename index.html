@@ -351,8 +351,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <button class="nav-btn" onclick="goPage('day1',this)"><span class="ni">01</span> Den 1 — Prodej & SPIN</button>
     <button class="nav-btn" onclick="goPage('day2',this)"><span class="ni">02</span> Den 2 — Nástroje & CRM</button>
     <button class="nav-btn" onclick="goPage('day3',this)"><span class="ni">03</span> Den 3 — PitchMonster</button>
-    <button class="nav-btn" onclick="goPage('day4',this)"><span class="ni">04</span> Den 4 — HubSpot Pro</button>
-    <button class="nav-btn" onclick="goPage('day7',this)"><span class="ni">05</span> První hovory</button>
+    <button class="nav-btn" onclick="goPage('day7',this)"><span class="ni">04</span> První hovory</button>
   </div>
 
   <div class="nav-group">
@@ -362,6 +361,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <button class="nav-btn" onclick="goPage('spin',this)"><span class="ni">—</span> SPIN technika</button>
     <button class="nav-btn" onclick="goPage('lol',this)"><span class="ni">—</span> Life of Leads</button>
     <button class="nav-btn" onclick="goPage('volani',this)"><span class="ni">—</span> Volání do databáze</button>
+    <button class="nav-btn" onclick="goPage('autodialer',this)"><span class="ni">—</span> Autodialer</button>
     <button class="nav-btn" onclick="goPage('znaceni',this)"><span class="ni">—</span> Značení tasků</button>
     <button class="nav-btn" onclick="goPage('workflow',this)"><span class="ni">—</span> Workflow</button>
     <button class="nav-btn" onclick="goPage('namitky',this)"><span class="ni">—</span> Námitkovník</button>
@@ -374,6 +374,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <button class="nav-btn" onclick="goPage('dph',this)"><span class="ni">—</span> DPH & fakturace</button>
     <button class="nav-btn" onclick="goPage('dotace',this)"><span class="ni">—</span> Dotační programy</button>
     <button class="nav-btn" onclick="goPage('comgate',this)"><span class="ni">—</span> Comgate — platební proces</button>
+    <button class="nav-btn" onclick="goPage('ostatni',this)"><span class="ni">—</span> Ostatní</button>
   </div>
 
   <div class="nav-group">
@@ -409,8 +410,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="ov-card" onclick="goPage('day1')"><div class="ov-n">1</div><div class="ov-title">PRODEJ &amp; SPIN</div><div class="ov-desc">Struktura hovoru, SPIN technika, sendvič ceny, námitky</div></div>
     <div class="ov-card" onclick="goPage('day2')"><div class="ov-n">2</div><div class="ov-title">NÁSTROJE &amp; CRM</div><div class="ov-desc">Profity, Stripe, Telegram, HubSpot, UniTalk, Chrome Ext.</div></div>
     <div class="ov-card" onclick="goPage('day3')"><div class="ov-n">3</div><div class="ov-title">PITCHMONSTER</div><div class="ov-desc">Role play SPIN, prezentace ceny, plný hovor, simulace</div></div>
-    <div class="ov-card" onclick="goPage('day4')"><div class="ov-n">4</div><div class="ov-title">HUBSPOT PRO</div><div class="ov-desc">Fakturace, Stripe, WhatsApp templaty, databáze</div></div>
-    <div class="ov-card" onclick="goPage('day7')"><div class="ov-n">5</div><div class="ov-title">PRVNÍ HOVORY</div><div class="ov-desc">Feedback na první hovory, práce s námitkou, výběr dalšího kurzu</div></div>
+    <div class="ov-card" onclick="goPage('day7')"><div class="ov-n">4</div><div class="ov-title">PRVNÍ HOVORY</div><div class="ov-desc">Feedback na první hovory, práce s námitkou, výběr dalšího kurzu</div></div>
   </div>
   <div class="bot-cta">
     
@@ -491,6 +491,18 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="tip" style="color:#3A3730"><span class="tip-n">·</span><strong style="color:var(--black)">Slack</strong> — stáhni si aplikaci i do notebooku, ať máš oznámení včas na očích. Je to náš hlavní komunikační nástroj. Notifikace vypínej až po 17:30.</div>
     <div class="tip" style="color:#3A3730"><span class="tip-n">·</span><strong style="color:var(--black)">ZOHO</strong> — stačí webové rozhraní, appku není nutné stahovat. Postupuj podle pokynů na obrazovce při prvním přihlášení.</div>
   </div>
+  <div class="rg"><div class="rg-title">// nástroje — registrace a nastavení</div><div class="rg-list">
+    <a href="https://profity.io/distribution/907f30d77029386aa1ce5df0bd1138f5" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Profity — registrace</div><div class="ri-sub">výkon, plnění plánu, hovory, faktury</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <div style="font-size:12.5px;color:var(--black);line-height:1.6;padding:12px 4px;border-bottom:1px solid var(--border)">Přístup obdržíš e-mailem.<br><strong>Settings → Employees → Add</strong></div>
+    <a href="https://dashboard.stripe.com/acct_1N6qucDD3DhYyrqB/settings/team" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Stripe — registrace přes Google</div><div class="ri-sub">platební brána · karta, Apple Pay, Google Pay</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <div style="font-size:12.5px;color:var(--black);line-height:1.6;padding:12px 4px;border-bottom:1px solid var(--border)">Přístup obdržíš e-mailem.<br><strong>Add member → Email → Support specialist</strong></div>
+    <a href="https://desktop.telegram.org/" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Telegram — stažení desktop aplikace</div><div class="ri-sub">notifikace na nové leady · vždy mít zapnuté!</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://docs.google.com/document/d/1XvWoo7JAsZ8dycqcZmxaPGCaJHeytaEcigoJ3BReLxk/edit" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Telegram — návod na propojení</div><div class="ri-sub">google docs</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://knowledge.hubspot.com/connected-email/get-started-with-the-hubspot-sales-chrome-extension" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Chrome Extension — instalace</div><div class="ri-sub">HubSpot Sales Extension</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://docs.google.com/document/d/1xY5QSEDtqH5SMCL9eQc_bVbbKA1yBoVrGn_RxNUydLA/edit" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">E-mailový podpis — návod</div><div class="ri-sub">po nastavení pošli test na barbora.kaasova@skvt.cz</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://chromewebstore.google.com/detail/unitalk-web-dialer/hokefmefppdgmlgeigcmjdlcdnkclbgo" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">UniTalk — instalace Web Dialer</div><div class="ri-sub">dialer pro volání klientům</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://docs.google.com/spreadsheets/d/1AR9nfeEjOtTh-xlvws6cki_42RGs86WmE4gx8kK8ZG8/edit?gid=87645377" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">UniTalk — přístupy</div><div class="ri-sub">google sheets</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+  </div></div>
   <div class="rg"><div class="rg-title">// workshopy — práce s námitkami</div><div class="rg-list">
     <a href="https://docs.google.com/document/d/1U-ic_312kKmqxwmCCtfXmFfNS5sY_dRJ_1XUWh38ee4/edit?tab=t.0" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Workshop: Práce s námitkami (4 námitky)</div><div class="ri-sub">google docs · 15 minut</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
     <a href="https://docs.google.com/document/d/1SsvG40qi6hq2NlHyXpxLnJlFu1-aN0iqWaB0VNHvGd0/edit?tab=t.0" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Workshop: Práce s námitkami — úvod</div><div class="ri-sub">google docs</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
@@ -662,26 +674,13 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 <!-- DAY 2 -->
 <div class="page" id="page-day2">
   <div class="day-hero">
-    <div><div class="day-label">// Den 2 · Technický den</div><div class="day-h">NÁSTROJE<br>&amp; CRM</div><div class="day-desc">Profity, Stripe, Telegram, HubSpot, UniTalk, Chrome Extension. Základy práce v CRM.</div></div>
+    <div><div class="day-label">// Den 2 · Technický den</div><div class="day-h">NÁSTROJE<br>&amp; CRM</div><div class="day-desc">Dopoledne: Profity, Stripe, Telegram, HubSpot, UniTalk, Chrome Extension. Odpoledne: pokročilé filtry, e-mailové šablony, Workflow, WhatsApp templaty, volání do databáze.</div></div>
     <div class="day-big-n">02</div>
   </div>
   <div class="task-card">
     <div class="task-head"><div class="task-tag">Samostatně</div><div class="task-title">Zkouška na znalost kurzu</div></div>
-    <div class="task-body">Předveď, že svůj vybraný kurz dobře znáš — co nabízí, pro koho je, jaké má hlavní výhody a s jakými problémy se mohou potýkat potenciální zákazníci.<span class="task-note">Po úspěšném složení zapiš svůj kurz do karty „kurzy“ u svého jména — včetně data zkoušky a projektu.</span></div>
+    <div class="task-body">Předveď, že svůj vybraný kurz dobře znáš — co nabízí, pro koho je, jaké má hlavní výhody a s jakými problémy se mohou potýkat potenciální zákazníci.<span class="task-note">Po úspěšném složení si u kurzu v Exam tabulce dej „Splněno“ — včetně data zkoušky.</span></div>
   </div>
-  <div class="rg"><div class="rg-title">// nástroje — registrace a nastavení</div><div class="rg-list">
-    <a href="https://profity.io/distribution/907f30d77029386aa1ce5df0bd1138f5" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Profity — registrace</div><div class="ri-sub">výkon, plnění plánu, hovory, faktury</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <div style="font-size:12.5px;color:var(--black);line-height:1.6;padding:12px 4px;border-bottom:1px solid var(--border)">Přístup obdržíš e-mailem.<br><strong>Settings → Employees → Add</strong></div>
-    <a href="https://dashboard.stripe.com/acct_1N6qucDD3DhYyrqB/settings/team" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Stripe — registrace přes Google</div><div class="ri-sub">platební brána · karta, Apple Pay, Google Pay</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <div style="font-size:12.5px;color:var(--black);line-height:1.6;padding:12px 4px;border-bottom:1px solid var(--border)">Přístup obdržíš e-mailem.<br><strong>Add member → Email → Support specialist</strong></div>
-    <a href="https://desktop.telegram.org/" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Telegram — stažení desktop aplikace</div><div class="ri-sub">notifikace na nové leady · vždy mít zapnuté!</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://docs.google.com/document/d/1XvWoo7JAsZ8dycqcZmxaPGCaJHeytaEcigoJ3BReLxk/edit" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Telegram — návod na propojení</div><div class="ri-sub">google docs</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://knowledge.hubspot.com/connected-email/get-started-with-the-hubspot-sales-chrome-extension" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">Chrome Extension — instalace</div><div class="ri-sub">HubSpot Sales Extension</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://docs.google.com/document/d/1xY5QSEDtqH5SMCL9eQc_bVbbKA1yBoVrGn_RxNUydLA/edit" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">E-mailový podpis — návod</div><div class="ri-sub">po nastavení pošli test na barbora.kaasova@skvt.cz</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://chromewebstore.google.com/detail/unitalk-web-dialer/hokefmefppdgmlgeigcmjdlcdnkclbgo" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">UniTalk — instalace Web Dialer</div><div class="ri-sub">dialer pro volání klientům</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://docs.google.com/spreadsheets/d/1AR9nfeEjOtTh-xlvws6cki_42RGs86WmE4gx8kK8ZG8/edit?gid=87645377" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">UniTalk — přístupy</div><div class="ri-sub">google sheets</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://drive.google.com/file/d/1J4nXM8od0W9d_eVlMqKXF7QiMm1VKMbp/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Autodialer — video ukázka</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-  </div></div>
   <div class="rg"><div class="rg-title">// hubspot videa</div><div class="rg-list">
     <a href="https://drive.google.com/file/d/13LkSF-vcCsXTWuS1wYPeUfmVQOnYtzLH/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">All Course Card — video přehled</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
     <a href="https://drive.google.com/file/d/1QUXh-Z549oXfHMaLpQVsAVngM2N_hEaR/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Jak doporučit upsell a orientovat se ve všech kurzech</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
@@ -756,11 +755,34 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="task-head"><div class="task-tag">Workshop</div><div class="task-title">Filtr na kurz — Intensive Advanced AI Applications</div></div>
     <div class="task-body">Vytvoř filtr na kurz z robot_dreams — kurz „Intensive Advanced AI Applications“, pro stream 2, a přidej všechny kontakty ve fázi Closed Lost s důvodem odmítnutí Expensive.<span class="task-note">Při ukládání filtru dej pozor, aby byl nastaven jako viditelný pro „My team“.</span></div>
   </div>
-  <div class="task-card">
-    <div class="task-head"><div class="task-tag">Samostatně</div><div class="task-title">Domácí úkol — naučit se další kurz</div></div>
-    <div class="task-body">Projdi veškeré dostupné podklady k vybranému kurzu a připrav se na zítřejší zkoušku, při které:<br>— představíš nejběžnější cílové skupiny a jejich usual pains<br>— představíš lektora a benefity kurzu</div>
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// odpoledne — HubSpot Pro</div><div class="divider-line"></div></div>
+  <div class="tips">
+    <h3>// Workshop: HubSpot — pokročilé filtry</h3>
+    <div class="tip"><span class="tip-n">1</span>Které kurzy startují do konce aktuálního týdne podle ACC (all course card)?</div>
+    <div class="tip"><span class="tip-n">2</span>Kolik je dnes na projektu Laba NL (new leads)?</div>
+    <div class="tip"><span class="tip-n">3</span>Kolik je dnes na projektu Skvot NL?</div>
+    <div class="tip"><span class="tip-n">4</span>Kolik je dnes na projektu r_d NL?</div>
+    <div class="tip"><span class="tip-n">5</span>Kolik NL má prodejce Vojtěch Zicháček?</div>
+    <div class="tip"><span class="tip-n">6</span>Vytvoř vlastní filtr se všemi NQ (laba, skvot, robot_dreams) a přidej ve filtru ownera "me".</div>
+    <div class="tip"><span class="tip-n">7</span>Vytvoř vlastní filtr se všemi Q (laba, skvot, robot_dreams) a přidej ve filtru ownera "me".</div>
+    <div class="tip"><span class="tip-n">8</span>Vytvoř vlastní filtr se všemi MD (laba, skvot, robot_dreams) a přidej ve filtru ownera "me".</div>
+    <div class="tip"><span class="tip-n">9</span>Vytvoř vlastní filtr se všemi WP (laba, skvot, robot_dreams) a přidej ve filtru ownera "me".</div>
+    <div class="tip"><span class="tip-n">10</span><div>Zkopíruj <a href="https://app-eu1.hubspot.com/contacts/25652196/objects/0-3/views/137082179/list" target="_blank" style="color:var(--laba-dark);font-weight:600">filtr paid online</a>, nastav sebe jako ownera na všechny projekty a ulož ho.<span class="task-note">Filtr s platbami bankovním převodem. V tomto filtru můžeš proběhlou platbu najít ještě ve chvíli, kdy nevidíš v invoice sheet zadané Payment ID. Tento deal stage dále standardně zadáváme do Closed Won.</span></div></div>
+    <div class="tip"><span class="tip-n">11</span>Zahrň do filtru dealy v následujících stage: NL (New Deal), NQ (Not Qualified), Q (Qualified), MD (Making decision), WP (Waiting for Payment), Surcharge.<br>Dále vyfiltruj leady ze všech tří projektů — Laba, Skvot, Robot Dreams — a jako ownera nastav sebe.</div>
   </div>
-</div>
+  <div class="rg"><div class="rg-title">// hubspot videa</div><div class="rg-list">
+    <a href="https://drive.google.com/file/d/1Ues2EYOJtM_qKgS7HNMwQGqVKlR2lW9T/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Poznámky a Tasky</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://drive.google.com/file/d/1-FS6WN49mm2qQ6YaAazZWV-H51T_PGha/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">E-mailové šablony — přehled a použití</div><div class="ri-sub">no answer · info o kurzu · after payment · faktura po splatnosti…</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://drive.google.com/drive/folders/1Od0hED5em0p7MSLhR-5xcncLBGSmfqdL" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Workflow — video ukázky (složka)</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+  </div></div>
+  <div class="rg"><div class="rg-title">// whatsapp</div><div class="rg-list">
+    <a href="https://drive.google.com/file/d/1tPD95Hzn8mTffYWZRwXMvb82psyn9Vve/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">WhatsApp — seznámení a zásady komunikace</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://drive.google.com/file/d/1xqLLotu-7eZIdWUpdF2jbHaO3Fch9oGN/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">WhatsApp — zasílání šablon</div><div class="ri-sub">auto: Making Decision / manuální: database, waiting for payment</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+  </div></div>
+  <div class="rg"><div class="rg-title">// domácí úkol</div><div class="rg-list">
+    <a href="https://docs.google.com/document/d/1aot25t9Oy_JmlbEifRWMLQ3VXTUNQmnP7fzt5RFQAmg/edit?tab=t.0#heading=h.1tmcraf928oi" target="_blank" class="ri"><div class="ri-icon h"><span style="font-family:var(--mono);font-size:10px;color:#aa5522">→</span></div><div class="ri-body"><div class="ri-title">Naučit se script — báze Closed Lost</div><div class="ri-sub">google doc</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://docs.google.com/document/d/1jljee-ilcpp4lDUiakVJcESYC2ZDofHqWE1OlxTFT48/edit?tab=t.0" target="_blank" class="ri"><div class="ri-icon h"><span style="font-family:var(--mono);font-size:10px;color:#aa5522">→</span></div><div class="ri-body"><div class="ri-title">Naučit se script — báze Closed Won</div><div class="ri-sub">google doc</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+  </div></div></div>
 
 <!-- DAY 3 -->
 <div class="page" id="page-day3">
@@ -804,7 +826,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
       </div>
     </div>
     <div style="padding:12px 20px;border-top:1px solid var(--border);background:#F8F6EE;display:flex;align-items:center;justify-content:space-between;gap:12px">
-      <div style="font-size:12px;color:var(--off)">Produktové kvízy a výsledky zkoušek najdeš v <strong style="color:var(--black)">Exam Hell tabulce</strong></div>
+      <div style="font-size:12px;color:var(--off)">Produktové kvízy a výsledky zkoušek najdeš v <strong style="color:var(--black)">Exam tabulce</strong></div>
       <a href="https://docs.google.com/spreadsheets/d/1wwxAcIJp7lfWls7rNrNtk3YoVRrAOAVXaJvsKSXzEGY/edit?gid=580348903#gid=580348903" target="_blank" style="flex-shrink:0;padding:7px 14px;background:var(--black);color:#fff;border-radius:6px;font-size:11px;font-weight:600;font-family:'Unbounded',sans-serif;text-decoration:none;letter-spacing:-.2px">Otevřít tabulku</a>
     </div>
     <div style="padding:14px 20px;border-top:1px solid var(--border)">
@@ -841,49 +863,6 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="task-head"><div class="task-tag">Samostatně</div><div class="task-title">Domácí úkol — naučit se další kurz/y</div></div>
     <div class="task-body">Projdi veškeré dostupné podklady k vybranému kurzu a připrav se na zítřejší zkoušku, při které:<br>— představíš nejběžnější cílové skupiny a jejich usual pains<br>— představíš lektora a benefity kurzu</div>
   </div>
-</div>
-
-<!-- DAY 4 -->
-<div class="page" id="page-day4">
-  <div class="day-hero">
-    <div><div class="day-label">// Den 4 · HubSpot Pro &amp; Fakturace</div><div class="day-h">HUBSPOT<br>&amp; FAKTURACE</div><div class="day-desc">Pokročilé filtry, e-mailové šablony, Workflow, fakturace, WhatsApp templaty, volání do databáze.</div></div>
-    <div class="day-big-n">04</div>
-  </div>
-  <div class="tips">
-    <h3>// Workshop: HubSpot — pokročilé filtry</h3>
-    <div class="tip"><span class="tip-n">1</span>Které kurzy startují do konce aktuálního týdne podle ACC (all course card)?</div>
-    <div class="tip"><span class="tip-n">2</span>Kolik je dnes na projektu Laba NL (new leads)?</div>
-    <div class="tip"><span class="tip-n">3</span>Kolik je dnes na projektu Skvot NL?</div>
-    <div class="tip"><span class="tip-n">4</span>Kolik je dnes na projektu r_d NL?</div>
-    <div class="tip"><span class="tip-n">5</span>Kolik NL má prodejce Vojtěch Zicháček?</div>
-    <div class="tip"><span class="tip-n">6</span>Vytvoř vlastní filtr se všemi NQ (laba, skvot, robot_dreams) a přidej ve filtru ownera "me".</div>
-    <div class="tip"><span class="tip-n">7</span>Vytvoř vlastní filtr se všemi Q (laba, skvot, robot_dreams) a přidej ve filtru ownera "me".</div>
-    <div class="tip"><span class="tip-n">8</span>Vytvoř vlastní filtr se všemi MD (laba, skvot, robot_dreams) a přidej ve filtru ownera "me".</div>
-    <div class="tip"><span class="tip-n">9</span>Vytvoř vlastní filtr se všemi WP (laba, skvot, robot_dreams) a přidej ve filtru ownera "me".</div>
-    <div class="tip"><span class="tip-n">10</span><div>Zkopíruj <a href="https://app-eu1.hubspot.com/contacts/25652196/objects/0-3/views/137082179/list" target="_blank" style="color:var(--laba-dark);font-weight:600">filtr paid online</a>, nastav sebe jako ownera na všechny projekty a ulož ho.<span class="task-note">Filtr s platbami bankovním převodem. V tomto filtru můžeš proběhlou platbu najít ještě ve chvíli, kdy nevidíš v invoice sheet zadané Payment ID. Tento deal stage dále standardně zadáváme do Closed Won.</span></div></div>
-    <div class="tip"><span class="tip-n">11</span>Zahrň do filtru dealy v následujících stage: NL (New Deal), NQ (Not Qualified), Q (Qualified), MD (Making decision), WP (Waiting for Payment), Surcharge.<br>Dále vyfiltruj leady ze všech tří projektů — Laba, Skvot, Robot Dreams — a jako ownera nastav sebe.</div>
-  </div>
-  <div class="rg"><div class="rg-title">// hubspot videa</div><div class="rg-list">
-    <a href="https://drive.google.com/file/d/1Ues2EYOJtM_qKgS7HNMwQGqVKlR2lW9T/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Poznámky a Tasky</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://drive.google.com/file/d/1-FS6WN49mm2qQ6YaAazZWV-H51T_PGha/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">E-mailové šablony — přehled a použití</div><div class="ri-sub">no answer · info o kurzu · after payment · faktura po splatnosti…</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://drive.google.com/drive/folders/1Od0hED5em0p7MSLhR-5xcncLBGSmfqdL" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Workflow — video ukázky (složka)</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-  </div></div>
-  <div class="rg"><div class="rg-title">// whatsapp</div><div class="rg-list">
-    <a href="https://drive.google.com/file/d/1tPD95Hzn8mTffYWZRwXMvb82psyn9Vve/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">WhatsApp — seznámení a zásady komunikace</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://drive.google.com/file/d/1xqLLotu-7eZIdWUpdF2jbHaO3Fch9oGN/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">WhatsApp — zasílání šablon</div><div class="ri-sub">auto: Making Decision / manuální: database, waiting for payment</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-  </div></div>
-  <div class="rg"><div class="rg-title">// volání do databáze &amp; additional</div><div class="rg-list">
-    <a href="https://docs.google.com/spreadsheets/d/1j13XqyRbxBS87sDCWHs0thokS7TR2dADSu3gA5pBY0s/edit?gid=1507023912" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Databáze — list pro vybraný kurz</div><div class="ri-sub">nikdy ve stejný čas jako kolega!</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://docs.google.com/document/d/1lK1C1N8j9R0Ol6PgdM804oPVUF5Iy32PWHbVWnVsiJs/edit?tab=t.0" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Volání do databáze — postup krok po kroku</div><div class="ri-sub">google docs</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://drive.google.com/file/d/16srbuIK0fWnfh2nWuOu9TXdTMEK9Y7f1/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Call to Base — příprava v HubSpotu</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://drive.google.com/file/d/1I0E4BFor_nGHSZSWCnTsivqPCtAlS3rD/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Transfer from New — video ukázka</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://drive.google.com/file/d/1zmZaAto_W1z2BLcXecbC1Pkh6bwIKA9w/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Merge — video ukázka</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://docs.google.com/spreadsheets/d/1wwxAcIJp7lfWls7rNrNtk3YoVRrAOAVXaJvsKSXzEGY/edit?gid=580348903" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Exam Hell tabulka — zápis výsledků a produktové kvízy</div><div class="ri-sub">google sheets · produktový kvíz musíš mít 5/6 bodů</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-  </div></div>
-  <div class="rg"><div class="rg-title">// domácí úkol</div><div class="rg-list">
-    <a href="https://docs.google.com/document/d/1aot25t9Oy_JmlbEifRWMLQ3VXTUNQmnP7fzt5RFQAmg/edit?tab=t.0#heading=h.1tmcraf928oi" target="_blank" class="ri"><div class="ri-icon h"><span style="font-family:var(--mono);font-size:10px;color:#aa5522">→</span></div><div class="ri-body"><div class="ri-title">Naučit se script — báze Closed Lost</div><div class="ri-sub">google doc</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-    <a href="https://docs.google.com/document/d/1jljee-ilcpp4lDUiakVJcESYC2ZDofHqWE1OlxTFT48/edit?tab=t.0" target="_blank" class="ri"><div class="ri-icon h"><span style="font-family:var(--mono);font-size:10px;color:#aa5522">→</span></div><div class="ri-body"><div class="ri-title">Naučit se script — báze Closed Won</div><div class="ri-sub">google doc</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-  </div></div>
 </div>
 
 <!-- DAY 6 -->
@@ -1706,6 +1685,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="hero-line"></div>
   </div>
 
+  <div class="rg"><div class="rg-title">// zdroje &amp; odkazy</div><div class="rg-list">
+    <a href="https://docs.google.com/spreadsheets/d/1j13XqyRbxBS87sDCWHs0thokS7TR2dADSu3gA5pBY0s/edit?gid=1507023912" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Databáze — list pro vybraný kurz</div><div class="ri-sub">nikdy ve stejný čas jako kolega!</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://docs.google.com/document/d/1lK1C1N8j9R0Ol6PgdM804oPVUF5Iy32PWHbVWnVsiJs/edit?tab=t.0" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Volání do databáze — postup krok po kroku</div><div class="ri-sub">google docs</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://drive.google.com/file/d/16srbuIK0fWnfh2nWuOu9TXdTMEK9Y7f1/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Call to Base — příprava v HubSpotu</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+  </div></div>
+
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:20px">
     <div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:16px 18px">
       <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">Kam volat</div>
@@ -1774,9 +1759,23 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div style="display:flex;flex-direction:column;gap:6px">
       <a href="https://drive.google.com/file/d/1KLv-bEYD2QkOsOAGtdQVZ-D1Wl--gvvU/view" target="_blank" style="font-size:12.5px;color:var(--black);text-decoration:none">↗ Nastavení kontaktu</a>
       <a href="https://drive.google.com/file/d/1vAnQSONmXcS59Exkmh186_QbtYZQnlLF/view" target="_blank" style="font-size:12.5px;color:var(--black);text-decoration:none">↗ Flow nastavování tasku do databáze</a>
-      <a href="https://drive.google.com/file/d/14o3gaRPUCjjg4HZ0vN99TbFrG2yAEffZ/view" target="_blank" style="font-size:12.5px;color:var(--black);text-decoration:none">↗ Flow nastavování Autodileru</a>
     </div>
   </div>
+</div>
+
+<!-- AUTODIALER -->
+<div class="page" id="page-autodialer">
+  <div class="hero">
+    <div class="hero-label">Bude se ti hodit vědět</div>
+    <div class="hero-h" style="font-size:32px">AUTODIALER</div>
+    <div class="hero-desc">Automatické vytáčení kontaktů z databáze — jak ho nastavit a používat.</div>
+    <div class="hero-line"></div>
+  </div>
+
+  <div class="rg"><div class="rg-title">// videa</div><div class="rg-list">
+    <a href="https://drive.google.com/file/d/1J4nXM8od0W9d_eVlMqKXF7QiMm1VKMbp/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Autodialer — video ukázka</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://drive.google.com/file/d/14o3gaRPUCjjg4HZ0vN99TbFrG2yAEffZ/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Flow nastavování Autodileru</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+  </div></div>
 </div>
 
 <!-- ZNAČENÍ TASKŮ -->
@@ -2078,6 +2077,21 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   </div>
 </div>
 
+<!-- OSTATNÍ -->
+<div class="page" id="page-ostatni">
+  <div class="hero">
+    <div class="hero-label">Bude se ti hodit vědět</div>
+    <div class="hero-h" style="font-size:32px">OSTATNÍ</div>
+    <div class="hero-desc">Různá videa a materiály k HubSpotu, co nepatří pod konkrétní den.</div>
+    <div class="hero-line"></div>
+  </div>
+
+  <div class="rg"><div class="rg-title">// hubspot videa</div><div class="rg-list">
+    <a href="https://drive.google.com/file/d/1I0E4BFor_nGHSZSWCnTsivqPCtAlS3rD/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Transfer from New — video ukázka</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+    <a href="https://drive.google.com/file/d/1zmZaAto_W1z2BLcXecbC1Pkh6bwIKA9w/view" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Merge — video ukázka</div><div class="ri-sub">google drive</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+  </div></div>
+</div>
+
 <!-- ILIJA -->
 <div class="page" id="page-ilija">
   <div class="hero">
@@ -2117,15 +2131,15 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">V jakých případech se vytváří nový deal?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Nový deal děláš ručně jen tehdy, když: 1. Prodáváš klientovi něco navíc k tomu co už má (Upsell). 2. Prodáváš databázi. 3. Jde o případy Paid no Show nebo Paid by Another. Jinak dealy přichází automaticky jako New Leady.</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Kdy dávám BAD TA?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">BAD TA dáváš pokud klient nemluví česky/slovensky (kurzy jsou v čj nebo sk) nebo pokud jsou mimo cílovou skupinu (TA), které v kurzu očekáváme. TA najdeš ve scriptu nebo v course card. Deal pak dej do kanálu <strong>#feedback-on-leads</strong> s krátkým komentářem.</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Co dělám s klienty ve stage Finished Calling?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Provolávej je <strong>poslední týden před startem kurzu</strong> — tehdy je největší šance, že začnou komunikovat a využijí last chance nabídku. Kontroluj je také na konci každého týdne a měsíce.</div></div></div>
-    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Jak sloučit klienta co se přihlásil přes dva různé e-maily?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Je potřeba udělat <strong>merge kontaktů</strong> v HubSpotu. Návod najdeš v sekci Den 4 — video „Merge".</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Jak sloučit klienta co se přihlásil přes dva různé e-maily?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Je potřeba udělat <strong>merge kontaktů</strong> v HubSpotu. Návod najdeš v sekci Ostatní — video „Merge".</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Jak si připravuji tasky na další den?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Na konci každého dne: zkontroluj, že nemáš žádné tasky v Overdue. Pokud ano → přesuň je do kalendáře s ohledem na flow. Připrav si tasky s hovory do databáze nebo NQ dle domluvy. <strong>Cíl: mít každý den připravených alespoň 120 tasků.</strong></div></div></div>
   </div>
 
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// kurzy a zkoušky</div><div class="divider-line"></div></div>
   <div class="acc-list">
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Jak si udělám zkoušku na kurz?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Aby měla splněnou zkoušku, je třeba ji mít zadanou, udělat PitchMonster s alespoň 96% (nebo si nechat zkontrolovat) a mít hotový test znalostí. Pokud nemáš zkoušku zadanou, dořeš s <strong>Barbora Kaasová</strong>.</div></div></div>
-    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Jak zadat splněnou zkoušku na kurz?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">V <strong>Exam Hell tabulce</strong> si u kurzu dej „Splněno" — tím se automaticky zadá task na Slacku v #distribution-lsd na Barboru Kaasovou. Přilož splněného Pitch Monstera a zkoušku.</div></div></div>
-    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Nemám v PitchMonsteru 96%, ale v hovoru mám vše splněno — co teď?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">V Exam Hell tabulce je list <strong>„Pitch Monster"</strong> — zadej datum zkoušky, přesný název kurzu jak je v PM, tvoje jméno a počet procent. Po zkontrolování dostaneš zelenou fajfku a můžeš si dát splněno. Pokud ne, dostaneš feedback na hovor.</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Jak zadat splněnou zkoušku na kurz?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">V <strong>Exam tabulce</strong> si u kurzu dej „Splněno" — tím se automaticky zadá task na Slacku v #distribution-lsd na Barboru Kaasovou. Přilož splněného Pitch Monstera a zkoušku.</div></div></div>
+    <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Nemám v PitchMonsteru 96%, ale v hovoru mám vše splněno — co teď?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">V Exam tabulce je list <strong>„Pitch Monster"</strong> — zadej datum zkoušky, přesný název kurzu jak je v PM, tvoje jméno a počet procent. Po zkontrolování dostaneš zelenou fajfku a můžeš si dát splněno. Pokud ne, dostaneš feedback na hovor.</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Kde najdu script na volání do báze?</span><div class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Veškeré call scripty jsou v <strong>ACC</strong>. Buď přímo u kurzu, nebo call scripta na bázi a obecné call scripta jsou na prvním listu s názvem „Informace".</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Kde zjistím jestli opakujeme nějaký kurz / kdy bude další stream?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">V <strong>planningu</strong> — soubor se všemi proběhlými i plánovanými kurzy. Odkaz najdeš v ACC na listu „Informace". Pozor: termíny jsou předběžné, mohou se změnit. Neslibuj klientům 100%.</div></div></div>
     <div class="acc-card" onclick="toggleAcc(this)"><div class="acc-hd"><span class="acc-num">Q</span><span class="acc-q">Může si druhý kurz zdarma v akci 1+1 vzít někdo jiný?</span><span class="acc-ch"></span></div><div class="acc-body"><div class="acc-resp">Ano! Druhý kurz zdarma si může vybrat kdokoliv koho si klient zvolí, může to být i stejný kurz.</div></div></div>
@@ -2242,6 +2256,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="tip"><span class="tip-n">1</span>Bez zkoušky vás na kurz <strong style="color:var(--black)">nezapneme</strong>.</div>
   <div class="tip"><span class="tip-n">2</span>Je potřeba si dělat <strong style="color:var(--black)">všechny zkoušky</strong>, které dostanete zadané — žádná se nepřeskakuje.</div>
 </div>
+
+<div class="rg"><div class="rg-title">// zápis výsledků</div><div class="rg-list">
+    <a href="https://docs.google.com/spreadsheets/d/1wwxAcIJp7lfWls7rNrNtk3YoVRrAOAVXaJvsKSXzEGY/edit?gid=580348903" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Exam tabulka — zápis výsledků a produktové kvízy</div><div class="ri-sub">google sheets · produktový kvíz musíš mít 5/6 bodů</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+</div></div>
 
 <div class="divider"><div class="divider-line"></div><div class="divider-label">// přihlášení do PitchMonstru</div><div class="divider-line"></div></div>
 
@@ -2717,7 +2735,7 @@ function openTahak(key) {
 
 const searchIdx = [];
 function buildIdx() {
-  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day4:"Den 4",day7:"První hovory",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",volani:"Volání do databáze",znaceni:"Značení tasků",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",slack:"Slack kanály",faq:"FAQ",certifikaty:"Certifikáty",pmpravidla:"Pravidla zkoušek",powerbi:"Power BI návod",hsfiltry:"HubSpot filtry",dph:"DPH & fakturace",dotace:"Dotační programy",ilija:"Povídání s Ilijou"};
+  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day7:"První hovory",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",volani:"Volání do databáze",znaceni:"Značení tasků",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",slack:"Slack kanály",faq:"FAQ",certifikaty:"Certifikáty",pmpravidla:"Pravidla zkoušek",powerbi:"Power BI návod",hsfiltry:"HubSpot filtry",dph:"DPH & fakturace",dotace:"Dotační programy",ilija:"Povídání s Ilijou",autodialer:"Autodialer",ostatni:"Ostatní"};
 
   // Index slack channels
   document.querySelectorAll(".slack-item").forEach(el => {
