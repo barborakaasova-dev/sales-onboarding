@@ -323,6 +323,11 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .feedback-box.negative{border-color:var(--skvot)}
 .feedback-box.mixed{border-color:var(--laba-dark)}
 .feedback-title{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;color:var(--off)}
+
+/* VAT WIZARD */
+.vw-btn{flex:1;padding:10px 0;border:1.5px solid var(--border);border-radius:8px;background:var(--bg);font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--off);cursor:pointer;transition:all .15s}
+.vw-btn:hover{border-color:var(--border2);color:var(--black)}
+.vw-btn.active{background:var(--laba);border-color:var(--laba-dark);color:var(--black)}
 </style>
 </head>
 <body>
@@ -2542,6 +2547,133 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="hero-line"></div>
 </div>
 
+<div class="divider"><div class="divider-line"></div><div class="divider-label">// rychlý DPH rozhodovač</div><div class="divider-line"></div></div>
+
+<div style="background:var(--cream);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px 26px;max-width:520px;box-shadow:0 1px 4px rgba(26,23,20,.04);margin-bottom:8px">
+  <div class="rg-title" style="margin-bottom:4px">Jaké DPH mám fakturovat?</div>
+  <div style="font-size:12.5px;color:var(--off);line-height:1.55;margin-bottom:18px">Vyplňte dvě kolonky a hned uvidíte, jakou sazbu DPH použít na faktuře.</div>
+
+  <label style="display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--off);margin-bottom:6px">1. STÁT ZÁKAZNÍKA</label>
+  <select id="vwCountry" onchange="vwUpdate()" style="width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;background:var(--bg);font-family:'Inter',sans-serif;font-size:13px;color:var(--black);margin-bottom:18px;cursor:pointer">
+    <option value="">— Vyberte stát —</option>
+    <optgroup label="Evropská unie">
+      <option value="cz">Česká republika</option>
+      <option value="eu|Slovensko|23">Slovensko</option>
+      <option value="eu|Belgie|21">Belgie</option>
+      <option value="eu|Bulharsko|20">Bulharsko</option>
+      <option value="eu|Chorvatsko|25">Chorvatsko</option>
+      <option value="eu|Kypr|19">Kypr</option>
+      <option value="eu|Dánsko|25">Dánsko</option>
+      <option value="eu|Estonsko|24">Estonsko</option>
+      <option value="eu|Finsko|25.5">Finsko</option>
+      <option value="eu|Francie|20">Francie</option>
+      <option value="eu|Irsko|23">Irsko</option>
+      <option value="eu|Itálie|22">Itálie</option>
+      <option value="eu|Litva|21">Litva</option>
+      <option value="eu|Lotyšsko|21">Lotyšsko</option>
+      <option value="eu|Lucembursko|17">Lucembursko</option>
+      <option value="eu|Maďarsko|27">Maďarsko</option>
+      <option value="eu|Malta|18">Malta</option>
+      <option value="eu|Německo|19">Německo</option>
+      <option value="eu|Nizozemsko|21">Nizozemsko</option>
+      <option value="eu|Polsko|23">Polsko</option>
+      <option value="eu|Portugalsko|23">Portugalsko</option>
+      <option value="eu|Rakousko|20">Rakousko</option>
+      <option value="eu|Rumunsko|24">Rumunsko</option>
+      <option value="eu|Řecko|24">Řecko</option>
+      <option value="eu|Slovinsko|22">Slovinsko</option>
+      <option value="eu|Španělsko|21">Španělsko</option>
+      <option value="eu|Švédsko|25">Švédsko</option>
+    </optgroup>
+    <optgroup label="Mimo EU">
+      <option value="noneu">Afghánistán</option>
+      <option value="noneu">Albánie</option>
+      <option value="noneu">Alžírsko</option>
+      <option value="noneu">Andorra</option>
+      <option value="noneu">Angola</option>
+      <option value="noneu">Argentina</option>
+      <option value="noneu">Arménie</option>
+      <option value="noneu">Austrálie</option>
+      <option value="noneu">Ázerbájdžán</option>
+      <option value="noneu">Bahamy</option>
+      <option value="noneu">Bahrajn</option>
+      <option value="noneu">Bangladéš</option>
+      <option value="noneu">Bělorusko</option>
+      <option value="noneu">Bolívie</option>
+      <option value="noneu">Bosna a Hercegovina</option>
+      <option value="noneu">Brazílie</option>
+      <option value="noneu">Černá Hora</option>
+      <option value="noneu">Čína</option>
+      <option value="noneu">Dominikánská republika</option>
+      <option value="noneu">Egypt</option>
+      <option value="noneu">Etiopie</option>
+      <option value="noneu">Filipíny</option>
+      <option value="noneu">Gruzie</option>
+      <option value="noneu">Hongkong</option>
+      <option value="noneu">Chile</option>
+      <option value="noneu">Indie</option>
+      <option value="noneu">Indonésie</option>
+      <option value="noneu">Irák</option>
+      <option value="noneu">Írán</option>
+      <option value="noneu">Island</option>
+      <option value="noneu">Izrael</option>
+      <option value="noneu">Japonsko</option>
+      <option value="noneu">Jihoafrická republika</option>
+      <option value="noneu">Jižní Korea</option>
+      <option value="noneu">Jordánsko</option>
+      <option value="noneu">Kanada</option>
+      <option value="noneu">Katar</option>
+      <option value="noneu">Kazachstán</option>
+      <option value="noneu">Keňa</option>
+      <option value="noneu">Kolumbie</option>
+      <option value="noneu">Kosovo</option>
+      <option value="noneu">Kuba</option>
+      <option value="noneu">Kuvajt</option>
+      <option value="noneu">Libanon</option>
+      <option value="noneu">Lichtenštejnsko</option>
+      <option value="noneu">Malajsie</option>
+      <option value="noneu">Maroko</option>
+      <option value="noneu">Mexiko</option>
+      <option value="noneu">Moldavsko</option>
+      <option value="noneu">Monako</option>
+      <option value="noneu">Nigérie</option>
+      <option value="noneu">Norsko</option>
+      <option value="noneu">Nový Zéland</option>
+      <option value="noneu">Omán</option>
+      <option value="noneu">Pákistán</option>
+      <option value="noneu">Peru</option>
+      <option value="noneu">Rusko</option>
+      <option value="noneu">Saúdská Arábie</option>
+      <option value="noneu">Senegal</option>
+      <option value="noneu">Severní Makedonie</option>
+      <option value="noneu">Singapur</option>
+      <option value="noneu">Spojené arabské emiráty</option>
+      <option value="noneu">Spojené státy americké</option>
+      <option value="noneu">Srbsko</option>
+      <option value="noneu">Švýcarsko</option>
+      <option value="noneu">Tchaj-wan</option>
+      <option value="noneu">Thajsko</option>
+      <option value="noneu">Tunisko</option>
+      <option value="noneu">Turecko</option>
+      <option value="noneu">Ukrajina</option>
+      <option value="noneu">Uruguay</option>
+      <option value="noneu">Velká Británie</option>
+      <option value="noneu">Vietnam</option>
+      <option value="noneu">Jiná země mimo EU</option>
+    </optgroup>
+  </select>
+
+  <label style="display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--off);margin-bottom:6px">2. MÁ ZÁKAZNÍK IČO?</label>
+  <div style="display:flex;gap:10px">
+    <button type="button" id="vwIcoYes" class="vw-btn" onclick="vwSetIco(true)">ANO</button>
+    <button type="button" id="vwIcoNo" class="vw-btn" onclick="vwSetIco(false)">NE</button>
+  </div>
+
+  <div id="vwResult"></div>
+
+  <div style="font-size:11px;color:var(--faint);line-height:1.55;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)">Základní sazby DPH jednotlivých zemí EU odpovídají aktuálnímu přehledu Evropské komise. Výsledek má informativní charakter — u složitějších případů se poraďte s účetní.</div>
+</div>
+
 <div class="divider"><div class="divider-line"></div><div class="divider-label">// ověření</div><div class="divider-line"></div></div>
 
 <div style="display:flex;flex-direction:column;gap:10px;max-width:820px">
@@ -2947,6 +3079,49 @@ function goPage(name, btn) {
   if (btn) { btn.classList.add("active"); }
   else { document.querySelectorAll(".nav-btn").forEach(b => { if(b.getAttribute("onclick") && b.getAttribute("onclick").includes("'"+name+"'")) b.classList.add("active"); }); }
   window.scrollTo(0,0);
+}
+let vwIco = null;
+function vwSetIco(val) {
+  vwIco = val;
+  const yes = document.getElementById('vwIcoYes'), no = document.getElementById('vwIcoNo');
+  if (yes) yes.classList.toggle('active', val === true);
+  if (no) no.classList.toggle('active', val === false);
+  vwUpdate();
+}
+function vwUpdate() {
+  const sel = document.getElementById('vwCountry');
+  const box = document.getElementById('vwResult');
+  if (!sel || !box) return;
+  const val = sel.value;
+  if (!val || vwIco === null) { box.innerHTML = ''; return; }
+  const parts = val.split('|');
+  const type = parts[0];
+  let rate, desc, note = '';
+  if (type === 'cz') {
+    rate = '21 %';
+    desc = 'Fakturace do České republiky — vždy účtujete českou sazbu DPH 21 %.';
+    note = 'U této země IČO na výsledek nemá vliv — sazba je daná.';
+  } else if (type === 'noneu') {
+    rate = '0 %';
+    desc = 'Fakturace mimo Evropskou unii — fakturujete bez DPH (0 %).';
+    note = 'U této země IČO na výsledek nemá vliv — sazba je daná.';
+  } else if (type === 'eu') {
+    const country = parts[1], eurate = parts[2];
+    if (vwIco === true) {
+      rate = '0 % — reverse charge';
+      desc = 'Zákazník z EU má IČO — fakturujete bez DPH v režimu reverse charge. Daň odvede zákazník ve své zemi.';
+    } else {
+      rate = eurate + ' %';
+      desc = 'Zákazník je fyzická osoba z EU — účtujete základní sazbu DPH jeho země (' + country + ': ' + eurate + ' %).';
+    }
+  } else { box.innerHTML = ''; return; }
+  box.innerHTML =
+    (note ? '<div style="font-size:11.5px;color:var(--off);margin-top:16px">' + note + '</div>' : '') +
+    '<div style="background:var(--laba-bg);border:1.5px solid rgba(197,168,0,.3);border-radius:10px;padding:16px 18px;margin-top:10px">' +
+      '<div style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--laba-dark);margin-bottom:6px">Výsledek</div>' +
+      '<div style="font-family:\'Unbounded\',sans-serif;font-weight:900;font-size:22px;color:var(--black);margin-bottom:6px">DPH ' + rate + '</div>' +
+      '<div style="font-size:12.5px;color:var(--black);line-height:1.55">' + desc + '</div>' +
+    '</div>';
 }
 function toggleAcc(el) {
   const was = el.classList.contains("open");
