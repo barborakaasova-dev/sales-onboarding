@@ -1077,7 +1077,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     </div>
     <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#FFF0F0;border:1.5px solid #f5c0c0;border-radius:8px">
       <div style="font-family:var(--mono);font-size:11px;color:#cc4444;flex-shrink:0;margin-top:1px;font-weight:600">✕</div>
-      <div style="font-size:12.5px;color:var(--black);line-height:1.55"><strong>Cena zadaná bez DPH / s DPH omylem</strong> — vždy zadávej cenu bez DPH. Pokud chybuješ, okamžitě napiš do #sales_invoices.</div>
+      <div style="font-size:12.5px;color:var(--black);line-height:1.55"><strong>Cena zadaná bez DPH / s DPH omylem</strong> — vždy zadávej cenu bez DPH. Pokud chybuješ, okamžitě napiš do #cz-sales-invoices.</div>
     </div>
     <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:#FFF0F0;border:1.5px solid #f5c0c0;border-radius:8px">
       <div style="font-family:var(--mono);font-size:11px;color:#cc4444;flex-shrink:0;margin-top:1px;font-weight:600">✕</div>
@@ -2547,6 +2547,63 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="hero-line"></div>
 </div>
 
+<div class="divider"><div class="divider-line"></div><div class="divider-label">// komu psát když…</div><div class="divider-line"></div></div>
+
+<div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;overflow-x:auto;max-width:820px;margin-bottom:14px">
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px;min-width:520px">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border)">
+          <th style="text-align:left;padding:8px 12px;font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;font-weight:400;text-transform:uppercase">Situace</th>
+          <th style="text-align:left;padding:8px 12px;font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;font-weight:400;text-transform:uppercase">Kanál</th>
+          <th style="text-align:left;padding:8px 12px;font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;font-weight:400;text-transform:uppercase">Koho označit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:10px 12px;color:var(--black)">Potřebuju ověřit přijatou platbu (výjimečně nebo když nefunguje automatizace)</td>
+          <td style="padding:10px 12px;color:var(--rd);font-family:var(--mono);font-size:11px;white-space:nowrap">#cz-sales-invoices</td>
+          <td style="padding:10px 12px;color:var(--black);font-weight:500">@Barbora Kaasová</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:10px 12px;color:var(--black)">Potřebuju upravit už vystavenou fakturu</td>
+          <td style="padding:10px 12px;color:var(--rd);font-family:var(--mono);font-size:11px;white-space:nowrap">#cz-cs-sales</td>
+          <td style="padding:10px 12px;color:var(--black);font-weight:500">@Pavel Kudrna, @Pavel Křeček</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:10px 12px;color:var(--black)">Potřebuju vystavit fakturu do jiné země než CZ nebo SK</td>
+          <td style="padding:10px 12px;color:var(--rd);font-family:var(--mono);font-size:11px;white-space:nowrap">#cz-sales-invoices</td>
+          <td style="padding:10px 12px;color:var(--black);font-weight:500">@Martina Mokřišová</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:10px 12px;color:var(--black)">Cokoliv ohledně Comgate</td>
+          <td style="padding:10px 12px;color:var(--rd);font-family:var(--mono);font-size:11px;white-space:nowrap">#cz-sales-invoices</td>
+          <td style="padding:10px 12px;color:var(--black);font-weight:500">@Barbora Kaasová</td>
+        </tr>
+        <tr style="">
+          <td style="padding:10px 12px;color:var(--black)">Nesprávně nastavené DPH, špatná částka nebo jiný účetní či daňový problém</td>
+          <td style="padding:10px 12px;color:var(--rd);font-family:var(--mono);font-size:11px;white-space:nowrap">#cz-sales-invoices</td>
+          <td style="padding:10px 12px;color:var(--black);font-weight:500">@Barbora Kaasová</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<div style="background:#fdecea;border:2px solid #c0392b;border-radius:10px;padding:14px 18px;max-width:820px;margin-bottom:14px">
+  <div style="font-family:var(--mono);font-size:9px;color:#c0392b;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-weight:600">Zastupitelnost</div>
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Pokud <strong>@Barbora Kaasová</strong> nepracuje, kontaktuj <strong>@Martina Mokřišová</strong> — <strong style="color:#c0392b">pouze s urgentními věcmi!</strong></div>
+</div>
+
+<div style="background:var(--laba-bg);border:1.5px solid var(--laba-dark);border-radius:10px;padding:14px 18px;max-width:820px;margin-bottom:14px">
+  <div style="font-family:var(--mono);font-size:9px;color:var(--laba-dark);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-weight:600">⚠ Pozor — HubSpot nevygeneroval fakturu?</div>
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Než napíšeš, že ti HS nevygeneroval fakturu, zkus tohle:</div>
+  <div class="tips" style="margin:8px 0 8px">
+    <div class="tip"><span class="tip-n">1</span>Vrať deal zpět do stage <strong>Making decision</strong></div>
+    <div class="tip"><span class="tip-n">2</span>Dej ho znovu do <strong>Waiting for payment</strong> — invoice <strong>„Yes"</strong></div>
+    <div class="tip"><span class="tip-n">3</span>Chvilku počkej — faktura by se měla vygenerovat</div>
+  </div>
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Pokud se ani tak nevygeneruje, napiš do <strong>#cz-sales-invoices</strong> a označ <strong>@Barbora Kaasová</strong>.</div>
+</div>
+
 <div class="divider"><div class="divider-line"></div><div class="divider-label">// rychlý DPH rozhodovač</div><div class="divider-line"></div></div>
 
 <div style="background:var(--cream);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px 26px;max-width:520px;box-shadow:0 1px 4px rgba(26,23,20,.04);margin-bottom:8px">
@@ -2680,6 +2737,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <a href="https://ec.europa.eu/taxation_customs/tedb/#/vat-search" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Taxes in Europe Database — VAT Search</div><div class="ri-sub">sazby DPH u ostatních zemí EU</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
   <a href="https://www.finstat.sk/" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Finstat.sk</div><div class="ri-sub">je subjekt na SK plátcem DPH?</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
   <a href="https://ec.europa.eu/taxation_customs/vies/#/vat-validation" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">VIES — VAT number validation</div><div class="ri-sub">platnost DIČ</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
+  <a href="https://docs.google.com/spreadsheets/d/1K-5ismgazBEFZkeOwddOv1_8kMaI_MEF8JAQQitQtpw/edit?gid=1454034983#gid=1454034983" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Invoice phrases</div><div class="ri-sub">texty na fakturu podle kurzu</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
 </div>
 
 <div class="divider"><div class="divider-line"></div><div class="divider-label">// rychlé rozhodovací schéma</div><div class="divider-line"></div></div>
@@ -2698,6 +2756,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="tip"><span class="tip-n">4</span>Správně vyplněné DPH (VAT)</div>
   <div class="tip"><span class="tip-n">5</span>Fakturační adresa</div>
 </div>
+<div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;max-width:820px;margin-bottom:16px">
+  <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Číslo objednávky na faktuře</div>
+  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Pokud klient potřebuje mít na faktuře číslo objednávky, napiš ho do textu faktury <strong>za datum konání kurzu</strong>.</div>
+</div>
 
 <div class="rg-title" style="margin-bottom:8px">Proforma vs. finální faktura</div>
 <div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;max-width:820px;margin-bottom:14px">
@@ -2709,16 +2771,6 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div style="font-size:12.5px;color:var(--black);line-height:1.6">Oficiální účetní a daňový doklad. Vystavuje se po přijetí platby (nebo podle způsobu fakturace) a obsahuje všechny zákonné náležitosti včetně DPH. Zákazník si ji zaúčtuje do účetnictví a případně si z ní může uplatnit odpočet DPH.</div>
 </div>
 <div style="font-size:11.5px;color:var(--faint);line-height:1.6;max-width:820px;margin-top:10px">Správně vyplněné údaje jsou důležité nejen pro zákazníka, ale i pro správné daňové vykazování — opravy již vystavených faktur jsou zbytečně časově náročné a často komplikované.</div>
-
-<div class="rg-title" style="margin:18px 0 8px">Kam směřovat požadavky</div>
-<div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;max-width:820px;margin-bottom:14px">
-  <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Slack #cs-sales</div>
-  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Požadavky na úpravy již vystavených proforma i finálních faktur — např. zaslání nebo opětovné zaslání finální faktury z ABRY, změna data splatnosti, úprava popisku na faktuře, změna názvu společnosti.</div>
-</div>
-<div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;max-width:820px">
-  <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Slack #sales_invoices</div>
-  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Nesprávně nastavené DPH, špatná částka na faktuře nebo jiný účetní či daňový problém. Pokud bude potřeba konzultace s účetní, vyřeší to s ní a dá vědět další postup.</div>
-</div>
 
 <div class="rg-title" style="margin:18px 0 8px">Ruční vystavení faktury financemi</div>
 <div style="font-size:12.5px;color:var(--off);line-height:1.6;max-width:820px;margin-bottom:10px">Když se nevytvoří faktura a je potřeba ji vystavit ručně přes naše finanční oddělení, je třeba poslat:</div>
@@ -2735,7 +2787,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div style="font-size:12.5px;color:var(--black);line-height:1.6">Vždy pošlete všechny potřebné podklady — fakturační údaje nebo přesný popis požadované změny. Nestačí poslat pouze odkaz na HubSpot, kolegové pak musí informace dohledávat sami, což celý proces zbytečně prodlužuje. Čím více informací do požadavku přidáte, tím rychleji bude možné vše vyřešit.</div>
 </div>
 
-<div style="font-size:12px;color:var(--off);line-height:1.6;max-width:820px;margin-top:14px">Pokud si kdykoliv nebudete jistí, raději se zeptejte — je lepší vyřešit dotaz před vystavením proforma faktury než následně opravovat již vystavené doklady. Pokud tápete, jak vystavit zálohovou fakturu z HS/Stripe, nebo máte jakékoliv těžkosti, napište do slackového kanálu #sales_invoices nebo svému TL.</div>
+<div style="font-size:12px;color:var(--off);line-height:1.6;max-width:820px;margin-top:14px">Pokud si kdykoliv nebudete jistí, raději se zeptejte — je lepší vyřešit dotaz před vystavením proforma faktury než následně opravovat již vystavené doklady. Pokud tápete, jak vystavit zálohovou fakturu z HS/Stripe, nebo máte jakékoliv těžkosti, napište do slackového kanálu #cz-sales-invoices nebo svému TL.</div>
 
 </div>
 
