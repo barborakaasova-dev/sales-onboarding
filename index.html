@@ -376,7 +376,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <button class="nav-btn" onclick="goPage('pmpravidla',this)"><span class="ni">—</span> PitchMonster a pravidla zkoušek</button>
     <button class="nav-btn" onclick="goPage('powerbi',this)"><span class="ni">—</span> Power BI návod</button>
     <button class="nav-btn" onclick="goPage('hsfiltry',this)"><span class="ni">—</span> HS filtry</button>
-    <button class="nav-btn" onclick="goPage('dph',this)"><span class="ni">—</span> DPH & fakturace</button>
+    <button class="nav-btn" onclick="goPage('dph',this)"><span class="ni">—</span> Fakturace & DPH</button>
     <button class="nav-btn" onclick="goPage('dotace',this)"><span class="ni">—</span> Dotační programy</button>
     <button class="nav-btn" onclick="goPage('comgate',this)"><span class="ni">—</span> Comgate — platební proces</button>
     <button class="nav-btn" onclick="goPage('ostatni',this)"><span class="ni">—</span> Ostatní</button>
@@ -2542,7 +2542,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 <div class="page" id="page-dph">
 <div class="hero">
   <div class="hero-label">Bude se ti hodit vědět</div>
-  <div class="hero-h">DPH<br><span class="hl">& fakturace</span></div>
+  <div class="hero-h">Fakturace<br><span class="hl">& DPH</span></div>
   <div class="hero-desc">Přehled fakturace LABA (od 1. 1. 2025).</div>
   <div class="hero-line"></div>
 </div>
@@ -2580,9 +2580,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
           <td style="padding:10px 12px;color:var(--black);font-weight:500">@Barbora Kaasová</td>
         </tr>
         <tr style="">
-          <td style="padding:10px 12px;color:var(--black)">Nesprávně nastavené DPH, špatná částka nebo jiný účetní či daňový problém</td>
-          <td style="padding:10px 12px;color:var(--rd);font-family:var(--mono);font-size:11px;white-space:nowrap">#cz-sales-invoices</td>
-          <td style="padding:10px 12px;color:var(--black);font-weight:500">@Barbora Kaasová</td>
+          <td style="padding:10px 12px;color:var(--black)">Klient potřebuje mít na faktuře číslo objednávky</td>
+          <td colspan="2" style="padding:10px 12px;color:var(--black)">Nikomu nepiš — napiš ho do textu faktury <strong>za datum konání kurzu</strong></td>
         </tr>
       </tbody>
     </table>
@@ -2602,6 +2601,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="tip"><span class="tip-n">3</span>Chvilku počkej — faktura by se měla vygenerovat</div>
   </div>
   <div style="font-size:12.5px;color:var(--black);line-height:1.6">Pokud se ani tak nevygeneruje, napiš do <strong>#cz-sales-invoices</strong> a označ <strong>@Barbora Kaasová</strong>.</div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-label">// odkazy</div><div class="divider-line"></div></div>
+
+<div style="display:flex;flex-direction:column;gap:10px;max-width:820px">
+  <a href="https://docs.google.com/spreadsheets/d/1K-5ismgazBEFZkeOwddOv1_8kMaI_MEF8JAQQitQtpw/edit?gid=1454034983#gid=1454034983" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Invoice phrases</div><div class="ri-sub">texty na fakturu podle kurzu</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
 </div>
 
 <div class="divider"><div class="divider-line"></div><div class="divider-label">// rychlý DPH rozhodovač</div><div class="divider-line"></div></div>
@@ -2731,15 +2736,6 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div style="font-size:11px;color:var(--faint);line-height:1.55;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)">Základní sazby DPH jednotlivých zemí EU odpovídají aktuálnímu přehledu Evropské komise. Výsledek má informativní charakter — u složitějších případů se poraďte s účetní.</div>
 </div>
 
-<div class="divider"><div class="divider-line"></div><div class="divider-label">// ověření</div><div class="divider-line"></div></div>
-
-<div style="display:flex;flex-direction:column;gap:10px;max-width:820px">
-  <a href="https://ec.europa.eu/taxation_customs/tedb/#/vat-search" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Taxes in Europe Database — VAT Search</div><div class="ri-sub">sazby DPH u ostatních zemí EU</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-  <a href="https://www.finstat.sk/" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Finstat.sk</div><div class="ri-sub">je subjekt na SK plátcem DPH?</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-  <a href="https://ec.europa.eu/taxation_customs/vies/#/vat-validation" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">VIES — VAT number validation</div><div class="ri-sub">platnost DIČ</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-  <a href="https://docs.google.com/spreadsheets/d/1K-5ismgazBEFZkeOwddOv1_8kMaI_MEF8JAQQitQtpw/edit?gid=1454034983#gid=1454034983" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Invoice phrases</div><div class="ri-sub">texty na fakturu podle kurzu</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
-</div>
-
 <div class="divider"><div class="divider-line"></div><div class="divider-label">// rychlé rozhodovací schéma</div><div class="divider-line"></div></div>
 
 <div style="max-width:820px">
@@ -2756,38 +2752,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="tip"><span class="tip-n">4</span>Správně vyplněné DPH (VAT)</div>
   <div class="tip"><span class="tip-n">5</span>Fakturační adresa</div>
 </div>
-<div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;max-width:820px;margin-bottom:16px">
-  <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Číslo objednávky na faktuře</div>
-  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Pokud klient potřebuje mít na faktuře číslo objednávky, napiš ho do textu faktury <strong>za datum konání kurzu</strong>.</div>
-</div>
 
-<div class="rg-title" style="margin-bottom:8px">Proforma vs. finální faktura</div>
-<div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;max-width:820px;margin-bottom:14px">
-  <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Proforma faktura</div>
-  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Není účetní ani daňový doklad — slouží pouze jako výzva k úhradě. Zákazník podle ní zaplatí, ale nemůže si na jejím základě uplatnit DPH ani ji zaúčtovat jako běžnou fakturu. Po zaplacení se vystavuje finální faktura.</div>
-</div>
-<div style="background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:14px 18px;max-width:820px">
-  <div style="font-family:var(--mono);font-size:9px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Finální faktura</div>
-  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Oficiální účetní a daňový doklad. Vystavuje se po přijetí platby (nebo podle způsobu fakturace) a obsahuje všechny zákonné náležitosti včetně DPH. Zákazník si ji zaúčtuje do účetnictví a případně si z ní může uplatnit odpočet DPH.</div>
-</div>
-<div style="font-size:11.5px;color:var(--faint);line-height:1.6;max-width:820px;margin-top:10px">Správně vyplněné údaje jsou důležité nejen pro zákazníka, ale i pro správné daňové vykazování — opravy již vystavených faktur jsou zbytečně časově náročné a často komplikované.</div>
-
-<div class="rg-title" style="margin:18px 0 8px">Ruční vystavení faktury financemi</div>
-<div style="font-size:12.5px;color:var(--off);line-height:1.6;max-width:820px;margin-bottom:10px">Když se nevytvoří faktura a je potřeba ji vystavit ručně přes naše finanční oddělení, je třeba poslat:</div>
-<div class="tips" style="margin:0 0 16px">
-  <div class="tip"><span class="tip-n">1</span>Fakturační údaje (jméno, adresa, IČO a DIČ jestli má)</div>
-  <div class="tip"><span class="tip-n">2</span>Text na fakturu</div>
-  <div class="tip"><span class="tip-n">3</span>Splatnost</div>
-  <div class="tip"><span class="tip-n">4</span>Částka bez DPH</div>
-  <div class="tip"><span class="tip-n">5</span>Výše DPH (0 %, 21 %, 23 %)</div>
-</div>
-
-<div style="background:var(--laba-bg);border:1.5px solid var(--laba-dark);border-radius:10px;padding:14px 18px;max-width:820px;margin-top:14px">
-  <div style="font-family:var(--mono);font-size:9px;color:var(--laba-dark);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Když potřebujete od kolegů něco upravit</div>
-  <div style="font-size:12.5px;color:var(--black);line-height:1.6">Vždy pošlete všechny potřebné podklady — fakturační údaje nebo přesný popis požadované změny. Nestačí poslat pouze odkaz na HubSpot, kolegové pak musí informace dohledávat sami, což celý proces zbytečně prodlužuje. Čím více informací do požadavku přidáte, tím rychleji bude možné vše vyřešit.</div>
-</div>
-
-<div style="font-size:12px;color:var(--off);line-height:1.6;max-width:820px;margin-top:14px">Pokud si kdykoliv nebudete jistí, raději se zeptejte — je lepší vyřešit dotaz před vystavením proforma faktury než následně opravovat již vystavené doklady. Pokud tápete, jak vystavit zálohovou fakturu z HS/Stripe, nebo máte jakékoliv těžkosti, napište do slackového kanálu #cz-sales-invoices nebo svému TL.</div>
 
 </div>
 
@@ -3037,7 +3002,7 @@ function openTahak(key) {
 
 const searchIdx = [];
 function buildIdx() {
-  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day7:"První hovory",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",volani:"Volání do databáze",znaceni:"Značení tasků",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",slack:"Slack kanály",faq:"FAQ",certifikaty:"Certifikáty",pmpravidla:"PitchMonster a pravidla zkoušek",powerbi:"Power BI návod",hsfiltry:"HS filtry",dph:"DPH & fakturace",dotace:"Dotační programy",ilija:"Povídání s Ilijou",autodialer:"Autodialer",ostatni:"Ostatní",comgate:"Comgate"};
+  const map = {overview:"Přehled",day1:"Den 1",day2:"Den 2",day3:"Den 3",day7:"První hovory",rutina:"Denní rutina",tahak:"Tahák procesu",spin:"SPIN technika",lol:"Life of Leads",volani:"Volání do databáze",znaceni:"Značení tasků",workflow:"Workflow",namitky:"Námitkovník",glossar:"Glossář pojmů",slack:"Slack kanály",faq:"FAQ",certifikaty:"Certifikáty",pmpravidla:"PitchMonster a pravidla zkoušek",powerbi:"Power BI návod",hsfiltry:"HS filtry",dph:"Fakturace & DPH",dotace:"Dotační programy",ilija:"Povídání s Ilijou",autodialer:"Autodialer",ostatni:"Ostatní",comgate:"Comgate"};
 
   // Index slack channels
   document.querySelectorAll(".slack-item").forEach(el => {
