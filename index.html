@@ -415,6 +415,40 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .onb-flash .onb-btn.ghost{background:transparent;color:var(--bg);border-color:#4A443B}
 @media(max-width:700px){.onb-ov{grid-template-columns:1fr}.onb-sched-row{flex-direction:column;gap:2px}.onb-sched-when{width:auto}.onb-meet{flex-direction:column;align-items:flex-start}}
 
+
+/* ===== vyhodnocení + certifikát ===== */
+.onb-final{background:var(--cream);border:1.5px solid var(--black);border-radius:var(--radius);padding:22px 24px;margin:24px 0}
+.onb-final-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.onb-final-h{font-family:'Unbounded',sans-serif;font-weight:800;font-size:19px;line-height:1.3}
+.onb-final-nums{display:flex;gap:10px}
+.onb-final-nums div{background:var(--laba);border-radius:10px;padding:10px 14px;text-align:center;min-width:84px}
+.onb-final-nums b{display:block;font-family:'Unbounded',sans-serif;font-size:18px}
+.onb-final-nums span{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+.onb-ideas{display:flex;flex-wrap:wrap;gap:6px}
+.onb-idea{background:var(--laba-bg);border:1px solid rgba(197,168,0,.35);border-radius:99px;padding:5px 11px;font-family:inherit;font-size:12px;color:var(--black);cursor:pointer;text-align:left}
+.onb-idea:hover{border-color:var(--black)}
+.onb-final-miss{margin:14px 0 0 18px;font-size:12.5px;color:var(--off)}
+.onb-cert{position:relative;overflow:hidden;background:#fff;border:1px solid var(--border);border-radius:8px;aspect-ratio:1.414/1;width:100%;max-width:900px;container-type:inline-size;font-family:'Inter',sans-serif;color:#111}
+.oc-shape{position:absolute;border-radius:22%;transform:rotate(45deg)}
+.oc-tl1{width:34%;height:48%;left:-14%;top:-30%;background:#F5DC4A}
+.oc-tl2{width:24%;height:34%;left:-13%;top:-2%;background:#F3F27A}
+.oc-br1{width:30%;height:42%;right:-12%;bottom:-30%;background:#F5DC4A}
+.oc-br2{width:22%;height:30%;right:-2%;bottom:-24%;background:#F3F27A}
+.oc-dots{position:absolute;width:7%;height:20%;background-image:radial-gradient(#E6C93A 1.2px,transparent 1.4px);background-size:10px 10px}
+.oc-dots-r{right:2%;top:22%}.oc-dots-l{left:1%;bottom:2%}
+.oc-in{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4% 12%}
+.oc-brands{font-family:'Unbounded',sans-serif;font-weight:800;font-size:3cqw;display:flex;gap:1.4cqw;align-items:baseline}
+.oc-sep{color:#E6C93A}
+.oc-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:5.4cqw;color:#F2D73C;letter-spacing:.04em;margin-top:5cqw}
+.oc-name{font-family:'Unbounded',sans-serif;font-weight:800;font-size:6cqw;line-height:1.1;margin-top:3cqw}
+.oc-sub{font-size:1.9cqw;margin-top:3.6cqw;font-weight:500}
+.oc-course{font-size:2.3cqw;font-weight:600;margin-top:.6cqw}
+.oc-line{font-size:1.8cqw;font-style:italic;color:#444;margin-top:2.4cqw;max-width:70cqw;line-height:1.45}
+.oc-meta{display:flex;gap:6cqw;font-size:1.6cqw;font-weight:600;margin-top:3cqw}
+.oc-sign{margin-top:3.4cqw}
+.oc-sig{font-family:'Brush Script MT','Segoe Script','Snell Roundhand',cursive;font-size:3.2cqw;color:#333;transform:rotate(-4deg)}
+.oc-sig-l{font-size:1.35cqw;font-weight:500;line-height:1.4;margin-top:.6cqw}
+
 </style>
 </head>
 <body>
@@ -1008,6 +1042,8 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// kvíz na konec dne</div><div class="divider-line"></div></div>
   <div class="onb-quiz" data-day="day7"></div>
   <div class="onb-status"></div>
+  <div class="divider"><div class="divider-line"></div><div class="divider-label">// konec onboardingu</div><div class="divider-line"></div></div>
+  <div id="onb-final"></div>
 </div>
 
 <!-- RUTINA -->
@@ -3636,6 +3672,90 @@ function setupAnswers(){
 }
 function init(){setupChecklist();setupAnswers();setupStatus();document.querySelectorAll('.onb-quiz').forEach(setupQuiz);setupFlash();refresh()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+
+
+/* ===== vyhodnocení onboardingu + certifikát ===== */
+(function(){
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const DAYS=[{id:'day1',name:'Den 1'},{id:'day2',name:'Den 2'},{id:'day7',name:'Den 3'}];
+const b64e=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const b64d=s=>JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/')))));
+const fmtDate=d=>{const x=d?new Date(d):new Date();return x.getDate()+'. '+(x.getMonth()+1)+'. '+x.getFullYear()};
+
+// personalizovaný odkaz od Báry/Terky: #cert=...
+let granted=LS.get('onb-cert',null);
+try{const m=location.hash.match(/cert=([A-Za-z0-9_-]+)/);if(m){granted=b64d(m[1]);LS.set('onb-cert',granted);if(granted.n)LS.set('onb-name',granted.n)}}catch(e){}
+
+function stats(){
+  const done=LS.get('onb-done',{});
+  return DAYS.map(d=>{
+    const bar=document.querySelector('.onb-bar[data-day="'+d.id+'"] .onb-pct');
+    const m=bar?bar.textContent.match(/(\d+)\s*\/\s*(\d+)/):null;
+    const n=m?+m[1]:0,t=m?+m[2]:0;
+    return {...d,n,t,pct:t?Math.round(n/t*100):0,quiz:LS.get('onb-quiz-'+d.id,null)};
+  });
+}
+function certHTML(name,line,date){
+  return '<div class="onb-cert"><div class="oc-shape oc-tl1"></div><div class="oc-shape oc-tl2"></div><div class="oc-shape oc-br1"></div><div class="oc-shape oc-br2"></div><div class="oc-dots oc-dots-r"></div><div class="oc-dots oc-dots-l"></div>'+
+   '<div class="oc-in"><div class="oc-brands"><span>Laba</span><span class="oc-sep">·</span><span>robot_dreams</span><span class="oc-sep">·</span><span>Skvot</span></div>'+
+   '<div class="oc-title">CERTIFIKÁT</div><div class="oc-name">'+esc(name||'Tvoje jméno')+'</div>'+
+   '<div class="oc-sub">úspěšně dokončil*a onboarding</div><div class="oc-course">Sales tým CZ — Laba, robot_dreams &amp; Skvot</div>'+
+   (line?'<div class="oc-line">„'+esc(line)+'“</div>':'')+
+   '<div class="oc-meta"><span>'+esc(date)+'</span><span>SPIN · HubSpot · PitchMonster</span><span>první hovory ✓</span></div>'+
+   '<div class="oc-sign"><div class="oc-sig">Barbora Kaasová</div><div class="oc-sig-l">Barbora Kaasová<br>Team Leader CZ Sales</div></div></div></div>';
+}
+function printCert(html){
+  const css=[...document.querySelectorAll('style')].map(s=>s.textContent).join('\n');
+  const fonts=[...document.querySelectorAll('link[rel="stylesheet"]')].map(l=>l.outerHTML).join('');
+  const w=window.open('','_blank'); if(!w){alert('Povol prosím vyskakovací okna a zkus to znovu.');return}
+  w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Certifikát — onboarding</title>'+fonts+'<style>'+css+'\n@page{size:A4 landscape;margin:0}html,body{background:#fff;margin:0}body{display:flex;align-items:center;justify-content:center;min-height:100vh}.onb-cert{width:297mm;height:210mm;max-width:none;border:none;border-radius:0;box-shadow:none}</style></head><body>'+html+'<script>setTimeout(function(){window.print()},600)<\/script></body></html>');
+  w.document.close();
+}
+function render(){
+  const host=document.getElementById('onb-final'); if(!host) return;
+  const st=stats(); const tot=st.reduce((a,s)=>a+s.t,0), dn=st.reduce((a,s)=>a+s.n,0);
+  const pct=tot?Math.round(dn/tot*100):0;
+  const quizzes=st.filter(s=>s.quiz); const qs=quizzes.reduce((a,s)=>a+s.quiz.score,0), qt=quizzes.reduce((a,s)=>a+s.quiz.total,0);
+  const qpct=qt?Math.round(qs/qt*100):0; const allQ=quizzes.length===st.length;
+  const unlocked=!!granted || (pct>=80 && allQ);
+  let head,txt;
+  if(pct>=90&&allQ&&qpct>=85){head='Onboarding máš za sebou na jedničku!';txt='Prošel*la jsi všechno, kvízy máš skvěle a jsi připravený*á na ostrý provoz. Jsme rádi, že jsi s námi — teď už jen volat, prodávat a ptát se, kdykoli něco nebude jasné.'}
+  else if(pct>=80&&allQ){head='Skvělá práce — onboarding je hotový!';txt='Máš hotovou drtivou většinu a všechny kvízy. Mrkni ještě na body, které ti zbývají, ať máš všechno pod kontrolou.'}
+  else {head='Už jsi skoro tam';txt='Než se ti odemkne certifikát, dodělej alespoň 80 % úkolů a všechny tři kvízy.'}
+  const missing=st.filter(s=>s.pct<100||!s.quiz).map(s=>'<li>'+s.name+': '+(s.pct<100?(s.t-s.n)+' nesplněných bodů':'vše splněno')+(s.quiz?'':' · kvíz chybí')+'</li>').join('');
+  const name=(granted&&granted.n)||LS.get('onb-name','');
+  const line=granted&&granted.v; const date=fmtDate(granted&&granted.d);
+  host.innerHTML=
+   '<div class="onb-final"><div class="onb-final-top"><div><div class="onb-q-top" style="margin-bottom:6px"><span>Vyhodnocení onboardingu</span><span></span></div><div class="onb-final-h">'+head+'</div><div class="onb-status-s" style="margin:6px 0 0">'+txt+'</div></div>'+
+   '<div class="onb-final-nums"><div><b>'+pct+' %</b><span>hotovo</span></div><div><b>'+(qt?qs+'/'+qt:'—')+'</b><span>kvízy</span></div></div></div>'+
+   (missing?'<ul class="onb-final-miss">'+missing+'</ul>':'')+
+   '<div class="acc-card" style="margin-top:16px"><div class="acc-hd" onclick="this.parentElement.classList.toggle(\'open\')"><span class="acc-q">🎓 Tvůj certifikát za dokončení onboardingu</span><span class="acc-ch" style="font-family:var(--mono)">&#9662;</span></div><div class="acc-body" style="padding-top:16px">'+
+   (unlocked?
+     (name?'':'<div class="onb-status-s">Vyplň dole své jméno (v „Pošli svůj stav“), ať je na certifikátu.</div>')+certHTML(name,line,date)+'<div class="onb-status-row" style="margin-top:14px"><button class="onb-btn" id="onb-cert-print">Stáhnout jako PDF / vytisknout</button></div>'
+     :'<div class="onb-status-s">🔒 Certifikát se odemkne, až budeš mít hotovo alespoň 80 % a všechny tři kvízy. Teď máš '+pct+' % a '+quizzes.length+'/3 kvízy.</div>')+
+   '</div></div>'+
+   '<div class="acc-card" style="margin-top:8px"><div class="acc-hd" onclick="this.parentElement.classList.toggle(\'open\')"><span class="acc-q" style="color:var(--off);font-size:12.5px">Pro Báru a Terku — personalizovaný certifikát</span><span class="acc-ch" style="font-family:var(--mono)">&#9662;</span></div><div class="acc-body" style="padding-top:14px">'+
+   '<div class="onb-status-s">Vyplň jméno a osobní větu a pošli nováčkovi vygenerovaný odkaz. Po otevření se mu certifikát odemkne i s touhle větou.</div>'+
+   '<div class="onb-status-row"><input class="onb-input" id="onb-g-n" placeholder="Jméno a příjmení"><input class="onb-input" id="onb-g-d" type="date"></div>'+
+   '<textarea class="onb-input" id="onb-g-v" rows="2" style="width:100%;margin-top:8px;resize:vertical" placeholder="Osobní věta, např. Tvoje SPIN otázky jsou radost poslouchat — jen tak dál!"></textarea>'+
+   '<div class="onb-status-s" style="margin:10px 0 6px">Nápady na větu (klikni a uprav):</div><div class="onb-ideas">'+['Tvoje SPIN otázky jsou radost poslouchat — jen tak dál!', 'S námitkami pracuješ s klidem, „rozmyslím si to“ tě už nerozhodí.', 'Klienti tě poslouchají rádi — máš v hlase přirozenost a jistotu.', 'Od prvního dne jsi do toho šel*šla naplno a je to znát.', 'HubSpot sis osvojil*a rychleji, než jsme čekaly.', 'Ptáš se, když něco nevíš — a přesně tak se roste.', 'Sendvič ceny ti jde, jako bys to dělal*a roky.', 'Tvůj první prodej na sebe nenechá dlouho čekat — věříme ti.', 'Jsme rády, že jsi s námi v týmu. Hodně štěstí na telefonu!'].map(t=>'<button type="button" class="onb-idea">'+esc(t)+'</button>').join('')+'</div>'+'<div class="onb-status-row" style="margin-top:8px"><button class="onb-btn" id="onb-g-go">Vytvořit odkaz</button></div><div class="onb-msg" id="onb-g-out" style="display:none;word-break:break-all"></div></div></div></div>';
+  const pb=document.getElementById('onb-cert-print'); if(pb) pb.onclick=()=>printCert(certHTML(name,line,date));
+  host.querySelectorAll('.onb-idea').forEach(b=>b.onclick=()=>{const ta=document.getElementById('onb-g-v');ta.value=b.textContent;ta.focus()});
+  document.getElementById('onb-g-go').onclick=()=>{
+    const n=document.getElementById('onb-g-n').value.trim(),v=document.getElementById('onb-g-v').value.trim(),d=document.getElementById('onb-g-d').value;
+    const out=document.getElementById('onb-g-out'); out.style.display='block';
+    if(!n){out.className='onb-msg err';out.textContent='Vyplň jméno.';return}
+    const url=location.origin+location.pathname+'#cert='+b64e({n,v,d});
+    out.className='onb-msg'; out.textContent=url;
+    try{navigator.clipboard.writeText(url).then(()=>{out.textContent='Zkopírováno ✓ '+url})}catch(e){}
+  };
+}
+function init(){render();document.addEventListener('click',e=>{if(e.target.closest('.onb-chk,.onb-opt,.onb-quiz .onb-btn,.onb-answer button'))setTimeout(render,50)});
+  document.addEventListener('input',e=>{if(e.target.closest('.onb-status'))setTimeout(render,300)});
+  if(granted&&location.hash.indexOf('cert=')>-1&&typeof goPage==='function'){goPage('day7');setTimeout(()=>{const f=document.getElementById('onb-final');if(f){f.scrollIntoView({behavior:'smooth'});const a=f.querySelector('.acc-card');if(a)a.classList.add('open')}},300)}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,0));else setTimeout(init,0);
 })();
 
 </script>
