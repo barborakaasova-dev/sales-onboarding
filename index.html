@@ -369,7 +369,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
 .onb-done .onb-chk{background:var(--rd);border-color:var(--rd);color:#fff}
 .ri.onb-done .ri-title{color:var(--off);text-decoration:line-through;text-decoration-color:var(--faint)}
 .task-card.onb-done .task-title{color:var(--off);text-decoration:line-through;text-decoration-color:var(--faint)}
-.task-head .onb-chk{margin-left:auto}
+.task-head .onb-chk,.hovor-header .onb-chk{margin-left:auto}
+.tip .onb-chk,.ml-item .onb-chk{display:inline-flex;vertical-align:middle;margin-right:8px}
+.ml-item.onb-done,.tip.onb-done{opacity:.6}
+.hovor-card.onb-done .hovor-num{text-decoration:line-through}
 .onb-bar{padding:10px 0 12px;margin-bottom:18px;border-bottom:1px solid var(--border)}
 .onb-bar-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--off);margin-bottom:6px;letter-spacing:.05em;text-transform:uppercase}
 .onb-track{height:6px;background:var(--bg3);border-radius:99px;overflow:hidden}
@@ -574,12 +577,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <div class="day-big-n">01</div>
   </div>
   <div class="onb-sched"><div class="onb-sched-title">// harmonogram dne</div>
-    <div class="onb-sched-row me"><div class="onb-sched-when">Začátek dne</div><div class="onb-sched-what"><strong>Setkání se mnou</strong> — společně nastavíme přístupy: e-mail, Slack, ZOHO a ostatní nástroje</div></div>
+    <div class="onb-sched-row me"><div class="onb-sched-when">Začátek dne</div><div class="onb-sched-what"><strong>Setkání s Bárou, případně s Terkou</strong> — společně nastavíme přístupy: e-mail, Slack, ZOHO a ostatní nástroje</div></div>
     <div class="onb-sched-row"><div class="onb-sched-when">Dopoledne</div><div class="onb-sched-what">Samostudium: nástroje a registrace, SPIN technika, Námitkovník</div></div>
     <div class="onb-sched-row"><div class="onb-sched-when">Odpoledne</div><div class="onb-sched-what">Workshop práce s námitkami + poslech hovorů 1–4 (nejdřív poslechni, pak odkryj analýzu)</div></div>
     <div class="onb-sched-row"><div class="onb-sched-when">Konec dne</div><div class="onb-sched-what">Kvíz Den 1 → <strong>pošli stav</strong> do onboarding kanálu</div></div>
   </div>
-  <a href="https://meet.google.com/fiv-urxc-fdw" target="_blank" class="onb-meet" data-nocheck="1"><div><div class="onb-meet-t">Setkání se mnou — Google Meet</div><div class="onb-meet-s">online i v kanclu — když jsme každý jinde, připoj se přes tento link</div></div><div class="onb-meet-b">Připojit se ↗</div></a>
+  <a href="https://meet.google.com/fiv-urxc-fdw" target="_blank" class="onb-meet" data-nocheck="1"><div><div class="onb-meet-t">Setkání s Bárou, případně s Terkou — Google Meet</div><div class="onb-meet-s">online i v kanclu — když jsme každý jinde, připoj se přes tento link</div></div><div class="onb-meet-b">Připojit se ↗</div></a>
   <div class="rg"><div class="rg-title">// první kroky — účty a přístupy</div><div class="rg-list">
     <a href="https://docs.google.com/document/d/1CJIdO1padYNqd6dVgsKYZZ4BuQaYAj3C/edit" target="_blank" class="ri"><div class="ri-icon d"><span style="font-family:var(--mono);font-size:10px;color:#4455cc">↗</span></div><div class="ri-body"><div class="ri-title">Slack CZ/Global — navigace</div><div class="ri-sub">skupiny najdeš v sekci Slack kanály · přidej se první do #first-weeks–[jméno] s HoS, Deputy a TL (přijde ve 2 e-mailech)</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
     <a href="https://people.zoho.com/labalaba/zp#home/myspace/overview-actionlist" target="_blank" class="ri"><div class="ri-icon t"><span style="font-family:var(--mono);font-size:10px;color:var(--rd)">→</span></div><div class="ri-body"><div class="ri-title">ZOHO — zaměstnanecký portál</div><div class="ri-sub">proklik najdeš v pracovním e-mailu · dovolená, sick leave, přihlašování do kurzů</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
@@ -767,8 +770,12 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
     <a href="https://docs.google.com/document/d/1U-ic_312kKmqxwmCCtfXmFfNS5sY_dRJ_1XUWh38ee4/edit?tab=t.0" target="_blank" class="ri"><div class="ri-icon h"><span style="font-family:var(--mono);font-size:10px;color:#aa5522">→</span></div><div class="ri-body"><div class="ri-title">Domácí úkol — naučit se námitky + 1. kurz</div><div class="ri-sub">připrav se na zítřejší zkoušku v PitchMonsteru</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
   </div></div>
   <div class="task-card">
+    <div class="task-head"><div class="task-tag">Samostatně</div><div class="task-title">Domácí úkol — nauč se alespoň jeden kurz</div></div>
+    <div class="task-body">Vyber si alespoň jeden kurz a projdi k němu všechny dostupné podklady (All Course Card, karta kurzu, landing). Zítra ráno tě čeká zkouška na znalost kurzu, při které:<br>— představíš nejběžnější cílové skupiny a jejich usual pains<br>— představíš lektora a benefity kurzu</div>
+  </div>
+  <div class="task-card">
     <div class="task-head"><div class="task-tag">Samostatně</div><div class="task-title">Task: LMS</div></div>
-    <div class="task-body">Na pracovní e-mail jsme ti poslali přístupové údaje pro přihlášení do vybraného kurzu. Podívej se na vybranou lekci.<span class="task-note">Cíl je plnohodnotně pochopit náš produkt a zažít si klientskou cestu.</span></div>
+    <div class="task-body">Na pracovní e-mail jsme ti poslali přístupové údaje pro přihlášení do vybraného kurzu. Projdi si ho očima klienta — jak vypadá platforma, lekce, záznamy, domácí úkoly a materiály. Ať v hovoru víš, co klientovi říkat a jak to pak po zaplacení reálně má.<span class="task-note">Cíl je plnohodnotně pochopit náš produkt a zažít si klientskou cestu.</span></div>
   </div>
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// kvíz na konec dne</div><div class="divider-line"></div></div>
   <div class="onb-quiz" data-day="day1"></div>
@@ -784,11 +791,11 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="onb-sched"><div class="onb-sched-title">// harmonogram dne</div>
     <div class="onb-sched-row"><div class="onb-sched-when">Ráno</div><div class="onb-sched-what">Zkouška na znalost kurzu (samostatně)</div></div>
     <div class="onb-sched-row"><div class="onb-sched-when">Dopoledne</div><div class="onb-sched-what">HubSpot samostatně: videa, záložky a filtry, najít klienta, parametry dealu</div></div>
-    <div class="onb-sched-row me"><div class="onb-sched-when">Před obědem</div><div class="onb-sched-what"><strong>HubSpot check se mnou</strong> (15–20 min, sdílení obrazovky) — ukážeš nastavené filtry a parametry dealu, probereme dotazy</div></div>
+    <div class="onb-sched-row me"><div class="onb-sched-when">Před obědem</div><div class="onb-sched-what"><strong>HubSpot check s Bárou, případně s Terkou</strong> (15–20 min, sdílení obrazovky) — ukážeš nastavené filtry a parametry dealu, probereme dotazy</div></div>
     <div class="onb-sched-row"><div class="onb-sched-when">Odpoledne</div><div class="onb-sched-what">E-mailové šablony, Workflow, WhatsApp + role play v PitchMonsteru</div></div>
     <div class="onb-sched-row"><div class="onb-sched-when">Konec dne</div><div class="onb-sched-what">Domácí úkol (scripty), kvíz Den 2 → <strong>pošli stav</strong> do onboarding kanálu</div></div>
   </div>
-  <a href="https://meet.google.com/fiv-urxc-fdw" target="_blank" class="onb-meet" data-nocheck="1"><div><div class="onb-meet-t">Setkání se mnou — Google Meet</div><div class="onb-meet-s">online i v kanclu — když jsme každý jinde, připoj se přes tento link</div></div><div class="onb-meet-b">Připojit se ↗</div></a>
+  <a href="https://meet.google.com/fiv-urxc-fdw" target="_blank" class="onb-meet" data-nocheck="1"><div><div class="onb-meet-t">Setkání s Bárou, případně s Terkou — Google Meet</div><div class="onb-meet-s">online i v kanclu — když jsme každý jinde, připoj se přes tento link</div></div><div class="onb-meet-b">Připojit se ↗</div></a>
   <div class="task-card">
     <div class="task-head"><div class="task-tag">Samostatně</div><div class="task-title">Zkouška na znalost kurzu</div></div>
     <div class="task-body">Předveď, že svůj vybraný kurz dobře znáš — co nabízí, pro koho je, jaké má hlavní výhody a s jakými problémy se mohou potýkat potenciální zákazníci.<span class="task-note">Po úspěšném složení si u kurzu v Exam tabulce dej „Splněno“ — včetně data zkoušky.</span></div>
@@ -833,7 +840,7 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   </div></div>
   <div class="task-card">
     <div class="task-head"><div class="task-tag">Workshop</div><div class="task-title">Najít klienta v HubSpotu</div></div>
-    <div class="task-body">Najdi v HubSpotu klienta jménem <strong>Sylvester Holovský</strong>.<span class="task-note">Do pole se svým jménem vedle napiš, kolik kurzů u naší společnosti již absolvoval (Closed Won).</span></div>
+    <div class="task-body">Najdi v HubSpotu klienta jménem <a href="https://app-eu1.hubspot.com/contacts/25652196/record/0-1/314502599906" target="_blank" style="color:var(--black);font-weight:600">Sylvester Holovský ↗</a> (zkus ho nejdřív dohledat sám/sama přes vyhledávání, odkaz je pro kontrolu).<span class="task-note">Do pole níže napiš, kolik kurzů u naší společnosti již absolvoval (Closed Won).</span><div class="onb-answer" data-answer="3"><div class="onb-status-row" style="margin-top:12px"><input class="onb-input" type="number" min="0" placeholder="Počet kurzů (Closed Won)" style="max-width:240px"><button class="onb-btn">Zkontrolovat</button></div><div class="onb-answer-res"></div></div></div>
   </div>
   <div class="rg"><div class="rg-list" style="margin-top:6px">
     <a href="https://drive.google.com/file/d/1kJ3Ws0w9_xlyniexPpj4lLieV0oQLsfA/view?usp=sharing" target="_blank" class="ri"><div class="ri-icon v"><svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style="color:#a89050"><polygon points="2,1 10,6 2,11"/></svg></div><div class="ri-body"><div class="ri-title">Co je Deal?</div><div class="ri-sub">Deal v CRM označuje konkrétní kurz, který obsahuje všechny důležité informace — název, cenu (bez DPH), průběh kurzu — a zahrnuje veškeré aktivity spojené s jeho prodejem a komunikací s klientem.</div></div><div class="ri-arr" style="font-family:var(--mono);font-size:12px">↗</div></a>
@@ -950,11 +957,11 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="onb-sched"><div class="onb-sched-title">// harmonogram dne</div>
     <div class="onb-sched-row"><div class="onb-sched-when">Ráno</div><div class="onb-sched-what">Kontrola Telegramu a HubSpotu, příprava tasků</div></div>
     <div class="onb-sched-row"><div class="onb-sched-when">Dopoledne</div><div class="onb-sched-what">První hovory</div></div>
-    <div class="onb-sched-row me"><div class="onb-sched-when">Po prvním hovoru</div><div class="onb-sched-what"><strong>Setkání se mnou</strong> — krátký feedback na tvůj první hovor</div></div>
+    <div class="onb-sched-row me"><div class="onb-sched-when">Po prvním hovoru</div><div class="onb-sched-what"><strong>Setkání s Bárou, případně s Terkou</strong> — krátký feedback na tvůj první hovor</div></div>
     <div class="onb-sched-row me"><div class="onb-sched-when">Průběžně</div><div class="onb-sched-what">Feedback na hovory podle potřeby — pošli link na hovor do onboarding kanálu na Slacku a domluvíme se</div></div>
     <div class="onb-sched-row"><div class="onb-sched-when">Konec dne</div><div class="onb-sched-what">Příprava na zítra, KPI za den, kvíz Den 3 → <strong>pošli stav</strong> do onboarding kanálu</div></div>
   </div>
-  <a href="https://meet.google.com/fiv-urxc-fdw" target="_blank" class="onb-meet" data-nocheck="1"><div><div class="onb-meet-t">Setkání se mnou — Google Meet</div><div class="onb-meet-s">online i v kanclu — když jsme každý jinde, připoj se přes tento link</div></div><div class="onb-meet-b">Připojit se ↗</div></a>
+  <a href="https://meet.google.com/fiv-urxc-fdw" target="_blank" class="onb-meet" data-nocheck="1"><div><div class="onb-meet-t">Setkání s Bárou, případně s Terkou — Google Meet</div><div class="onb-meet-s">online i v kanclu — když jsme každý jinde, připoj se přes tento link</div></div><div class="onb-meet-b">Připojit se ↗</div></a>
 
   <div class="kpi-box">
     <div class="kpi-box-title">Cíl KPI do konce dne</div>
@@ -993,6 +1000,10 @@ mark{background:var(--laba);color:var(--black);border-radius:2px;padding:0 2px}
   <div class="task-card">
     <div class="task-head"><div class="task-tag">Samostatně</div><div class="task-title">Task: KPI za dnešní den</div></div>
     <div class="task-body">Zkontroluj si splněné KPI za dnešní den ve formátu počet vytočených/počet spojených/počet minut (např. <strong style="color:var(--black)">100/30/120</strong>).</div>
+  </div>
+  <div class="task-card">
+    <div class="task-head"><div class="task-tag">Samostatně</div><div class="task-title">Domácí úkol — nauč se další kurz</div></div>
+    <div class="task-body">Vyber si další kurz, který budeš volat, a projdi k němu všechny dostupné podklady. Připrav se na zítřejší zkoušku, při které:<br>— představíš nejběžnější cílové skupiny a jejich usual pains<br>— představíš lektora a benefity kurzu</div>
   </div>
   <div class="divider"><div class="divider-line"></div><div class="divider-label">// kvíz na konec dne</div><div class="divider-line"></div></div>
   <div class="onb-quiz" data-day="day7"></div>
@@ -3457,14 +3468,17 @@ const shuffle = a => {a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.flo
 /* ---------- checklist ---------- */
 function itemsOf(pid){
   const pg=document.getElementById('page-'+pid); if(!pg) return [];
-  return [...pg.querySelectorAll('.task-card, .ri')].filter(el=>!el.closest('.onb-quiz,.onb-status,.onb-sched') && !el.dataset.nocheck);
+  return [...pg.querySelectorAll('.task-card, .ri, .hovor-card, .ml-item, .tip')].filter(el=>{
+    if(el.closest('.onb-quiz,.onb-status,.onb-sched')||el.dataset.nocheck) return false;
+    if(el.classList.contains('tip')){const h=el.closest('.tips')&&el.closest('.tips').querySelector('h3');if(h&&h.textContent.trim().startsWith('//'))return false}
+    return true});
 }
 function setupChecklist(){
   DAYS.forEach(d=>{
     const pg=document.getElementById('page-'+d.id); if(!pg) return;
     const seen={};
     itemsOf(d.id).forEach(el=>{
-      const t=(el.querySelector('.task-title,.ri-title')||el).textContent.trim();
+      const t=(el.classList.contains('hovor-card')?el.querySelector('.hovor-header').textContent:(el.querySelector('.task-title,.ri-title,strong')||el).textContent).replace(/\s+/g,' ').trim();
       seen[t]=(seen[t]||0)+1;
       const key=d.id+'|'+t+'|'+seen[t];
       el.dataset.onbKey=key;
@@ -3472,6 +3486,7 @@ function setupChecklist(){
       box.className='onb-chk'; box.textContent='✓'; box.title='Označit jako hotové';
       box.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toggle(el,!done[key])});
       if(el.classList.contains('task-card')) el.querySelector('.task-head').appendChild(box);
+      else if(el.classList.contains('hovor-card')) el.querySelector('.hovor-header').appendChild(box);
       else el.insertBefore(box,el.firstChild);
       if(el.tagName==='A') el.addEventListener('click',()=>{ if(!done[key]) toggle(el,true) });
       if(done[key]) el.classList.add('onb-done');
@@ -3547,7 +3562,7 @@ day2:[
  {q:'Připravený filtr ti nezobrazuje žádné dealy. Co zkontroluješ?',o:['Pipeline — má být nastaveno na All pipelines','Jestli je HubSpot v češtině','Jestli mám zapnutý Telegram','Nic, filtr je rozbitý'],e:'Nejčastější důvod je špatně nastavená pipeline.'},
  {q:'Co uděláš s připraveným filtrem, než ho začneš používat?',o:['Nakopíruju ho, nastavím sebe jako ownera a uložím','Používám ho rovnou tak, jak je','Smažu v něm všechny podmínky','Pošlu ho kolegovi'],e:'Filtr si vždy nakopíruj, zvol sebe jako ownera a ulož.'},
  {q:'Kolik klientů může být najednou v In a call?',o:['Vždy jen jeden — ten, se kterým právě mluvíš','Kolik chceš, třeba celý den','Maximálně pět','Všichni z dnešních tasků'],e:'Po hovoru hned změň stage. In a call přes noc deformuje LPT statistiku celého týmu.'},
- {q:'Jak zadáváš cenu kurzu v dealu?',o:['Vždy bez DPH','Vždy s DPH','Podle toho, co řekne klient','Cenu nezadáváme'],e:'Cena se zadává bez DPH. Když se spleteš, hned napiš do #cz-sales-invoices.'},
+ {q:'Jak zadáváš cenu kurzu v dealu?',o:['Vždy bez DPH a v Kč','Vždy s DPH','Bez DPH, v měně, ve které klient platí','Cenu nezadáváme'],e:'Cena se zadává vždy bez DPH a vždy v Kč — i když klient platí v eurech. Když se spleteš, hned napiš do #cz-sales-invoices.'},
  {q:'Co musíš splnit u zkoušky v PitchMonsteru?',o:['95 % v simulaci + produktový kvíz alespoň 5/6','Stačí 50 % v simulaci','Jen produktový kvíz','Nic, je to dobrovolné'],e:'Obě podmínky: skóre 95 % a produktový kvíz 5 ze 6. Bez zkoušky tě na kurz nezapneme.'}
 ],
 day7:[
@@ -3605,7 +3620,21 @@ function setupFlash(){
   order=shuffle(cards.map((_,k)=>k)); render();
 }
 
-function init(){setupChecklist();setupStatus();document.querySelectorAll('.onb-quiz').forEach(setupQuiz);setupFlash();refresh()}
+function setupAnswers(){
+  document.querySelectorAll('.onb-answer').forEach(box=>{
+    const inp=box.querySelector('input'),btn=box.querySelector('button'),res=box.querySelector('.onb-answer-res');
+    const card=box.closest('.task-card');
+    const check=()=>{
+      const v=inp.value.trim(); if(v==='') return;
+      if(v===box.dataset.answer){
+        res.innerHTML='<div class="onb-expl"><b>Správně — 3 kurzy (Closed Won).</b> Když se podíváš na všechny jeho dealy, najdeš tam ještě:<br>— <b>1× Finished Calling</b> — nepodařilo se nám s klientem spojit ani po celém follow-up plánu, deal jsme uzavřeli bez rozhovoru.<br>— <b>2× Closed Lost</b> — s klientem jsme mluvili, ale kurz odmítl (důvod najdeš v Rejection Reason).<br>Do počtu absolvovaných kurzů se počítá jen Closed Won.</div>';
+        if(card&&card.dataset.onbKey&&!done[card.dataset.onbKey]) toggle(card,true);
+      } else res.innerHTML='<div class="onb-expl"><b>Ještě jednou.</b> Projdi všechny dealy klienta a počítej jen ty ve stage <b>Closed Won</b> — Closed Lost ani Finished Calling se nepočítají.</div>';
+    };
+    btn.addEventListener('click',check); inp.addEventListener('keydown',e=>{if(e.key==='Enter')check()});
+  });
+}
+function init(){setupChecklist();setupAnswers();setupStatus();document.querySelectorAll('.onb-quiz').forEach(setupQuiz);setupFlash();refresh()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 
